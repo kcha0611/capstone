@@ -7,14 +7,15 @@
 ![new-session]
 
 ## ProjectsIndex / ProjectIndexItem / ProjectForm
-![notes]
+![projects-index]
 
 ## ProjectcontainersIndex / ProjectcontainerIndexItem
-![notebooks]
+![projectscontainer-index]
 
 ## ProjectcontainerForm
-![notebook-form]
+
 
 [new-user]: ./wireframes/signup.png
 [new-session]: ./wireframes/log-in.png
-[sign-up]: ./wireframes/signedinpage.png
+[projects-index]: ./wireframes/signedinpage.png
+[projectscontainer-index]: ./wireframes/projectindex.png
