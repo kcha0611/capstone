@@ -1,6 +1,6 @@
 # Constructables
 
-[Heroku link][heroku] **Project:** This should be a link to your production site
+[Heroku link][heroku]: https://constructrables.herokuapp.com/
 
 [heroku]: http://www.herokuapp.com
 
@@ -26,7 +26,7 @@ Constructables is a web application inspired by Instructables that will be built
   - [ ] Ability to comment on the projects
   - [ ] Show the comments author on the project
   - [ ] Shows how many comments specific authors have written and also shows all of the comments you post on your page
-  
+
 - [ ] Rich Text Editing of projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
