@@ -1,0 +1,41 @@
+"engines": {
+  "node": "4.1.1",
+  "npm": "2.1.x"
+},
+"scripts": {
+  "postinstall": "./node_modules/.bin/webpack"
+},
+{
+  "name": "instructables",
+  "version": "1.0.0",
+  "description": "capstone",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.11.0",
+    "flux": "^2.1.1",
+    "history": "^3.0.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.5.1",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcha0611/capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcha0611/capstone/issues"
+  },
+  "homepage": "https://github.com/kcha0611/capstone#readme"
+}
