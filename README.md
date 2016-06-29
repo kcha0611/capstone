@@ -96,7 +96,7 @@ user interface.
 
 **Objective:** Project belong to ProjectContainers, and can be viewed by projectcontainer.
 
-- [ ] create `Projectbook` model
+- [ ] create `ProjectContainer` model
 - build out API, Flux loop, and components for:
   - [ ] Projectcontainer CRUD
   - [ ] adding projects requires a projectcontainer
@@ -104,7 +104,7 @@ user interface.
   - [ ] viewing projects by projectcontainer
 - Use CSS to style new views
 
-Phase 3 adds organization to the Project. Project belong to a Projectbook,
+Phase 3 adds organization to the Project. Project belong to a ProjectContainer,
 which has its own `Index` view.
 
 ### Phase 6: Comments (1 days, W2 Th 12pm)
