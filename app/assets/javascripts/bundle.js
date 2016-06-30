@@ -54,28 +54,37 @@
 	var IndexRoute = ReactRouter.IndexRoute;
 	var hashHistory = ReactRouter.hashHistory;
 	var App = __webpack_require__(230);
-	var ProjectActions = __webpack_require__(231);
-	var ProjectForm = __webpack_require__(232);
-	var ProjectShow = __webpack_require__(233);
-	var ProjectEdit = __webpack_require__(234);
-	var CommentActions = __webpack_require__(235);
-	var CommentForm = __webpack_require__(236);
-	var CommentEdit = __webpack_require__(237);
-	var LoginForm = __webpack_require__(238);
-	var SessionStore = __webpack_require__(247);
-	var SessionActions = __webpack_require__(239);
+	var ProjectActions = __webpack_require__(258);
+	var ProjectIndex = __webpack_require__(254);
+	var ProjectIndexItem = __webpack_require__(255);
+	var ProjectForm = __webpack_require__(262);
+	// const ProjectShow = require('./components/project_show');
+	// const ProjectEdit = require('./components/project_edit');
+	// const CommentActions = require('./actions/comment_actions');
+	// const CommentForm = require('./components/comment_form');
+	// const CommentEdit = require('./components/comment_edit');
+	var LoginForm = __webpack_require__(263);
+	var SessionStore = __webpack_require__(231);
+	var SessionActions = __webpack_require__(264);
+	var SignUpForm = __webpack_require__(266);
 	
 	var routes = React.createElement(
 	  Router,
 	  { history: hashHistory },
-	  React.createElement(Route, { path: '/', component: App }),
-	  React.createElement(Route, { path: '/login', component: LoginForm })
+	  React.createElement(
+	    Route,
+	    { path: '/', component: App },
+	    React.createElement(Route, { path: '/login', component: LoginForm }),
+	    React.createElement(Route, { path: '/signup', component: SignUpForm }),
+	    React.createElement(Route, { path: '/projects/new', component: ProjectForm }),
+	    React.createElement(Route, { path: '/projects', component: ProjectIndex })
+	  )
 	);
-	//  <Route path="/project/:projectId" component={ProjectShow}/>
-	//  <Route path="/project/:projectId/edit" component={ProjectEdit}/>
-	//  <Route path="/project/:projectId/comment/:commentId" component={CommentForm} onEnter={_ensureLoggedIn}/>
-	//  <Route path="/projcet/:projectId/comment/:commentId" component={CommentShow} onEnter={_ensureLoggedIn}/>
-	//  <Route path="/projcet/:projectId/comment/:commentId/edit" component={CommentEdit} onEnter={_ensureLoggedIn}/>
+	// <Route path="/project/:projectId" component={ProjectShow}/>
+	// <Route path="/project/:projectId/edit" component={ProjectEdit}/>
+	// <Route path="/project/:projectId/comment/:commentId" component={CommentForm} onEnter={_ensureLoggedIn}/>
+	// <Route path="/projcet/:projectId/comment/:commentId" component={CommentShow} onEnter={_ensureLoggedIn}/>
+	// <Route path="/projcet/:projectId/comment/:commentId/edit" component={CommentEdit} onEnter={_ensureLoggedIn}/>
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	  if (window.currentUser) {
@@ -25955,262 +25964,150 @@
 
 /***/ },
 /* 230 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 231 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {};
-
-/***/ },
-/* 232 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {
-	  render: function render() {
-	    return React.createElement("div", null);
-	  }
-	};
-
-/***/ },
-/* 233 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {
-	  render: function render() {
-	    return React.createElement("div", null);
-	  }
-	};
-
-/***/ },
-/* 234 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {
-	  render: function render() {
-	    return React.createElement("div", null);
-	  }
-	};
-
-/***/ },
-/* 235 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 236 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {
-	  render: function render() {
-	    return React.createElement("div", null);
-	  }
-	};
-
-/***/ },
-/* 237 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {
-	  render: function render() {
-	    return React.createElement("div", null);
-	  }
-	};
-
-/***/ },
-/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(168).Link;
-	var SessionActions = __webpack_require__(239);
-	var SessionStore = __webpack_require__(247);
-	var ErrorStore = __webpack_require__(265);
+	var SessionStore = __webpack_require__(231);
+	var ProjectIndex = __webpack_require__(254);
 	
-	var LoginForm = React.createClass({
-		displayName: 'LoginForm',
-	
-		contextTypes: {
-			router: React.PropTypes.object.isRequired
-		},
-	
-		getInitialState: function getInitialState() {
-			return {
-				username: "",
-				password: ""
-			};
-		},
-		componentDidMount: function componentDidMount() {
-			this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
-		},
-		componentWillUnmount: function componentWillUnmount() {
-			this.sessionListener.remove();
-		},
-		redirectIfLoggedIn: function redirectIfLoggedIn() {
-			if (SessionStore.isUserLoggedIn()) {
-				this.context.router.push("/");
-			}
-		},
-		handleSubmit: function handleSubmit(e) {
-			e.preventDefault();
-	
-			var formData = {
-				username: this.state.username,
-				password: this.state.password
-			};
-	
-			if (this.props.location.pathname === "/login") {
-				SessionActions.logIn(formData);
-			} else {
-				SessionActions.signUp(formData);
-			}
-		},
-		passwordUpdate: function passwordUpdate(e) {
-			this.setState({ password: e.target.value });
-		},
-		uNameUpdate: function uNameUpdate(e) {
-			this.setState({ username: e.target.value });
-		},
-		formType: function formType() {
-			return this.props.location.pathname.slice(1);
-		},
-		render: function render() {
-			var navLink = void 0;
-			if (this.formType() === "login") {
-				navLink = React.createElement(
-					Link,
-					{ to: '/signup' },
-					'sign up'
-				);
-			} else {
-				navLink = React.createElement(
-					Link,
-					{ to: '/login' },
-					'login'
-				);
-			}
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'form',
-					{ className: 'login-form-comp', onSubmit: this.handleSubmit },
-					React.createElement(
-						'h1',
-						null,
-						'Constructables'
-					),
-					'Learn Something New!',
-					React.createElement('br', null),
-					React.createElement('br', null),
-					'Please ',
-					this.formType(),
-					' or ',
-					navLink,
-					React.createElement('br', null),
-					React.createElement(
-						'div',
-						null,
-						React.createElement(
-							'label',
-							null,
-							'Username:',
-							React.createElement('input', { type: 'text', value: this.state.username, onChange: this.uNameUpdate })
-						),
-						React.createElement('br', null),
-						React.createElement(
-							'label',
-							null,
-							'Password:',
-							React.createElement('input', { type: 'password', value: this.state.passowrd, onChange: this.passwordUpdate })
-						)
-					),
-					React.createElement(
-						'button',
-						{ type: 'submit' },
-						'Login!'
-					),
-					React.createElement(
-						'button',
-						{ type: 'submit' },
-						'Cancel'
-					)
-				)
-			);
-		}
+	var App = React.createClass({
+	  displayName: 'App',
+	  handleLogOut: function handleLogOut() {
+	    debugger;
+	    SessionActions.logOut();
+	  },
+	  page: function page() {
+	    if (SessionStore.isUserLoggedIn()) {
+	      // debugger
+	      return React.createElement(
+	        'hgroup',
+	        { className: 'root-header-group' },
+	        React.createElement(
+	          'h2',
+	          { className: 'root-header-name' },
+	          'Hi, ',
+	          SessionStore.currentUser().username,
+	          '!'
+	        ),
+	        React.createElement('input', { type: 'submit', value: 'logout', onClick: this._handleLogOut })
+	      );
+	    } else if (!["/login", "/signup"].includes(this.props.location.pathname)) {
+	      return React.createElement(
+	        'nav',
+	        { className: 'login-signup' },
+	        React.createElement(
+	          Link,
+	          { to: '/login', activeClassName: 'current' },
+	          'Login'
+	        ),
+	        ' or ',
+	        React.createElement(
+	          Link,
+	          { to: '/signup', activeClassName: 'current' },
+	          'Sign up!'
+	        ),
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        React.createElement(ProjectIndex, null)
+	      );
+	    }
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'header',
+	        null,
+	        React.createElement(
+	          Link,
+	          { to: '/', className: 'root-header-link' },
+	          React.createElement(
+	            'h1',
+	            null,
+	            'Constructables'
+	          )
+	        ),
+	        this.page()
+	      ),
+	      this.props.children
+	    );
+	  }
 	});
 	
-	module.exports = LoginForm;
+	module.exports = App;
 
 /***/ },
-/* 239 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Dispatcher = __webpack_require__(240);
-	var SessionConstants = __webpack_require__(244);
-	var SessionApiUtil = __webpack_require__(245);
-	var ErrorActions = __webpack_require__(246);
-	var hashHistory = __webpack_require__(168).hashHistory;
+	var Dispatcher = __webpack_require__(232);
+	var Store = __webpack_require__(236).Store;
+	var SessionConstants = __webpack_require__(253);
 	
-	var SessionActions = {
-	  logIn: function logIn(data) {
-	    SessionApiUtil.logIn(data, this.receiveCurrentUser, ErrorActions.setErrors);
-	  },
-	  logOut: function logOut() {
-	    SessionApiUtil.logOut(this.removeCurrentUser);
-	  },
-	  signUp: function signUp(data) {
-	    SessionApiUtil.signUp(data, this.receiveCurrentUser, ErrorActions.setErrors);
-	  },
-	  receiveCurrentUser: function receiveCurrentUser(currentUser) {
-	    AppDispatcher.dispatch({
-	      actionType: SessionConstants.LOGIN,
-	      currentUser: currentUser
-	    });
-	  },
-	  fetchCurrentUser: function fetchCurrentUser(complete) {
-	    SessionApiUtil.fetchCurrentUser(this.receiveCurrentUser, complete);
-	  },
-	  removeCurrentUser: function removeCurrentUser(currentUser) {
-	    AppDispatcher.dispatch({
-	      actionType: SessionConstants.LOGOUT,
-	      currentUser: currentUser
-	    });
+	var SessionStore = new Store(Dispatcher);
+	var _currentUser = {};
+	
+	var _currentUserfetched = false;
+	
+	var _login = function _login(currentUser) {
+	  // debugger
+	  _currentUser = currentUser;
+	  _currentUserfetched = true;
+	};
+	
+	var _logout = function _logout() {
+	  debugger;
+	  _currentUser = {};
+	  _currentUserfetched = true;
+	};
+	
+	SessionStore.__onDispatch = function (payload) {
+	  // debugger
+	  switch (payload.actionType) {
+	    case SessionConstants.LOGIN:
+	      // debugger
+	      _login(payload.currentUser);
+	      this.__emitChange();
+	      break;
+	    case SessionConstants.LOGOUT:
+	      debugger;
+	      _logout();
+	      this.__emitChange();
+	      break;
 	  }
 	};
+	SessionStore.currentUser = function () {
+	  return Object.assign({}, _currentUser);
+	};
+	
+	SessionStore.currentUserHasBeenFetched = function () {
+	  return !!_currentUserHasBeenFetched;
+	};
+	
+	SessionStore.isUserLoggedIn = function () {
+	  return !!_currentUser.id;
+	};
+	
+	module.exports = SessionStore;
 
 /***/ },
-/* 240 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Dispatcher = __webpack_require__(241).Dispatcher;
+	var Dispatcher = __webpack_require__(233).Dispatcher;
 	
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 241 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26222,11 +26119,11 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Dispatcher = __webpack_require__(242);
+	module.exports.Dispatcher = __webpack_require__(234);
 
 
 /***/ },
-/* 242 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26248,7 +26145,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(243);
+	var invariant = __webpack_require__(235);
 	
 	var _prefix = 'ID_';
 	
@@ -26463,7 +26360,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 243 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26518,126 +26415,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 244 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	var SessionConstants = {
-	  LOGIN: "LOGIN",
-	  LOGOUT: "LOGOUT"
-	};
-	
-	module.exports = SessionConstants;
-
-/***/ },
-/* 245 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	var SessionApiUtil = {
-	  logIn: function logIn(user, success, error) {
-	    $.ajax({
-	      url: 'api/session',
-	      data: { user: user },
-	      success: success,
-	      error: function error(xhr) {
-	        console.log("Invalid Creds");
-	      }
-	    });
-	  },
-	  logOut: function logOut(success) {
-	    $.ajax({
-	      url: 'api/session',
-	      method: 'DELETE',
-	      success: success,
-	      error: function error() {
-	        console.log("Logout Failed");
-	      }
-	    });
-	  },
-	  signUp: function signUp(user, success, error) {
-	    $.ajax({
-	      url: 'api/user',
-	      method: 'POST',
-	      data: { user: user },
-	      success: success,
-	      error: function error(xhr) {
-	        console.log("Invalid field");
-	      }
-	    });
-	  },
-	  fetchCurrentUser: function fetchCurrentUser(success, complete) {
-	    $.ajax({
-	      url: 'api/user',
-	      success: success,
-	      error: function error(xhr) {
-	        console.log("Error fetching User");
-	      }
-	    });
-	  }
-	};
-	
-	module.exports = SessionApiUtil;
-
-/***/ },
-/* 246 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var Dispatcher = __webpack_require__(240);
-	var Store = __webpack_require__(248).Store;
-	
-	var SessionStore = new Store(Dispatcher);
-	var _currentUser = {};
-	
-	var _currentUserfetched = false;
-	
-	var _login = function _login(currentUser) {
-	  _currentUser = currentUser;
-	  _currentUserfetched = true;
-	};
-	
-	var _logout = function _logout() {
-	  _currentUser = {};
-	  _currentUserfetched = true;
-	};
-	
-	SessionStore.__onDispatch = function (payload) {
-	  switch (payload.actionType) {
-	    case SessionStore.LOGIN:
-	      _login(payload.currentUser);
-	      break;
-	    case SessionStore.LOGOUT:
-	      _logout();
-	      break;
-	  }
-	  this.__emitChange();
-	};
-	SessionStore.currentUser = function () {
-	  return Object.assign({}, _currentUser);
-	};
-	
-	SessionStore.currentUserHasBeenFetched = function () {
-	  return !!_currentUserHasBeenFetched;
-	};
-	
-	SessionStore.isUserLoggedIn = function () {
-	  return !!_currentUser.id;
-	};
-	
-	module.exports = SessionStore;
-
-/***/ },
-/* 248 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26649,15 +26427,15 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Container = __webpack_require__(249);
-	module.exports.MapStore = __webpack_require__(252);
-	module.exports.Mixin = __webpack_require__(264);
-	module.exports.ReduceStore = __webpack_require__(253);
-	module.exports.Store = __webpack_require__(254);
+	module.exports.Container = __webpack_require__(237);
+	module.exports.MapStore = __webpack_require__(240);
+	module.exports.Mixin = __webpack_require__(252);
+	module.exports.ReduceStore = __webpack_require__(241);
+	module.exports.Store = __webpack_require__(242);
 
 
 /***/ },
-/* 249 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26679,10 +26457,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxStoreGroup = __webpack_require__(250);
+	var FluxStoreGroup = __webpack_require__(238);
 	
-	var invariant = __webpack_require__(243);
-	var shallowEqual = __webpack_require__(251);
+	var invariant = __webpack_require__(235);
+	var shallowEqual = __webpack_require__(239);
 	
 	var DEFAULT_OPTIONS = {
 	  pure: true,
@@ -26840,7 +26618,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 250 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26859,7 +26637,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(243);
+	var invariant = __webpack_require__(235);
 	
 	/**
 	 * FluxStoreGroup allows you to execute a callback on every dispatch after
@@ -26921,7 +26699,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 251 */
+/* 239 */
 /***/ function(module, exports) {
 
 	/**
@@ -26976,7 +26754,7 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 252 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26997,10 +26775,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxReduceStore = __webpack_require__(253);
-	var Immutable = __webpack_require__(263);
+	var FluxReduceStore = __webpack_require__(241);
+	var Immutable = __webpack_require__(251);
 	
-	var invariant = __webpack_require__(243);
+	var invariant = __webpack_require__(235);
 	
 	/**
 	 * This is a simple store. It allows caching key value pairs. An implementation
@@ -27126,7 +26904,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 253 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27147,10 +26925,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxStore = __webpack_require__(254);
+	var FluxStore = __webpack_require__(242);
 	
-	var abstractMethod = __webpack_require__(262);
-	var invariant = __webpack_require__(243);
+	var abstractMethod = __webpack_require__(250);
+	var invariant = __webpack_require__(235);
 	
 	var FluxReduceStore = (function (_FluxStore) {
 	  _inherits(FluxReduceStore, _FluxStore);
@@ -27233,7 +27011,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 254 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27252,11 +27030,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _require = __webpack_require__(255);
+	var _require = __webpack_require__(243);
 	
 	var EventEmitter = _require.EventEmitter;
 	
-	var invariant = __webpack_require__(243);
+	var invariant = __webpack_require__(235);
 	
 	/**
 	 * This class should be extended by the stores in your application, like so:
@@ -27416,7 +27194,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 255 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -27429,14 +27207,14 @@
 	 */
 	
 	var fbemitter = {
-	  EventEmitter: __webpack_require__(256)
+	  EventEmitter: __webpack_require__(244)
 	};
 	
 	module.exports = fbemitter;
 
 
 /***/ },
-/* 256 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27455,11 +27233,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var EmitterSubscription = __webpack_require__(257);
-	var EventSubscriptionVendor = __webpack_require__(259);
+	var EmitterSubscription = __webpack_require__(245);
+	var EventSubscriptionVendor = __webpack_require__(247);
 	
-	var emptyFunction = __webpack_require__(261);
-	var invariant = __webpack_require__(260);
+	var emptyFunction = __webpack_require__(249);
+	var invariant = __webpack_require__(248);
 	
 	/**
 	 * @class BaseEventEmitter
@@ -27633,7 +27411,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 257 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -27654,7 +27432,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var EventSubscription = __webpack_require__(258);
+	var EventSubscription = __webpack_require__(246);
 	
 	/**
 	 * EmitterSubscription represents a subscription with listener and context data.
@@ -27686,7 +27464,7 @@
 	module.exports = EmitterSubscription;
 
 /***/ },
-/* 258 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/**
@@ -27740,7 +27518,7 @@
 	module.exports = EventSubscription;
 
 /***/ },
-/* 259 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27759,7 +27537,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(260);
+	var invariant = __webpack_require__(248);
 	
 	/**
 	 * EventSubscriptionVendor stores a set of EventSubscriptions that are
@@ -27849,7 +27627,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 260 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27904,7 +27682,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 261 */
+/* 249 */
 /***/ function(module, exports) {
 
 	/**
@@ -27946,7 +27724,7 @@
 	module.exports = emptyFunction;
 
 /***/ },
-/* 262 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27963,7 +27741,7 @@
 	
 	'use strict';
 	
-	var invariant = __webpack_require__(243);
+	var invariant = __webpack_require__(235);
 	
 	function abstractMethod(className, methodName) {
 	   true ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Subclasses of %s must override %s() with their own implementation.', className, methodName) : invariant(false) : undefined;
@@ -27973,7 +27751,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 263 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32957,7 +32735,7 @@
 	}));
 
 /***/ },
-/* 264 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -32974,9 +32752,9 @@
 	
 	'use strict';
 	
-	var FluxStoreGroup = __webpack_require__(250);
+	var FluxStoreGroup = __webpack_require__(238);
 	
-	var invariant = __webpack_require__(243);
+	var invariant = __webpack_require__(235);
 	
 	/**
 	 * `FluxContainer` should be preferred over this mixin, but it requires using
@@ -33080,59 +32858,787 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 265 */
+/* 253 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	var SessionConstants = {
+	  LOGIN: "LOGIN",
+	  LOGOUT: "LOGOUT"
+	};
+	
+	module.exports = SessionConstants;
+
+/***/ },
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Dispatcher = __webpack_require__(240);
-	var Store = __webpack_require__(248).Store;
+	var React = __webpack_require__(1);
+	var ProjectIndexItem = __webpack_require__(255);
+	var ProjectStore = __webpack_require__(256);
+	var ProjectActions = __webpack_require__(258);
+	var hashHistory = __webpack_require__(168).hashHistory;
+	var ReactRouter = __webpack_require__(168);
+	var ProjectForm = __webpack_require__(262);
 	
-	var ErrorStore = new Store(Dispatcher);
-	var _errors = {};
-	var _form = "";
+	var ProjectIndex = React.createClass({
+	  displayName: 'ProjectIndex',
 	
-	function setErrors(payload) {
-	  _errors = payload.errors;
-	  _form = payload.form;
-	  ErrorStore.__emitChange();
-	}
+	  getInitialState: function getInitialState() {
+	    return {
+	      projects: []
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    this.projectListener = ProjectStore.addListener(this._handleChange);
+	    ProjectActions.fetchAllProjects();
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    this.projectListener.remove();
+	  },
+	  _handleChange: function _handleChange() {
+	    this.setState({ projects: ProjectStore.all() });
+	  },
+	  publish: function publish() {
+	    hashHistory.push('/projects/new');
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'button',
+	        { onClick: this.publish },
+	        'Publish'
+	      ),
+	      this.state.projects.map(function (project) {
+	        return React.createElement(
+	          ProjectIndexItem,
+	          { project: project },
+	          project.title
+	        );
+	      })
+	    );
+	  }
+	});
+	module.exports = ProjectIndex;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 	
-	function clearErrors() {
-	  _errors = {};
-	  _form = "";
-	  ErrorStore.__emitChange();
-	}
+	var React = __webpack_require__(1);
 	
-	ErrorStore.__onDispatch = function (payload) {
+	var ProjectIndexItem = React.createClass({
+	  displayName: 'ProjectIndexItem',
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      title: this.props.project.title,
+	      description: this.props.project.description
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    this.projectListener(this._onChange);
+	    ProjectActions.getProject(this.props.project.id);
+	  },
+	  _onChange: function _onChange() {
+	    this.setState({ title: this.props.project.title, description: this.props.project.description });
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    this.projectListener.remove();
+	  },
+	  _edit: function _edit() {
+	    hashHistory.push('projects/' + this.props.project.id + '/edit');
+	  },
+	  _delete: function _delete() {
+	    ProjectActions.deleteProject(this.props.project.id);
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement('input', { value: this.props.project.title }),
+	      React.createElement('input', { value: this.props.project.description }),
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'button',
+	        { onClick: this._edit },
+	        'Edit!'
+	      ),
+	      React.createElement(
+	        'button',
+	        { onClick: this._delete },
+	        'Delete!'
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProjectIndexItem;
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var Dispatcher = __webpack_require__(232);
+	var Store = __webpack_require__(236).Store;
+	var ProjectConstants = __webpack_require__(257);
+	
+	var ProjectStore = new Store(Dispatcher);
+	
+	var _projects = {};
+	
+	ProjectStore.all = function () {
+	  return Object.keys(_projects).map(function (projectId) {
+	    return _projects[projectId];
+	  });
+	};
+	
+	ProjectStore.find = function (id) {
+	  return _projects[id];
+	};
+	
+	ProjectStore.__onDispatch = function (payload) {
 	  switch (payload.actionType) {
-	    case ErrorConstants.SET_ERRORS:
-	      setErrors(payload);
+	    case ProjectConstants.PROJECTS_RECEIVED:
+	      resetProjects(payload.projects);
 	      break;
-	    case ErrorConstants.CLEAR_ERRORS:
-	      clearErrors();
+	    case ProjectConstants.PROJECT_RECEIVED:
+	      resetProject(payload.project);
 	      break;
+	    case ProjectConstants.PROJECT_REMOVED:
+	      removeProject(payload.project);
+	  }
+	  this.__emitChange();
+	};
+	
+	var resetProjects = function resetProjects(projects) {
+	  _projects = {};
+	  for (var i = 0; i < projects.length; i++) {
+	    _projects[projects[i].id] = projects[i];
 	  }
 	};
 	
-	ErrorStore.formErrors = function (form) {
-	  if (form !== _form) {
-	    return {};
-	  }
-	
-	  // copies the _errors object into a new object
-	  var result = {};
-	  for (var field in _errors) {
-	    result[field] = Array.from(_errors[field]);
-	  }
-	
-	  return result;
+	var resetProject = function resetProject(project) {
+	  _projects[project.id] = project;
 	};
 	
-	ErrorStore.form = function () {
-	  return _form;
+	var removeProject = function removeProject(project) {
+	  delete _projects[project.id];
 	};
-	module.exports = ErrorStore;
+	
+	module.exports = ProjectStore;
+
+/***/ },
+/* 257 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = {
+	  PROJECTS_RECEIVED: "PROJECTS_RECEIVED",
+	  PROECT_RECEIVED: "PROJECT_RECEIVED",
+	  PROJECT_REMOVED: "PROJECT_REMOVED"
+	};
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var Dispatcher = __webpack_require__(232);
+	var SessionConstants = __webpack_require__(253);
+	var SessionApiUtil = __webpack_require__(259);
+	var ErrorActions = __webpack_require__(260);
+	var hashHistory = __webpack_require__(168).hashHistory;
+	var ProjectApiUtil = __webpack_require__(261);
+	var ProjectConstants = __webpack_require__(257);
+	var ReactRouter = __webpack_require__(168);
+	
+	var ProjectActions = {
+	  fetchAllProjects: function fetchAllProjects() {
+	    ProjectApiUtil.fetchAllProjects(this.receiveProjects);
+	  },
+	  getProject: function getProject(id) {
+	    ProjectApiUtil.getProject(id, this.receiveProject);
+	  },
+	  createProject: function createProject(project) {
+	    ProjectApiUtil.createProject(project, this.receiveProject);
+	  },
+	  updateProject: function updateProject(project) {
+	    ProjectApiUtil.editProject(project, this.receiveProject);
+	  },
+	  deleteProject: function deleteProject(id) {
+	    ProjectApiUtil.deleteProject(id, this.removeProject);
+	  },
+	  receiveProjects: function receiveProjects(projects) {
+	    Dispatcher.dispatch({
+	      actionType: ProjectConstants.PROJECTS_RECEIVED,
+	      projects: projects
+	    });
+	  },
+	  receiveProject: function receiveProject(project) {
+	    Dispatcher.dispatch({
+	      actionType: ProjectConstants.PROJECT_RECEIVED,
+	      project: project
+	    });
+	  },
+	  removeProject: function removeProject(project) {
+	    Dispatcher.dispatch({
+	      actionType: ProjectConstants.PROJECT_REMOVED,
+	      project: project
+	    });
+	  }
+	};
+	
+	module.exports = ProjectActions;
+
+/***/ },
+/* 259 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var SessionApiUtil = {
+	  logIn: function logIn(user, success, error) {
+	    $.ajax({
+	      url: '/api/session',
+	      data: { user: user },
+	      method: 'POST',
+	      success: success,
+	      error: function error() {
+	        console.log("Invalid Creds");
+	      }
+	    });
+	  },
+	  logOut: function logOut(success) {
+	    debugger;
+	    $.ajax({
+	      url: '/api/session',
+	      method: 'DELETE',
+	      success: success,
+	      error: function error() {
+	        console.log("Logout Failed");
+	      }
+	    });
+	  },
+	  signUp: function signUp(user, success, error) {
+	    $.ajax({
+	      url: '/api/users',
+	      method: 'POST',
+	      data: { user: user },
+	      dataType: 'json',
+	      success: success,
+	      error: function error() {
+	        console.log("Invalid field");
+	      }
+	    });
+	  },
+	  fetchCurrentUser: function fetchCurrentUser(success) {
+	    $.ajax({
+	      url: '/api/session',
+	      success: success,
+	      error: function error() {
+	        console.log("Error fetching User");
+	      }
+	    });
+	  }
+	};
+	
+	module.exports = SessionApiUtil;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 261 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	module.exports = {
+	  fetchAllProjects: function fetchAllProjects(cb) {
+	    $.ajax({
+	      url: '#/projects',
+	      success: function success(data) {
+	        cb(data);
+	      }
+	    });
+	  },
+	  getProject: function getProject(id, cb) {
+	    $.ajax({
+	      url: '#/project/' + id,
+	      success: function success(data) {
+	        cb(data);
+	      },
+	      error: function error() {
+	        console.log("Invalid ID");
+	      }
+	    });
+	  },
+	  createProject: function createProject(data, cb) {
+	    $.ajax({
+	      url: '#/projects',
+	      method: 'POST',
+	      data: { data: data },
+	      success: function success(res) {
+	        cb(res);
+	      },
+	      error: function error() {
+	        console.log("Field is blank!");
+	      }
+	    });
+	  },
+	  updateProject: function updateProject(data, cb) {
+	    $.ajax({
+	      url: '#/projects/' + data.id,
+	      method: 'PATCH',
+	      data: { data: data },
+	      success: function success(res) {
+	        cb(res);
+	      },
+	      error: function error() {
+	        console.log("Invalid ID");
+	      }
+	    });
+	  },
+	  deleteProject: function deleteProject(id, cb) {
+	    $.ajax({
+	      url: '#/projects/' + id,
+	      method: 'DELETE',
+	      success: function success(data) {
+	        cb(data);
+	      },
+	      error: function error() {
+	        console.log("Invalid ID");
+	      }
+	    });
+	  }
+	};
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = {
+	  getInitialState: function getInitialState() {
+	    return {
+	      title: "",
+	      description: ""
+	    };
+	  },
+	  tChange: function tChange(e) {
+	    this.setState({ title: e.target.value });
+	  },
+	  dChange: function dChange(e) {
+	    this.setState({ body: e.target.value });
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "form",
+	        null,
+	        React.createElement(
+	          "h1",
+	          null,
+	          "Create A Project!"
+	        ),
+	        React.createElement(
+	          "input",
+	          { type: "text", value: this.state.title, onChange: this.tChange },
+	          "Title:"
+	        ),
+	        React.createElement("br", null),
+	        React.createElement("br", null),
+	        React.createElement(
+	          "input",
+	          { type: "text", value: this.state.description, onChange: this.bChange },
+	          "Description:"
+	        ),
+	        React.createElement("br", null),
+	        React.createElement("br", null)
+	      )
+	    );
+	  }
+	};
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var Link = __webpack_require__(168).Link;
+	var SessionActions = __webpack_require__(264);
+	var SessionStore = __webpack_require__(231);
+	var ErrorStore = __webpack_require__(265);
+	var ReactRouter = __webpack_require__(168);
+	var hashHistory = ReactRouter.hashHistory;
+	
+	var LoginForm = React.createClass({
+		displayName: 'LoginForm',
+	
+		contextTypes: {
+			router: React.PropTypes.object.isRequired
+		},
+	
+		getInitialState: function getInitialState() {
+			return {
+				username: "",
+				password: ""
+			};
+		},
+		componentDidMount: function componentDidMount() {
+			this.sessionListener = SessionStore.addListener(this.logged_in_redirect);
+		},
+		componentWillUnmount: function componentWillUnmount() {
+			this.sessionListener.remove();
+			// hashHistory.push('/login')
+		},
+		logged_in_redirect: function logged_in_redirect() {
+			if (SessionStore.isUserLoggedIn()) {
+				this.context.router.push("/");
+			}
+		},
+		handleSubmit: function handleSubmit(e) {
+			e.preventDefault();
+	
+			var loginInfo = { username: this.state.username, password: this.state.password };
+			SessionActions.logIn(loginInfo);
+		},
+		passwordUpdate: function passwordUpdate(e) {
+			this.setState({ password: e.target.value });
+		},
+		uNameUpdate: function uNameUpdate(e) {
+			this.setState({ username: e.target.value });
+		},
+		formType: function formType() {
+			return this.props.location.pathname.slice(1);
+		},
+		render: function render() {
+			var navLink = void 0;
+			if (this.formType() === "login") {
+				navLink = React.createElement(
+					Link,
+					{ to: '/signup' },
+					'sign up'
+				);
+			} else {
+				navLink = React.createElement(
+					Link,
+					{ to: '/login' },
+					'login'
+				);
+			}
+			var capitalized = this.formType().charAt(0).toUpperCase() + this.formType().slice(1);
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'form',
+					{ className: 'login-form-comp', onSubmit: this.handleSubmit },
+					React.createElement(
+						'h1',
+						null,
+						'Constructables'
+					),
+					React.createElement('br', null),
+					React.createElement('br', null),
+					React.createElement(
+						'h2',
+						null,
+						'Learn Something New!'
+					),
+					React.createElement('br', null),
+					React.createElement('br', null),
+					React.createElement(
+						'h3',
+						null,
+						'Please ',
+						capitalized
+					),
+					React.createElement('br', null),
+					'New? Please ',
+					navLink,
+					React.createElement('br', null),
+					React.createElement('br', null),
+					React.createElement(
+						'div',
+						null,
+						React.createElement(
+							'label',
+							null,
+							'Username:',
+							React.createElement('input', { type: 'text', value: this.state.username, onChange: this.uNameUpdate })
+						),
+						React.createElement('br', null),
+						React.createElement('br', null),
+						React.createElement(
+							'label',
+							null,
+							'Password:',
+							React.createElement('input', { type: 'password', value: this.state.password, onChange: this.passwordUpdate })
+						)
+					),
+					React.createElement('br', null),
+					React.createElement('br', null),
+					React.createElement(
+						'button',
+						{ type: 'submit' },
+						'Login!'
+					)
+				)
+			);
+		}
+	});
+	
+	module.exports = LoginForm;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var Dispatcher = __webpack_require__(232);
+	var SessionConstants = __webpack_require__(253);
+	var SessionApiUtil = __webpack_require__(259);
+	var ErrorActions = __webpack_require__(260);
+	// const hashHistory = ReactRouter.hashHistory;
+	// const ReactRouter = require('react-router');
+	
+	var SessionActions = {
+	  logIn: function logIn(data) {
+	    SessionApiUtil.logIn(data, this.receiveCurrentUser);
+	  },
+	  logOut: function logOut() {
+	    SessionApiUtil.logOut(this.removeCurrentUser);
+	  },
+	  signUp: function signUp(data) {
+	    SessionApiUtil.signUp(data, this.receiveCurrentUser);
+	  },
+	  receiveCurrentUser: function receiveCurrentUser(currentUser) {
+	    // debugger
+	    Dispatcher.dispatch({
+	      actionType: SessionConstants.LOGIN,
+	      currentUser: currentUser
+	    });
+	  },
+	  fetchCurrentUser: function fetchCurrentUser(complete) {
+	    SessionApiUtil.fetchCurrentUser(this.receiveCurrentUser, complete);
+	  },
+	  removeCurrentUser: function removeCurrentUser() {
+	    debugger;
+	    Dispatcher.dispatch({
+	      actionType: SessionConstants.LOGOUT
+	    });
+	    hashHistory.push('/login');
+	  }
+	};
+	
+	module.exports = SessionActions;
+
+/***/ },
+/* 265 */
+/***/ function(module, exports) {
+
+	// const Dispatcher = require('../dispatcher/dispatcher');
+	// const Store = require('flux/utils').Store;
+	// const ErrorConstants = require('../constants/error_constants');
+	//
+	// const ErrorStore = new Store(Dispatcher);
+	// let _errors = {};
+	// let _form = "";
+	//
+	// function setErrors(payload){
+	//   _errors = payload.errors;
+	//   _form = payload.error;
+	//   ErrorStore.__emitChange();
+	// }
+	//
+	// function clearErrors(){
+	//   _errors = {};
+	//   _form = "";
+	//   ErrorStore.__emitChange();
+	// }
+	//
+	// ErrorStore.__onDispatch = function (payload) {
+	//   switch (payload.actionType) {
+	//     case ErrorConstants.SET_ERRORS:
+	//       setErrors(payload);
+	//       break;
+	//     case ErrorConstants.CLEAR_ERRORS:
+	//       clearErrors();
+	//       break;
+	//   }
+	// };
+	//
+	// ErrorStore.formErrors = function (form) {
+	//   if (form !== _form) {
+	//     return {};
+	//   }
+	//
+	//   // copies the _errors object into a new object
+	//   const result = {};
+	//   for (let field in _errors) {
+	//     result[field] = Array.from(_errors[field]);
+	//   }
+	//
+	//   return result;
+	// };
+	//
+	// ErrorStore.form = function() {
+	//   return _form;
+	// };
+	// module.exports = ErrorStore;
+	"use strict";
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var Link = __webpack_require__(168).Link;
+	var SessionActions = __webpack_require__(264);
+	var SessionStore = __webpack_require__(231);
+	var ErrorStore = __webpack_require__(265);
+	var ReactRouter = __webpack_require__(168);
+	var hashHistory = ReactRouter.hashHistory;
+	
+	var SignUpForm = React.createClass({
+		displayName: 'SignUpForm',
+	
+		contextTypes: {
+			router: React.PropTypes.object.isRequired
+		},
+	
+		getInitialState: function getInitialState() {
+			return {
+				username: "",
+				password: ""
+			};
+		},
+		componentDidMount: function componentDidMount() {
+			this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
+		},
+		componentWillUnmount: function componentWillUnmount() {
+			this.sessionListener.remove();
+		},
+		redirectIfLoggedIn: function redirectIfLoggedIn() {
+			if (SessionStore.isUserLoggedIn()) {
+				this.context.router.push("/");
+			}
+		},
+		handleSubmit: function handleSubmit(e) {
+			e.preventDefault();
+	
+			var loginInfo = { username: this.state.username, password: this.state.password };
+			SessionActions.signUp(loginInfo);
+		},
+		passwordUpdate: function passwordUpdate(e) {
+			this.setState({ password: e.target.value });
+		},
+		uNameUpdate: function uNameUpdate(e) {
+			this.setState({ username: e.target.value });
+		},
+		formType: function formType() {
+			return this.props.location.pathname.slice(1);
+		},
+		render: function render() {
+			var navLink = void 0;
+			if (this.formType() === "signup") {
+				navLink = React.createElement(
+					Link,
+					{ to: '/login' },
+					'login'
+				);
+			} else {
+				navLink = React.createElement(
+					Link,
+					{ to: '/signup' },
+					'sign up'
+				);
+			}
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'form',
+					{ className: 'signup-form-comp', onSubmit: this.handleSubmit },
+					React.createElement(
+						'h1',
+						null,
+						'Constructables'
+					),
+					React.createElement('br', null),
+					React.createElement(
+						'h2',
+						null,
+						'Welcome!'
+					),
+					React.createElement('br', null),
+					React.createElement(
+						'h3',
+						null,
+						'Please Sign Up!'
+					),
+					React.createElement('br', null),
+					React.createElement('br', null),
+					'Already a user? ',
+					navLink,
+					'!',
+					React.createElement('br', null),
+					React.createElement('br', null),
+					React.createElement(
+						'div',
+						null,
+						React.createElement(
+							'label',
+							null,
+							'Username:',
+							React.createElement('input', { type: 'text', value: this.state.username, onChange: this.uNameUpdate })
+						),
+						React.createElement('br', null),
+						React.createElement('br', null),
+						React.createElement(
+							'label',
+							null,
+							'Password:',
+							React.createElement('input', { type: 'password', value: this.state.password, onChange: this.passwordUpdate })
+						)
+					),
+					React.createElement('br', null),
+					React.createElement(
+						'button',
+						{ type: 'submit', value: 'submit' },
+						'Submit'
+					)
+				)
+			);
+		}
+	});
+	
+	module.exports = SignUpForm;
 
 /***/ }
 /******/ ]);

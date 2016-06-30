@@ -6,7 +6,7 @@ const ErrorStore = require('../stores/error_store');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
 
-const LoginForm = React.createClass({
+const SignUpForm = React.createClass({
 	contextTypes: {
 			router: React.PropTypes.object.isRequired
 		},
@@ -19,16 +19,14 @@ const LoginForm = React.createClass({
 	  },
 
 	  componentDidMount() {
-	    this.sessionListener = SessionStore.addListener(this.logged_in_redirect);
+	    this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
 	  },
 
 	  componentWillUnmount() {
 	    this.sessionListener.remove();
-			// hashHistory.push('/login')
-
 	  },
 
-	  logged_in_redirect() {
+	  redirectIfLoggedIn() {
 	    if (SessionStore.isUserLoggedIn()) {
 	      this.context.router.push("/");
 	    }
@@ -37,7 +35,7 @@ const LoginForm = React.createClass({
 			e.preventDefault();
 
 			const loginInfo = {username: this.state.username, password: this.state.password};
-	    SessionActions.logIn(loginInfo);
+			SessionActions.signUp(loginInfo);
 		},
 		passwordUpdate (e) {
 			this.setState({password: e.target.value})
@@ -48,27 +46,25 @@ const LoginForm = React.createClass({
 		formType () {
 			return this.props.location.pathname.slice(1)
 		},
- 		render () {
+		render () {
 			let navLink;
-			if (this.formType() === "login") {
-				navLink = <Link to="/signup">sign up</Link>
-			}
-			else {
+			if (this.formType() === "signup") {
 				navLink = <Link to="/login">login</Link>
 			}
-			let capitalized = this.formType().charAt(0).toUpperCase() + this.formType().slice(1);
+			else {
+				navLink = <Link to="/signup">sign up</Link>
+			}
 			return (
 			<div>
-				<form className="login-form-comp" onSubmit={this.handleSubmit}>
+				<form className="signup-form-comp" onSubmit={this.handleSubmit}>
 					<h1>Constructables</h1>
 					<br></br>
+					<h2>Welcome!</h2>
 					<br></br>
-					<h2>Learn Something New!</h2>
+					<h3>Please Sign Up!</h3>
 						<br></br>
 						<br></br>
-					<h3>Please {capitalized}</h3>
-					<br></br>
-					New? Please {navLink}
+					Already a user? {navLink}!
 					<br></br>
 						<br></br>
 					<div>
@@ -83,13 +79,12 @@ const LoginForm = React.createClass({
 							<input type="password" value={this.state.password} onChange={this.passwordUpdate}></input>
 						</label>
 					</div>
-					<br></br>
-					<br></br>
-					<button type="submit">Login!</button>
+						<br></br>
+					<button type="submit" value="submit">Submit</button>
 				</form>
 			</div>
 		)
 	}
 });
 
-module.exports = LoginForm;
+module.exports = SignUpForm;

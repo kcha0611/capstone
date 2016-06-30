@@ -51,11 +51,11 @@ Constructables is a web application inspired by Instructables that will be built
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [X] create new project
+- [X] create `User` model
+- [X] authentication
+- [X] user signup/signin pages
+- [X] blank landing page after signin
 
 ### Phase 2: Project Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
 

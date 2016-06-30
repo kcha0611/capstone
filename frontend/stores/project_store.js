@@ -1,12 +1,13 @@
 const Dispatcher = require('../dispatcher/dispatcher');
 const Store = require('flux/utils').Store;
+const ProjectConstants = require('../constants/project_constants');
 
 const ProjectStore = new Store(Dispatcher);
 
 let _projects = {};
 
 ProjectStore.all = function () {
-  return Object.keys(_projects).map ((projectId) {
+  return Object.keys(_projects).map ((projectId) => {
     return _projects[projectId]
   });
 }
@@ -29,17 +30,19 @@ ProjectStore.__onDispatch = function (payload) {
   this.__emitChange();
 }
 
-resetProjects (projects) {
+const resetProjects = function (projects) {
   _projects = {}
   for (var i = 0; i < projects.length; i++) {
     _projects[projects[i].id] = projects[i]
   }
 }
 
-resetProject (project) {
+const resetProject = function (project) {
   _projects[project.id] = project
 }
 
-removeProject (project) {
+const removeProject = function (project) {
   delete _projects[project.id]
 }
+
+module.exports = ProjectStore;

@@ -1,17 +1,19 @@
 const SessionApiUtil = {
   logIn (user, success, error) {
     $.ajax({
-      url: 'api/session',
+      url: '/api/session',
       data: {user},
+      method: 'POST',
       success,
-      error (xhr) {
+      error () {
         console.log("Invalid Creds");
       }
     })
   },
   logOut (success) {
+    debugger
     $.ajax ({
-      url: 'api/session',
+      url: '/api/session',
       method: 'DELETE',
       success,
       error () {
@@ -21,20 +23,21 @@ const SessionApiUtil = {
   },
   signUp (user, success, error) {
     $.ajax ({
-      url: 'api/user',
+      url: `/api/users`,
       method: 'POST',
       data: {user},
+      dataType: 'json',
       success,
-      error (xhr) {
+      error () {
         console.log("Invalid field");
       }
     })
   },
-  fetchCurrentUser(success, complete) {
+  fetchCurrentUser(success) {
     $.ajax ({
-      url: 'api/user',
+      url: `/api/session`,
       success,
-      error (xhr) {
+      error () {
         console.log("Error fetching User");
       }
     })
