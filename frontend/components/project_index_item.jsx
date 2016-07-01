@@ -1,6 +1,7 @@
 const React = require('react');
 const ProjectStore = require('../stores/project_store');
 const ProjectActions = require('../actions/project_actions');
+const Link = require('react-router').Link;
 
 const ProjectIndexItem = React.createClass({
   getInitialState: function() {
@@ -33,15 +34,9 @@ const ProjectIndexItem = React.createClass({
     return (
     <form onSubmit={this.submit}>
       <div>
-        <label className="lab-proj-ind-item">Project Title: </label>
-        <input value={this.props.project.title}></input>
-          <br></br>
-          <br></br>
-        <label className="desc-proj-ind-item">Project Description: </label>
-        <textarea value={this.props.project.description}></textarea>
-          <br></br>
-          <br></br>
-          <button>Publish</button>
+        <label className="lab-proj-ind-item">
+          <Link to={`/api/projects/${this.props.project.id}`}>{this.props.project.title}</Link>
+         </label>
       </div>
     </form>
     )

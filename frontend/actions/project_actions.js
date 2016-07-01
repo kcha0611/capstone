@@ -15,6 +15,7 @@ const ProjectActions = {
     ProjectApiUtil.getProject(id, this.receiveProject)
   },
   createProject(project) {
+    // debugger
     ProjectApiUtil.createProject(project, this.receiveProject)
   },
   updateProject (project) {
@@ -24,12 +25,14 @@ const ProjectActions = {
     ProjectApiUtil.deleteProject(id, this.removeProject)
   },
   receiveProjects(projects) {
+    // debugger
     Dispatcher.dispatch({
       actionType: ProjectConstants.PROJECTS_RECEIVED,
       projects: projects
     })
   },
   receiveProject(project) {
+    // debugger
     Dispatcher.dispatch({
       actionType: ProjectConstants.PROJECT_RECEIVED,
       project: project

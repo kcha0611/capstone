@@ -7,9 +7,8 @@ const ProjectStore = new Store(Dispatcher);
 let _projects = {};
 
 ProjectStore.all = function () {
-  return Object.keys(_projects).map ((projectId) => {
-    return _projects[projectId]
-  });
+  // debugger
+  return Object.assign({}, _projects)
 }
 
 ProjectStore.find = function (id) {
@@ -20,32 +19,31 @@ ProjectStore.__onDispatch = function (payload) {
 
   switch (payload.actionType) {
     case ProjectConstants.PROJECTS_RECEIVED:
-      debugger
-      resetProjects(payload.projects);
+      this.resetProjects(payload.projects);
       break;
     case ProjectConstants.PROJECT_RECEIVED:
-      resetProject(payload.project);
+      this.resetProject(payload.project);
       break;
     case ProjectConstants.PROJECT_REMOVED:
-      removeProject(payload.project);
+      this.removeProject(payload.project);
       break;
   }
+}
+
+ProjectStore.resetProjects = function (projects) {
+  // debugger
+  _projects = projects
   this.__emitChange();
 }
 
-const resetProjects = function (projects) {
-  _projects = {}
-  for (var i = 0; i < projects.length; i++) {
-    _projects[projects[i].id] = projects[i]
-  }
-}
-
-const resetProject = function (project) {
+ProjectStore.resetProject = function (project) {
   _projects[project.id] = project
+  this.__emitChange();
 }
 
-const removeProject = function (project) {
+ProjectStore.removeProject = function (project) {
   delete _projects[project.id]
+  this.__emitChange();
 }
 
 module.exports = ProjectStore;

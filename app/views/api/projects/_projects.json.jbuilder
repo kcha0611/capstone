@@ -1,1 +1,1 @@
-json.extract! bench, :id, :title, :description
+json.extract! project, :title, :description, :id

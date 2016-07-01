@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   helper_method :logged_in?, :current_user, :require_logged_in
 
   def login!(user)
@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in
-    render json: ["Must LogIn!"] if !current_user
+      render json: {base: ['invalid credentials']}, status: 401 if !current_user
   end
 end

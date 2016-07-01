@@ -1,11 +1,15 @@
-class Api::ProjectsController < ApplicationController\
+class Api::ProjectsController < ApplicationController
+
   before_action :require_logged_in, only: [:create]
+
+  def new
+  end
 
   def create
     @project = Project.new(project_params)
-    @project.user_id = current_user.id
+    # @project.user_id = current_user.id
     if @project.save
-      render "/projects/#{@project.user_id}"
+      render "/api/projects"
     else
       render json: { base: ["Invalid data. Please try again."]}, status: 403
     end
@@ -14,7 +18,7 @@ class Api::ProjectsController < ApplicationController\
   def show
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    render "/projects/#{@project.id}"
+    render "/api/projects/#{@project.id}"
   end
 
   def index
@@ -23,8 +27,12 @@ class Api::ProjectsController < ApplicationController\
 
   def destroy
     @project = Project.find(params[:id])
-    @project.destroy!
-    render "api/projects"
+    if @project
+      @project.destroy!
+      render "/api/projects"
+    else
+      render json: {base: ["Invalid project"]}, status: 403
+    end
   end
 
   def edit
@@ -34,7 +42,11 @@ class Api::ProjectsController < ApplicationController\
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      render "/projects/#{@project.id}"
+      render "/api/projects/#{@project.id}"
+    else
+      render json: {base: ["Invalid Project"]}, status: 403
+    end
+  end
 
   private
 

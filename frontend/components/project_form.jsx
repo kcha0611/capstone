@@ -1,4 +1,7 @@
-module.exports = {
+const React = require('react');
+const ProjectActions = require('../actions/project_actions');
+
+const ProjectForm = React.createClass({
     getInitialState: function() {
       return {
         title: "",
@@ -9,17 +12,26 @@ module.exports = {
       this.setState({title: e.target.value})
     },
     dChange(e) {
-      this.setState({body: e.target.value})
+      this.setState({description: e.target.value})
+    },
+    _submit(e) {
+      e.preventDefault();
+      ProjectActions.createProject({title: this.state.title, description: this.state.description});
     },
     render () {
     return (
       <div className="div-proj-form">
-        <form onSubmit={this.submit}>
+        <form onSubmit={this._submit}>
           <h1>Create A Project!</h1>
-          <input type="text" value={this.state.title} onChange={this.tChange}></input>
-          <input type="textarea" value={this.state.description} onChange={this.dChange}></input>
+            <label>Project Title:</label>
+            <input value={this.state.title} onChange={this.tChange}></input>
+            <label>Project Description:</label>
+            <textarea value={this.state.description} onChange={this.dChange}></textarea>
+            <input type="submit" value="Create!"></input>
         </form>
       </div>
     )
   }
-}
+})
+
+module.exports = ProjectForm;

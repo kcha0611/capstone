@@ -13,8 +13,18 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_session_token(session[:session_token])
-    @user.reset_session_token!
-    render '/api/users/show'
-  end
+  		@user = current_user
+  		if @user
+  			logout!
+  			render "/api/users/show"
+  		else
+  			render(
+          json: {
+            base: ["Nobody signed in"]
+          },
+          status: 404
+        )
+  		end
+    end
+
 end

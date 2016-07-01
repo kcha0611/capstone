@@ -9,11 +9,12 @@ const ProjectForm = require('./project_form');
 const ProjectIndex = React.createClass({
   getInitialState: function() {
     return {
-      projects: []
+      projects: {}
     };
   },
   componentDidMount: function() {
     this.projectListener = ProjectStore.addListener(this._handleChange)
+    // debugger
     ProjectActions.fetchAllProjects();
   },
   componentWillUnmount: function () {
@@ -23,13 +24,13 @@ const ProjectIndex = React.createClass({
     this.setState({projects: ProjectStore.all()})
   },
   render () {
-    // debugger
+    let projectKeys = Object.keys(this.state.projects)
     return (
       <div>
         <h2>Featured Projects: </h2>
         <ul>
-          {this.state.projects.map ((project) => {
-            return <ProjectIndexItem project={project} key={project.id}></ProjectIndexItem>
+          {projectKeys.map ((key) => {
+            return <ProjectIndexItem project={this.state.projects[key]} key={key}></ProjectIndexItem>
           })
         }
         </ul>

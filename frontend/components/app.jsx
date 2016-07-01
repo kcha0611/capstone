@@ -5,7 +5,7 @@ const ProjectIndex = require('./project_index')
 const SessionActions = require('../actions/session_actions');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
-const Navbar = require('./navbar');
+const ReactBootstrap = require('react-bootstrap');
 
 const App = React.createClass({
   componentDidMount() {
@@ -16,15 +16,19 @@ const App = React.createClass({
     SessionActions.logOut();
   },
   page() {
+    const DropDownButton = ReactBootstrap.DropdownButton;
+    const MenuItem = ReactBootstrap.MenuItem;
+
     if (SessionStore.isUserLoggedIn()) {
     	return (
     		<hgroup className="root-header-group">
     			<h2 className="root-header-name">Welcome, {SessionStore.currentUser().username}!</h2>
-          <br></br>
-          <br></br>
-
-
-          <br></br>
+          <DropDownButton title="You" id="dropdownB-root">
+            <h3>{SessionStore.currentUser().username}</h3>
+            <MenuItem href={"/api/users/" + SessionStore.currentUser().id}>Profile</MenuItem>
+            <MenuItem href="/">Testing1</MenuItem>
+            <MenuItem href="/">Testing2</MenuItem>
+          </DropDownButton>
     			<input type="submit" value="Logout" onClick={ this.handleLogOut } />
     		</hgroup>
     	);

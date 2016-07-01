@@ -19,7 +19,7 @@ const SessionApiUtil = {
       method: 'DELETE',
       success,
       error (err) {
-        
+
       }
     })
   },

@@ -1,10 +1,10 @@
 class Project < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, :description, presence: true
 
-  belongs_to :author,
-  primary_key: :id,
-  foreign_key: :project_id,
-  class_name: :User
+  # belongs_to :author,
+  # primary_key: :id,
+  # foreign_key: :project_id,
+  # class_name: :User
 
   has_many :comments,
   primary_key: :id,
