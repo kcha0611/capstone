@@ -22,17 +22,17 @@ const ProjectIndex = React.createClass({
   _handleChange () {
     this.setState({projects: ProjectStore.all()})
   },
-  publish () {
-    hashHistory.push('/projects/new')
-  },
   render () {
+    // debugger
     return (
       <div>
-        <button onClick={this.publish}>Publish</button>
-        {this.state.projects.map((project) => {
-          return <ProjectIndexItem project={project}>{project.title}</ProjectIndexItem>
+        <h2>Featured Projects: </h2>
+        <ul>
+          {this.state.projects.map ((project) => {
+            return <ProjectIndexItem project={project} key={project.id}></ProjectIndexItem>
           })
         }
+        </ul>
       </div>
     )
   }

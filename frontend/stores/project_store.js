@@ -17,8 +17,10 @@ ProjectStore.find = function (id) {
 }
 
 ProjectStore.__onDispatch = function (payload) {
+
   switch (payload.actionType) {
     case ProjectConstants.PROJECTS_RECEIVED:
+      debugger
       resetProjects(payload.projects);
       break;
     case ProjectConstants.PROJECT_RECEIVED:
@@ -26,6 +28,7 @@ ProjectStore.__onDispatch = function (payload) {
       break;
     case ProjectConstants.PROJECT_REMOVED:
       removeProject(payload.project);
+      break;
   }
   this.__emitChange();
 }

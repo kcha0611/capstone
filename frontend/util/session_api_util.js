@@ -5,19 +5,21 @@ const SessionApiUtil = {
       data: {user},
       method: 'POST',
       success,
-      error () {
-        console.log("Invalid Creds");
+      error (err) {
+        // debugger
+        const errors = err.responseJSON
+        error ("login", errors)
       }
     })
   },
   logOut (success) {
-    debugger
+    // debugger
     $.ajax ({
       url: '/api/session',
       method: 'DELETE',
       success,
-      error () {
-        console.log("Logout Failed");
+      error (err) {
+        
       }
     })
   },
@@ -28,8 +30,9 @@ const SessionApiUtil = {
       data: {user},
       dataType: 'json',
       success,
-      error () {
-        console.log("Invalid field");
+      error (err) {
+        const errors = err.responseJSON
+        error ("signup", errors)
       }
     })
   },

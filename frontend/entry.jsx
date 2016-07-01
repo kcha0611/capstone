@@ -19,15 +19,30 @@ const LoginForm = require('./components/login_form');
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 const SignUpForm = require('./components/sign_up_form');
+const Splash = require('./components/splash')
+const ErrorStore = require("./stores/error_store")
+// debugger
+function _ensureCurrentUser (_, replace) {
+  if (!SessionStore.isUserLoggedIn()) {
+    replace('/login');
+  }
+}
+
+function redirectIfLoggedIn (_, replace) {
+  if (SessionStore.isUserLoggedIn()) {
+    replace('/projects')
+  }
+}
 
 const routes = (
   <Router history={hashHistory}>
       <Route path="/" component={App}>
-       <Route path="/login" component={LoginForm} />
-       <Route path="/signup" component={SignUpForm} />
-       <Route path="/projects/new" component={ProjectForm} />
-       <Route path="/projects" component={ProjectIndex} />
+        <IndexRoute component={Splash} onEnter={ redirectIfLoggedIn }></IndexRoute>
+         <Route path="projects/new" component={ProjectForm} onEnter={ _ensureCurrentUser } />
+         <Route path="projects" component={ProjectIndex} onEnter={ _ensureCurrentUser } />
       </Route>
+      <Route path="login" component={LoginForm}  />
+      <Route path="signup" component={LoginForm} />
   </Router>
 )
 // <Route path="/project/:projectId" component={ProjectShow}/>
@@ -41,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
     SessionActions.receiveCurrentUser(window.currentUser);
   }
 
+
   const root = document.getElementById('content');
   ReactDOM.render(routes, root);
 });
+
+window.ErrorStore = ErrorStore;

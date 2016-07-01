@@ -1,13 +1,12 @@
 class Project < ActiveRecord::Base
-  validates: :title, presence: true
-  validates: :author_id, uniqueness: true, presence: true
-  
+  validates :title, presence: true
+
   belongs_to :author,
   primary_key: :id,
   foreign_key: :project_id,
   class_name: :User
 
-  has_many: :comments,
+  has_many :comments,
   primary_key: :id,
   foreign_key: :comment_id,
   class_name: :Comment

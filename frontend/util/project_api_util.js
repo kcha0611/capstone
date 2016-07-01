@@ -1,7 +1,8 @@
 module.exports = {
   fetchAllProjects(cb) {
     $.ajax({
-      url: '#/projects',
+      url: 'projects',
+      method: "GET",
       success (data) {
         cb(data)
       }
@@ -9,7 +10,7 @@ module.exports = {
   },
   getProject (id, cb) {
     $.ajax ({
-      url: `#/project/${id}`,
+      url: `api/project/${id}`,
       success (data) {
         cb(data)
       },
@@ -20,7 +21,7 @@ module.exports = {
   },
   createProject (data, cb) {
     $.ajax ({
-      url: `#/projects`,
+      url: `projects`,
       method: 'POST',
       data: {data},
       success (res) {
@@ -33,7 +34,7 @@ module.exports = {
   },
   updateProject (data, cb) {
     $.ajax({
-      url: `#/projects/${data.id}`,
+      url: `api/projects/${data.id}`,
       method: 'PATCH',
       data: {data},
       success (res) {
@@ -46,7 +47,7 @@ module.exports = {
   },
   deleteProject (id, cb) {
     $.ajax ({
-      url: `#/projects/${id}`,
+      url: `api/projects/${id}`,
       method: 'DELETE',
       success(data) {
         cb(data)

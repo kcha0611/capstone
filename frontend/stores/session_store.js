@@ -14,7 +14,7 @@ const _login = function (currentUser) {
 }
 
 const _logout = function () {
-  debugger
+  // debugger
   _currentUser = {}
   _currentUserfetched = true
 }
@@ -28,7 +28,7 @@ SessionStore.__onDispatch = function (payload) {
       this.__emitChange();
       break;
     case SessionConstants.LOGOUT:
-    debugger
+    // debugger
       _logout();
       this.__emitChange();
       break;
