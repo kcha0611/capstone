@@ -1,5 +1,8 @@
 const React = require('react');
 const ProjectActions = require('../actions/project_actions');
+// hashhistory to redirect
+const ProjectStore = require('../stores/project_store');
+const hashHistory = require('react-router').hashHistory;
 
 const ProjectForm = React.createClass({
     getInitialState: function() {
@@ -8,6 +11,16 @@ const ProjectForm = React.createClass({
         description: ""
       };
     },
+    // componentDidMount: function() {
+    //   this.projectListener = ProjectStore.addListener(this._handleChange)
+    // },
+    // componentWillUnmount: function() {
+    //   this.projectListener.remove()
+    // },
+    // _handleChange() {
+    //
+    //
+    // },
     tChange (e) {
       this.setState({title: e.target.value})
     },
@@ -17,6 +30,13 @@ const ProjectForm = React.createClass({
     _submit(e) {
       e.preventDefault();
       ProjectActions.createProject({title: this.state.title, description: this.state.description});
+      this.setState({title: "", description: ""})
+      hashHistory.push('/projects')
+    },
+    handleCancel (e) {
+      e.preventDefault();
+      this.setState({title: "", description: ""})
+      hashHistory.push('/projects')
     },
     render () {
     return (
@@ -28,6 +48,7 @@ const ProjectForm = React.createClass({
             <label>Project Description:</label>
             <textarea value={this.state.description} onChange={this.dChange}></textarea>
             <input type="submit" value="Create!"></input>
+            <button onClick={this.handleCancel}>Cancel</button>
         </form>
       </div>
     )

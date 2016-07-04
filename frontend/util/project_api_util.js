@@ -24,7 +24,7 @@ module.exports = {
       url: `api/projects`,
       method: 'POST',
       dataType: 'json',
-      data: {data},
+      data: {project: data},
       success (res) {
         cb(res)
       }

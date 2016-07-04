@@ -21,6 +21,7 @@ const SessionActions = require('./actions/session_actions');
 const SignUpForm = require('./components/sign_up_form');
 const Splash = require('./components/splash')
 const ErrorStore = require("./stores/error_store")
+const Modal = require("react-modal");
 // debugger
 function _ensureCurrentUser (_, replace) {
   if (!SessionStore.isUserLoggedIn()) {
@@ -30,6 +31,7 @@ function _ensureCurrentUser (_, replace) {
 
 function redirectIfLoggedIn (_, replace) {
   if (SessionStore.isUserLoggedIn()) {
+    // debugger
     replace('/projects')
   }
 }
@@ -56,8 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.currentUser) {
     SessionActions.receiveCurrentUser(window.currentUser);
   }
-
-
+  Modal.setAppElement(document.body);
   const root = document.getElementById('content');
   ReactDOM.render(routes, root);
 });

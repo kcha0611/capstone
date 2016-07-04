@@ -9,7 +9,7 @@ class Api::ProjectsController < ApplicationController
     @project = Project.new(project_params)
     # @project.user_id = current_user.id
     if @project.save
-      render "/api/projects"
+      render "/api/projects/show"
     else
       render json: { base: ["Invalid data. Please try again."]}, status: 403
     end
@@ -18,7 +18,7 @@ class Api::ProjectsController < ApplicationController
   def show
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    render "/api/projects/#{@project.id}"
+    render "/api/projects/show"
   end
 
   def index
@@ -29,7 +29,7 @@ class Api::ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project
       @project.destroy!
-      render "/api/projects"
+      render "/api/projects/show"
     else
       render json: {base: ["Invalid project"]}, status: 403
     end
@@ -42,7 +42,7 @@ class Api::ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      render "/api/projects/#{@project.id}"
+      render "/api/projects/show"
     else
       render json: {base: ["Invalid Project"]}, status: 403
     end
@@ -51,7 +51,7 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project).permit(:title, :description, :image_url)
   end
 
 end

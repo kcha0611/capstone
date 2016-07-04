@@ -27,7 +27,7 @@ const ProjectIndex = React.createClass({
     let projectKeys = Object.keys(this.state.projects)
     return (
       <div>
-        <h2>Featured Projects: </h2>
+        <h2 className="proj-index-header">Featured</h2>
         <ul>
           {projectKeys.map ((key) => {
             return <ProjectIndexItem project={this.state.projects[key]} key={key}></ProjectIndexItem>
