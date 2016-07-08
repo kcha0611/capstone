@@ -4,7 +4,6 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title, null: false
       t.text :description
       t.timestamps null: false
-      t.integer :author_id
     end
   end
 end
