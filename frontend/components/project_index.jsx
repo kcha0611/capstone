@@ -28,7 +28,7 @@ const ProjectIndex = React.createClass({
     let _projects = [];
     const masonryOptions = {
       fitWidth: true,
-      gutter: 10;
+      gutter: 10
     }
 		if (this.state.projects) {
 			let projectKeys = Object.keys(this.state.projects);
@@ -38,7 +38,7 @@ const ProjectIndex = React.createClass({
 					<ProjectIndexItem project={project} key={project.id} />
 				);
 				_projects.push(_project);
-				_project.length > 100 ? false : true 
+				_project.length > 100 ? false : true
 			});
 		}
     // debugger
