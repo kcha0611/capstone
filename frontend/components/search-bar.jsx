@@ -2,13 +2,14 @@
 const React = require('react');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
-const ProjectActions = require('../actions/project_actions.js');
-const ProjectStore = require('../stores/project_store.js');
 const FormGroup = require('react-bootstrap').FormGroup;
 const ControlLabel = require('react-bootstrap').ControlLabel;
+const ProjectActions = require('../actions/project_actions.js');
 const FormControl = require('react-bootstrap').FormControl;
 const Button = require('react-bootstrap').Button;
 const Navbar = require('react-bootstrap').Navbar;
+const ProjectStore = require('../stores/project_store.js');
+
 
 let projects;
 
