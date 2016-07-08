@@ -32,19 +32,22 @@ const ProjectIndex = React.createClass({
     }
 		if (this.state.projects) {
 			let projectKeys = Object.keys(this.state.projects);
-			projectKeys.every( (key) => {
+			projectKeys.forEach( (key) => {
 				let project = this.state.projects[key];
-				let _project = (
-					<ProjectIndexItem project={project} key={project.id} />
-				);
+				let _project = ( <ProjectIndexItem project={project} key={project.id}/> );
 				_projects.push(_project);
-				_project.length > 100 ? false : true
+				if (_projects.length > 100) {
+					return false;
+				} else {
+					return true;
+				}
+        // _projects.length > 100 ? return false : return true
 			});
 		}
     // debugger
     return (
         <Masonry
-            className={'my-gallery-class'}
+            className={'proj-index-item-masonry'}
             elementType={'ul'}
             options={masonryOptions}>
             {_projects}

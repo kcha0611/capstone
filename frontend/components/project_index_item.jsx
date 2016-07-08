@@ -16,7 +16,7 @@ const ProjectIndexItem = React.createClass({
     ProjectActions.getProject(this.props.project.id)
   },
   _onChange() {
-    this.setState({title: this.props.project.title, description: this.props.project.description})
+    this.setState({title: this.state.title, description: this.state.description})
   },
   componentWillUnmount() {
     this.projectListener.remove()
@@ -42,13 +42,14 @@ const ProjectIndexItem = React.createClass({
             <li>
                 <figure>
                     <img src={this.props.project.image_url} alt="" className="proj-image"/>
-                    <figcaption>
+                    <figcaption className="proj-item-figcap">
                         <h2>{this.props.project.title}</h2>
                         <p>{this.props.project.description}</p>
                     </figcaption>
                 </figure>
             </li>
         </ul>
+
         <br></br>
       </div>
     )

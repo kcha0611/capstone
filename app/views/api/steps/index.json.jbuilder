@@ -1,1 +1,1 @@
-json.array! @steps, :id, :title, :description 
+json.array! @steps, :id, :title, :description, :order, :image_url 

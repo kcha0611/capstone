@@ -5,6 +5,7 @@ const StepActions = require('../actions/step_actions');
 const StepStore = require('../stores/step_store');
 const StepIndexItem = require('./step_index_item')
 const Media = require('react-bootstrap').Media
+
 const ProjectShow = React.createClass({
   getInitialState: function() {
     let potential = ProjectStore.find(parseInt(this.props.params.projectId))
@@ -35,24 +36,41 @@ const ProjectShow = React.createClass({
     hashHistory.push('/projects')
   },
   render () {
-    // debugger
-    // console.log(this.state.steps);
-    let url = this.state.project.image_url
+  //   // debugger
+  //   // console.log(this.state.steps);
+  //   let url = this.state.project.image_url
+  //   return (
+  //     <div className="proj-show-div">
+  //       <h1 className="show-title">{this.state.project.title}</h1>
+  //       <div id="show-desc-img">
+  //       <img src={`${this.state.project.image_url}`} className="show-image" alt="" width="855" height="923"></img>
+  //       </div>
+  //       <ul>
+  //         {this.state.steps.map ((step) =>
+  //             <StepIndexItem step={step} key={step.id}/>
+  //
+  //           )
+  //         }
+  //       </ul>
+  //       <button onClick={this._delete}>Delete</button>
+  //     </div>
+  //   )
+  // }
     return (
       <div>
-        <h1 className="show-title">{this.state.project.title}</h1>
-        <div id="show-desc-img">
-        <img src={`${this.state.project.image_url}`} className="show-image" alt="" width="855" height="923"></img>
-        </div>
-        <ul>
-          {this.state.steps.map ((step) =>
-            <label>{`Phase ${step.order}`}
-              <StepIndexItem step={step} key={step.id}/>
-            </label>
-            )
-          }
-        </ul>
-        <button onClick={this._delete}>Delete</button>
+        <Media>
+             <Media.Left align="top">
+               <img width={800} height={700} src={this.state.project.image_url} alt="Image" className="show-image"/>
+             </Media.Left>
+             <Media.Body>
+               <Media.Heading className="show-title">{this.state.project.title}</Media.Heading>
+               <p className="show-description">Summary: {this.state.project.description}</p>
+             </Media.Body>
+             {this.state.steps.map ((step) =>
+               <StepIndexItem step={step}></StepIndexItem>
+             )
+           }
+           </Media>
       </div>
     )
   }

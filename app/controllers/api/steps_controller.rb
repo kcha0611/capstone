@@ -16,11 +16,11 @@ class Api::StepsController < ApplicationController
       @steps = Step.where({project_id: params[:project_id]})
     else
       @steps = Step.all
-    end 
+    end
   end
   private
 
   def step_params
-    params.require(:step).permit(:title, :description, :project_id)
+    params.require(:step).permit(:title, :description, :project_id, :image_url)
   end
 end

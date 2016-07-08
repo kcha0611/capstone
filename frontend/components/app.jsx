@@ -13,6 +13,7 @@ const NavItem = ReactBootstrap.NavItem
 const Nav = ReactBootstrap.Nav
 const SearchBar = require('./search-bar');
 const Button = ReactBootstrap.Button
+const SlideShow = require('./carousel')
 
 const App = React.createClass({
   componentDidMount() {
@@ -40,15 +41,11 @@ const App = React.createClass({
       </DropdownButton>)
       if (this.props.location.pathname.slice(1) === "projects") {
         // debugger
-        homepage = (<div className="image-search-bar">
-                      <img src="https://static.pexels.com/photos/1562/italian-landscape-mountains-nature.jpg" className="root-background" />
-                      <h2 className="root-image-text"><span className="root-image-text-span">Lets Make</span></h2>
-                      <SearchBar id="background-search-bar"></SearchBar>
-                    </div>)
+        homepage = (<SlideShow></SlideShow>)
       }
     }
     // else if (this.props.location.pathname.slice(1) === "signup") {
-    //   dropDown;
+    //   dropDown;http://www.w3schools.com/howto/img_nature_wide.jpg
     // }http://www.w3schools.com/howto/img_nature_wide.jpg
     else {
       dropDown = (
@@ -84,3 +81,9 @@ const App = React.createClass({
 })
 
 module.exports = App;
+
+// <div className="image-search-bar">
+//               <img src="https://static.pexels.com/photos/1562/italian-landscape-mountains-nature.jpg" className="root-background" />
+//               <h2 className="root-image-text"><span className="root-image-text-span">Lets Make <p className="renewable-energy">Renewable Energy</p></span></h2>
+//               <SearchBar id="background-search-bar"></SearchBar>
+//             </div>

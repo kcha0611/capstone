@@ -27,14 +27,15 @@ const StepForm = React.createClass({
      if (!error) {
        let newUrl = results[0].url
         this.setState({ image_url: newUrl });
+        // debugger
       }
     }.bind(this));
   },
   addPhase (e) {
     e.preventDefault();
     this.state.order = this.state.order + 1
-    this.setState({title: this.state.title, description: this.state.description, order: this.state.order})
-    StepActions.createStep(this.props.params.projectId, {description: this.state.description, title: this.state.title})
+    this.setState({title: this.state.title, description: this.state.description, order: this.state.order, image_url: this.state.image_url})
+    StepActions.createStep(this.props.params.projectId, {description: this.state.description, title: this.state.title, image_url: this.state.image_url, order: this.state.order})
     this.setState({title: "", description: ""})
   },
   _submit(e) {
@@ -48,13 +49,13 @@ const StepForm = React.createClass({
       let projectId = this.state.project.id
     }
     return (
-      <div>
+      <div className="step-form-div">
         <StepsIndex projectId={this.props.params.projectId} />
         <form>
           <h1 className="proj-form-title">
             Create Phase:
           </h1>
-          <h2>{`Phase ${this.state.order}`}</h2>
+          <h2 className="phase-order">{`Phase ${this.state.order}`}</h2>
             <ul className="form-style-1">
                 <li><label>Step Title<span className="required">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
                 <li>

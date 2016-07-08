@@ -35,13 +35,66 @@ div.container {
 }
 
 .root-catchphrase {
-  margin-left: 40px;
+  margin-left: 20px;
   position: relative;
   top: 15px;
   font-family: 'Lobster';
-  color: #2b2b2b;
+  color: white;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.carousel-caption {
+  top: 30%;
+  color: white;
+  font-family: 'Dancing Script', Georgia, Times, serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0);
+}
+
+#carousel-wearable {
+  font-size: 150px;
+  font-weight: bold;
+}
+#carousel-space {
+  font-size: 150px;
+  font-weight: bold;
+}
+#carousel-renewable {
+  font-size: 150px;
+  font-weight: bold;
+}
+
+#carousel-img1 {
+
+}
+
+#carousel-img2 {
+
+}
+
+#carousel-img3 {
+
+}
+
+#carousel-text1 {
+  text-decoration: underline;
+  color: green;
+}
+#carousel-text2 {
+  text-decoration: underline;
+  color: red;
+}
+#carousel-text3 {
+  text-decoration: underline;
+  color: blue;
 }
 /*#root-other-nav {
   padding: 100px;
 }*/
+
+.proj-show-div {
+  display: block;
+}

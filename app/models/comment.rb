@@ -7,11 +7,6 @@ class Comment < ActiveRecord::Base
   foreign_key: :project_id,
   class_name: :Project
 
-  belongs_to :author,
-  primary_key: :id,
-  foreign_key: :author_id,
-  class_name: :Author
-
   belongs_to :comment_container,
   primary_key: :id,
   foreign_key: :comment_container_id,

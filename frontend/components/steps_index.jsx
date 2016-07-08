@@ -17,10 +17,11 @@ const StepsIndex = React.createClass({
     this.setState({steps: StepStore.all()})
   },
   render () {
+    debugger
     return (
       <div>
         {this.state.steps.map ((step) => {
-          return <StepIndexItem step={step}></StepIndexItem>
+          return <StepIndexItem step={step}/>
         })
       }
       </div>
