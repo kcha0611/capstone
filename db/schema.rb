@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707052850) do
+ActiveRecord::Schema.define(version: 20160708201357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,11 @@ ActiveRecord::Schema.define(version: 20160707052850) do
     t.integer  "project_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "author_id",   null: false
     t.integer  "comment_id",  null: false
     t.string   "title",       null: false
     t.text     "description"
   end
 
-  add_index "comment_containers", ["author_id"], name: "index_comment_containers_on_author_id", using: :btree
   add_index "comment_containers", ["comment_id"], name: "index_comment_containers_on_comment_id", using: :btree
   add_index "comment_containers", ["project_id"], name: "index_comment_containers_on_project_id", using: :btree
 
@@ -41,14 +39,11 @@ ActiveRecord::Schema.define(version: 20160707052850) do
   add_index "comments", ["proejct_id"], name: "index_comments_on_proejct_id", using: :btree
 
   create_table "project_containers", force: :cascade do |t|
-    t.integer  "author_id",   null: false
     t.string   "title",       null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "project_containers", ["author_id"], name: "index_project_containers_on_author_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "title",       null: false

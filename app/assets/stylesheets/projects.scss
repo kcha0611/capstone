@@ -119,3 +119,20 @@ select{
   display: flex;
   justify-content: flex-start;
 }
+
+.proj-image.extra-big {
+  width: 420px;
+  margin-bottom: 13px;
+}
+
+.proj-image.extra-tall {
+  height: 500px;
+  width: 420px;
+  margin-bottom: 13px;
+}
+
+.proj-image.extra-tall-big {
+  width: 420px;
+  height: 440px;
+  margin-bottom: 13px;
+}

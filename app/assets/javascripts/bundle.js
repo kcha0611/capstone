@@ -33008,7 +33008,10 @@
 	    var _projects = [];
 	    var masonryOptions = {
 	      fitWidth: true,
-	      gutter: 10
+	      // columnWidth: 200,
+	      gutter: 0,
+	      fitHeight: true
+	      // maxWidth: 800
 	    };
 	    if (this.state.projects) {
 	      var projectKeys = Object.keys(this.state.projects);
@@ -33100,6 +33103,16 @@
 	    hashHistory.push('api/projects/' + this.props.project.id);
 	  },
 	  render: function render() {
+	    var extraBig = function extraBig() {
+	      var random = Math.random();
+	      if (random >= 0.3 && random <= 0.6) {
+	        return "extra-big";
+	      } else if (random < 0.3) {
+	        return "extra-tall";
+	      } else if (random > 0.6) {
+	        return "extra-tall-big";
+	      }
+	    };
 	    return React.createElement(
 	      'div',
 	      { className: 'proj-div', onClick: this.goPage },
@@ -33112,7 +33125,7 @@
 	          React.createElement(
 	            'figure',
 	            null,
-	            React.createElement('img', { src: this.props.project.image_url, alt: '', className: 'proj-image' }),
+	            React.createElement('img', { src: this.props.project.image_url, alt: '', className: 'proj-image ' + extraBig() }),
 	            React.createElement(
 	              'figcaption',
 	              { className: 'proj-item-figcap' },

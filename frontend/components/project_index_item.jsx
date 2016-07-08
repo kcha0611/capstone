@@ -36,12 +36,22 @@ const ProjectIndexItem = React.createClass({
     hashHistory.push(`api/projects/${this.props.project.id}`)
   },
   render () {
+    let extraBig = function () {
+      let random = Math.random()
+      if (random >= 0.3 && random <= 0.6) {
+        return "extra-big"
+      } else if (random < 0.3) {
+        return "extra-tall";
+      } else if (random > 0.6) {
+        return "extra-tall-big"
+      }
+    }
     return (
       <div className="proj-div" onClick={this.goPage}>
         <ul className="proj-index-images">
             <li>
                 <figure>
-                    <img src={this.props.project.image_url} alt="" className="proj-image"/>
+                    <img src={this.props.project.image_url} alt="" className={`proj-image ${extraBig()}`}/>
                     <figcaption className="proj-item-figcap">
                         <h2>{this.props.project.title}</h2>
                         <p>{this.props.project.description}</p>
