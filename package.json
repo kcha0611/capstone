@@ -7,6 +7,13 @@
     "doc": "docs",
     "test": "test"
   },
+  "engines": {
+  "node": "6.2.1",
+  "npm": "3.9.3"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
   "dependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
@@ -17,8 +24,11 @@
     "react": "^15.1.0",
     "react-bootstrap": "^0.29.5",
     "react-dom": "^15.1.0",
+    "react-dropzone": "^2.2.4",
+    "react-masonry-component": "^4.1.0",
     "react-modal": "^1.4.0",
     "react-router": "^2.5.1",
+    "react-search-bar": "^1.1.4",
     "webpack": "^1.13.1"
   },
   "devDependencies": {},

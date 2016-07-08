@@ -22,7 +22,13 @@ class Api::ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    if params[:searchTerm]
+      search = params[:searchTerm].downcase
+      # debugger
+      @projects = Project.where("LOWER(title) LIKE ?", "%#{search}%")
+    else
+      @projects = Project.all
+    end
   end
 
   def destroy

@@ -21,5 +21,6 @@ class Project < ActiveRecord::Base
   foreign_key: :comment_container_id,
   class_name: :CommentContainer
 
+  has_many :steps
 
 end

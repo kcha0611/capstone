@@ -5,6 +5,7 @@ const ProjectConstants = require('../constants/project_constants');
 const ProjectStore = new Store(Dispatcher);
 
 let _projects = {};
+let _steps = {};
 
 ProjectStore.all = function () {
   // debugger
@@ -13,6 +14,10 @@ ProjectStore.all = function () {
 
 ProjectStore.find = function (id) {
   return _projects[id]
+}
+
+ProjectStore.allSteps = function () {
+  return Object.assign({}, _steps)
 }
 
 ProjectStore.__onDispatch = function (payload) {
@@ -46,4 +51,11 @@ ProjectStore.removeProject = function (project) {
   this.__emitChange();
 }
 
+ProjectStore.resetSteps = function (steps) {
+  _steps = steps
+  this.__emitChange();
+}
+// ProjectStore.removeStep = function (step) {
+//   delete
+// }
 module.exports = ProjectStore;

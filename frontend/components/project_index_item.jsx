@@ -2,6 +2,7 @@ const React = require('react');
 const ProjectStore = require('../stores/project_store');
 const ProjectActions = require('../actions/project_actions');
 const Link = require('react-router').Link;
+const hashHistory = require('react-router').hashHistory;
 
 const ProjectIndexItem = React.createClass({
   getInitialState: function() {
@@ -30,12 +31,25 @@ const ProjectIndexItem = React.createClass({
   //   e.preventDefault();
   //   ProjectActions.createProject({title: this.props.project.title, description: this.props.project.description})
   // },
+  goPage () {
+    // debugger
+    hashHistory.push(`api/projects/${this.props.project.id}`)
+  },
   render () {
     return (
-      <div className="proj-div">
-        <img src={this.props.project.image_url} className="proj-img"></img>
+      <div className="proj-div" onClick={this.goPage}>
+        <ul className="proj-index-images">
+            <li>
+                <figure>
+                    <img src={this.props.project.image_url} alt="" className="proj-image"/>
+                    <figcaption>
+                        <h2>{this.props.project.title}</h2>
+                        <p>{this.props.project.description}</p>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
         <br></br>
-        <Link to={`/api/projects/${this.props.project.id}`} className="proj-link">{this.props.project.title}</Link>
       </div>
     )
   }

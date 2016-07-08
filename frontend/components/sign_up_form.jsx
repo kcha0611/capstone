@@ -66,35 +66,33 @@
 // 				navLink = <Link to="/signup">sign up</Link>
 // 			}
 // 			return (
-// 			<div>
-// 				<form className="signup-form-comp" onSubmit={this.handleSubmit}>
-// 					<h1>Constructables</h1>
-// 					<br></br>
-// 					<h2>Welcome!</h2>
-// 					<br></br>
-// 					<h3>Please Sign Up!</h3>
-// 						<br></br>
-// 						<br></br>
-// 					Already a user? {navLink}!
-// 					{this.fieldErrors("base")}
-// 					<br></br>
-// 						<br></br>
-// 					<div>
-// 						<label>
-// 							Username:
-// 							<input type="text" value={this.state.username} onChange={this.uNameUpdate}></input>
-// 						</label>
-// 						<br></br>
-// 						<br></br>
-// 						<label>
-// 							Password:
-// 							<input type="password" value={this.state.password} onChange={this.passwordUpdate}></input>
-// 						</label>
-// 					</div>
-// 						<br></br>
-// 					<button type="submit" value="submit">Submit</button>
-// 				</form>
-// 			</div>
+//         <div class="form-style-5">
+//             <form>
+//             <fieldset>
+//             <legend><span class="number">1</span> Member Info</legend>
+//             <input type="text" name="field1" placeholder="Your Name *"/>
+//             <input type="email" name="field2" placeholder="Your Email *"/>
+//             <textarea name="field3" placeholder="About yourself"></textarea>
+//             <label for="job">Interests:</label>
+//             <select id="job" name="field4">
+//             <optgroup label="Topics">
+//               <option value="Cooking">Cooking</option>
+//               <option value="Technology">Technology</option>
+//               <option value="Science">Science</option>
+//               <option value="WorkShop">WorkShop</option>
+//               <option value="Outdoor">Outdoor</option>
+//               <option value="Craft">Craft</option>
+//               <option value="Costumes">Costumes</option>
+//             </optgroup>
+//             </select>
+//             </fieldset>
+//             <fieldset>
+//             <legend><span class="number">2</span> Additional Info</legend>
+//             <textarea name="field3" placeholder="About Your School"></textarea>
+//             </fieldset>
+//             <input type="submit" value="Apply" />
+//             </form>
+//   </div>
 // 		)
 // 	}
 // });

@@ -11,6 +11,8 @@ const MenuItem = ReactBootstrap.MenuItem
 const Navbar = ReactBootstrap.Navbar
 const NavItem = ReactBootstrap.NavItem
 const Nav = ReactBootstrap.Nav
+const SearchBar = require('./search-bar');
+const Button = ReactBootstrap.Button
 
 const App = React.createClass({
   componentDidMount() {
@@ -20,12 +22,15 @@ const App = React.createClass({
     // debugger
     SessionActions.logOut();
   },
+  _goIndex () {
+    hashHistory.push('#/projects')
+  },
   render() {
     let dropDown;
-    var greet;
+    // var greet;
     let homepage;
     if (SessionStore.isUserLoggedIn()) {
-      greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
+      // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
       dropDown = (
       <DropdownButton title="You" id="dropdownB-root">
         <h3>{SessionStore.currentUser().username}</h3>
@@ -34,12 +39,17 @@ const App = React.createClass({
         <MenuItem onSelect={this.handleLogOut}>LogOut</MenuItem>
       </DropdownButton>)
       if (this.props.location.pathname.slice(1) === "projects") {
-        homepage = (<div>
-                      <img src="https://shareonline.in/wp-content/uploads/2016/06/3d-amazing-images-hd-space-3d-hd-wallpaper-19670077-1920-1080-tWBbMK.jpg" className="root-background" />
-                      <h2 className="root-image-text"><span className="root-image-text-span">Explore</span></h2>
+        // debugger
+        homepage = (<div className="image-search-bar">
+                      <img src="https://static.pexels.com/photos/1562/italian-landscape-mountains-nature.jpg" className="root-background" />
+                      <h2 className="root-image-text"><span className="root-image-text-span">Lets Make</span></h2>
+                      <SearchBar id="background-search-bar"></SearchBar>
                     </div>)
       }
     }
+    // else if (this.props.location.pathname.slice(1) === "signup") {
+    //   dropDown;
+    // }http://www.w3schools.com/howto/img_nature_wide.jpg
     else {
       dropDown = (
         <Nav key={2}>
@@ -50,17 +60,22 @@ const App = React.createClass({
     }
     // debugger
     return (
-          <div>
+          <div className="root-container">
             <Navbar id="main-nav">
-              <Nav key={1}>
-                  <NavItem key={1} href="/">Constructables</NavItem>
-                  <NavItem key={2} href="/#/projects">Explore</NavItem>
-                  <NavItem key={3} href="/#/projects/new">Publish</NavItem>
+              <Nav key={1} className="nav-item">
+                  <Navbar.Header>
+                    <Navbar.Brand id="root-text-nav">
+                      <a href="/" id="root-constructables-nav">Constructables</a>
+                      <div className="root-catchphrase">Share What You Make</div>
+                    </Navbar.Brand>
+                  </Navbar.Header>
+                  <NavItem key={2} href="#/projects" id="nav-item-li-2">Explore</NavItem>
+                  <NavItem key={3} href="#/projects/new" id="nav-item-li-3">Publish</NavItem>
+                  <SearchBar id="root-search-bar"></SearchBar>
                 <Nav className="pull-right"></Nav>
               </Nav>
             </Navbar>
-            <div className="dropDown-login">{dropDown}</div>
-            <div>{greet}</div>
+            <p className="dropDown-login">{dropDown}</p>
             {homepage}
         <ul>{this.props.children}</ul>
       </div>

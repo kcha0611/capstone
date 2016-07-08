@@ -11,6 +11,7 @@ const ProjectIndex = require('./components/project_index');
 const ProjectIndexItem = require('./components/project_index_item');
 const ProjectForm = require('./components/project_form');
 const ProjectShow = require('./components/project_show');
+const StepForm = require('./components/step_form')
 // const ProjectEdit = require('./components/project_edit');
 // const CommentActions = require('./actions/comment_actions');
 // const CommentForm = require('./components/comment_form');
@@ -40,9 +41,12 @@ const routes = (
   <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Splash} onEnter={ redirectIfLoggedIn }></IndexRoute>
-         <Route path="projects/new" component={ProjectForm} onEnter={ _ensureCurrentUser } />
+         <Route path="projects/new" component={ProjectForm} onEnter={ _ensureCurrentUser }>
+         </Route>
          <Route path="projects" component={ProjectIndex} />
-         <Route path="api/projects/:projectId" component={ProjectShow} />
+         <Route path="/api/projects/:projectId" component={ProjectShow}>
+         </Route>
+        <Route path="projects/:projectId/steps/new" component={StepForm} onEnter={ _ensureCurrentUser }></Route>
       <Route path="login" component={LoginForm}  />
       <Route path="signup" component={LoginForm} />
       </Route>

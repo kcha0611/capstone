@@ -11,12 +11,15 @@ const ProjectActions = {
   fetchAllProjects() {
     ProjectApiUtil.fetchAllProjects(this.receiveProjects)
   },
+  fetchSearchedProjects (data) {
+    ProjectApiUtil.fetchSearchedProjects(data, this.receiveProjects)
+  },
   getProject (id) {
     ProjectApiUtil.getProject(id, this.receiveProject)
   },
-  createProject(project) {
+  createProject(project, cb) {
     // debugger
-    ProjectApiUtil.createProject(project, this.receiveProject)
+    ProjectApiUtil.createProject(project, this.receiveProject, cb)
   },
   updateProject (project) {
     ProjectApiUtil.editProject(project, this.receiveProject)
@@ -43,7 +46,7 @@ const ProjectActions = {
       actionType: ProjectConstants.PROJECT_REMOVED,
       project: project
     })
-  }
+  },
 }
 
 module.exports = ProjectActions;

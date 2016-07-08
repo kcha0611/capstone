@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+div.container {
+  margin-left: 0px;
+}
+
+#search-bar-id {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#root-constructables-nav {
+  margin-right: 100px;
+  font-size: 40px;
+  margin-left: 20px;
+  font: 'Berkshire Swash', Helvetica, sans-serif;
+  color: #2b2b2b;
+  text-shadow: 3px 2px 1px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+  font-weight: bold;
+  border: 2px;
+  border-color: white;
+}
+
+.root-catchphrase {
+  margin-left: 40px;
+  position: relative;
+  top: 15px;
+  font-family: 'Lobster';
+  color: #2b2b2b;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+}
+/*#root-other-nav {
+  padding: 100px;
+}*/

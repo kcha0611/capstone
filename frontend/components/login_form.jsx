@@ -82,17 +82,15 @@ const LoginForm = React.createClass({
 				navLink = <Link to="/login">login</Link>
 				greet = <div className="greet-signup">Already a User? Please {navLink}</div>
 
-				_confirmPass = <div>Confirm Password: </div>
-				_passInput = <input type="password" value={this.state.password} onChange={this.passwordUpdate}></input>
 			}
 			let capitalized = this.formType().charAt(0).toUpperCase() + this.formType().slice(1);
 			return (
 			<div>
 				<form className="login-form-comp" onSubmit={this.handleSubmit}>
 					<h2 className="h2-login-form">Discover</h2>
+						<h3>{greet}</h3>
 					<h3 className="h3-login-form">{capitalized}</h3>
 						{this.fieldErrors("base")}
-					{greet}
 					<div className="login-input">
 						<label className="formfield">
 							Username:
@@ -104,7 +102,6 @@ const LoginForm = React.createClass({
 							{this.fieldErrors("password")}
 							<input type="password" value={this.state.password} onChange={this.passwordUpdate}></input>
 							{_confirmPass}
-							{_passInput}
 						</label>
 						<input type="submit" value={this.formType()} className="submit-button"/>
 					</div>

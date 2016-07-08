@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dllnnnotc
+  api_key: '467924576287611'
+  api_secret: 8e_jiEk9pxu-PXnR4LrFgM54fM8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dllnnnotc
+  api_key: '467924576287611'
+  api_secret: 8e_jiEk9pxu-PXnR4LrFgM54fM8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dllnnnotc
+  api_key: '467924576287611'
+  api_secret: 8e_jiEk9pxu-PXnR4LrFgM54fM8
+  enhance_image_tag: true
+  static_image_support: false

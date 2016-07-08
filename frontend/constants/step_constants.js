@@ -1,0 +1,4 @@
+module.exports = {
+  STEPS_RECEIVED: "STEPS_RECEIVED",
+  STEP_RECEIVED: "STEP_RECEIVED"
+}

@@ -8,6 +8,15 @@ module.exports = {
       }
     })
   },
+  fetchSearchedProjects (data, cb) {
+    $.ajax ({
+      url: 'api/projects',
+      data: data,
+      success (res) {
+        cb(res)
+      }
+    })
+  },
   getProject (id, cb) {
     $.ajax ({
       url: `/#/project/${id}`,
@@ -19,7 +28,7 @@ module.exports = {
       }
     })
   },
-  createProject (data, cb) {
+  createProject (data, cb, stepCb) {
     $.ajax ({
       url: `api/projects`,
       method: 'POST',
@@ -27,6 +36,7 @@ module.exports = {
       data: {project: data},
       success (res) {
         cb(res)
+        stepCb(res)
       }
       // error () {
       //   console.log("Field is blank!");
