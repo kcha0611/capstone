@@ -33940,6 +33940,7 @@
 	
 	var StepsIndex = __webpack_require__(268);
 	var React = __webpack_require__(1);
+	var Media = __webpack_require__(272).Media;
 	
 	var StepIndexItem = React.createClass({
 	  displayName: 'StepIndexItem',
@@ -33963,36 +33964,56 @@
 	  //   this.setState({title: this.state.title, description: this.state.description, order: this.state.order, image_url: this.state.image_url})
 	  // },
 	  render: function render() {
-	    debugger;
-	    return React.createElement(
-	      'div',
-	      { className: 'step-index-item' },
+	    // debugger
+	    return(
+	      // <div className="step-index-item">
+	      //   <h1 className="step-index-h1">{`Phase ${this.state.order}:`}</h1>
+	      //   <h2 className="step-index-h2">Title:</h2>
+	      //   <a className="step-index-title">{this.state.title}</a>
+	      //   <h3 className="step-index-h3">Description:</h3>
+	      //   <p className="step-index-description">{this.state.description}</p>
+	      //   <img src={this.state.image_url}></img>
+	      // </div>
+	      // <Media>
+	      //   <Media.Left>
+	      //     <img src={this.state.image_url} width={300} height={200} alt="Image"></img>
+	      //   </Media.Left>
+	      //   <Media.Body>
+	      //     <Media.Heading className="step-index-h1">
+	      //       {`Phase ${this.state.order}:`}
+	      //     </Media.Heading>
+	      //     <Media.Heading className="step-index-h2">
+	      //       Title: {this.state.title}
+	      //     </Media.Heading>
+	      //     <p className="step-index-description">
+	      //       Description: {this.state.description}
+	      //     </p>
+	      //   </Media.Body>
+	      // </Media>
 	      React.createElement(
-	        'h1',
-	        { className: 'step-index-h1' },
-	        'Phase ' + this.state.order + ':'
-	      ),
-	      React.createElement(
-	        'h2',
-	        { className: 'step-index-h2' },
-	        'Title:'
-	      ),
-	      React.createElement(
-	        'a',
-	        { className: 'step-index-title' },
-	        this.state.title
-	      ),
-	      React.createElement(
-	        'h3',
-	        { className: 'step-index-h3' },
-	        'Description:'
-	      ),
-	      React.createElement(
-	        'p',
-	        { className: 'step-index-description' },
-	        this.state.description
-	      ),
-	      React.createElement('img', { src: this.state.image_url })
+	        Media,
+	        null,
+	        React.createElement(
+	          Media.Left,
+	          { align: 'top' },
+	          React.createElement('img', { width: 300, height: 200, src: this.state.image_url, alt: 'Image', className: '' })
+	        ),
+	        React.createElement(
+	          Media.Body,
+	          null,
+	          React.createElement(
+	            Media.Heading,
+	            { className: 'step-index-h1' },
+	            'Phase ' + this.state.order + ': ' + this.state.title
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'step-index-description' },
+	            'Description: ',
+	            this.state.description
+	          )
+	        )
+	      )
 	    );
 	  }
 	});
@@ -57956,6 +57977,9 @@
 	var StepStore = __webpack_require__(269);
 	var StepIndexItem = __webpack_require__(270);
 	var Media = __webpack_require__(272).Media;
+	var Thumbnail = __webpack_require__(272).Thumbnail;
+	var Col = __webpack_require__(272).Col;
+	var Row = __webpack_require__(272).Row;
 	
 	var ProjectShow = React.createClass({
 	  displayName: 'ProjectShow',
@@ -58010,40 +58034,43 @@
 	    //   )
 	    // }
 	    return React.createElement(
-	      'div',
-	      null,
+	      Col,
+	      { xs: 9, md: 7, className: 'show-col' },
 	      React.createElement(
-	        Media,
-	        null,
+	        Thumbnail,
+	        { src: this.state.project.image_url, className: 'thumbnail-proj-show' },
 	        React.createElement(
-	          Media.Left,
-	          { align: 'top' },
-	          React.createElement('img', { width: 800, height: 700, src: this.state.project.image_url, alt: 'Image', className: 'show-image' })
-	        ),
-	        React.createElement(
-	          Media.Body,
+	          'h3',
 	          null,
-	          React.createElement(
-	            Media.Heading,
-	            { className: 'show-title' },
-	            this.state.project.title
-	          ),
-	          React.createElement(
-	            'p',
-	            { className: 'show-description' },
-	            'Summary: ',
-	            this.state.project.description
-	          )
+	          this.state.project.title
 	        ),
-	        this.state.steps.map(function (step) {
-	          return React.createElement(StepIndexItem, { step: step });
-	        })
-	      )
+	        React.createElement(
+	          'p',
+	          null,
+	          this.state.project.description
+	        )
+	      ),
+	      this.state.steps.map(function (step) {
+	        return React.createElement(StepIndexItem, { step: step });
+	      })
 	    );
 	  }
 	});
 	
 	module.exports = ProjectShow;
+	// <Media>
+	//      <Media.Left align="top">
+	//        <img width={800} height={700} src={this.state.project.image_url} alt="Image" className="show-image"/>
+	//      </Media.Left>
+	//      <Media.Body>
+	//        <Media.Heading className="show-title">{this.state.project.title}</Media.Heading>
+	//        <p className="show-description">Summary: {this.state.project.description}</p>
+	//      </Media.Body>
+	//      {this.state.steps.map ((step) =>
+	//        <StepIndexItem step={step}></StepIndexItem>
+	//      )
+	//    }
+	//    </Media>
 
 /***/ },
 /* 552 */

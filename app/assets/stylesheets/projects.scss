@@ -136,3 +136,21 @@ select{
   height: 440px;
   margin-bottom: 13px;
 }
+
+.thumbnail {
+  margin-right: 500px;
+  margin-left: 0px;
+}
+
+.thumbnail img {
+  width: 1100px;
+  height: 1100px
+}
+
+.thumbnail p, h3 {
+  text-align: center;
+}
+
+.show-col {
+  display: block;
+}

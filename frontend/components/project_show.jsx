@@ -5,6 +5,9 @@ const StepActions = require('../actions/step_actions');
 const StepStore = require('../stores/step_store');
 const StepIndexItem = require('./step_index_item')
 const Media = require('react-bootstrap').Media
+const Thumbnail = require('react-bootstrap').Thumbnail
+const Col = require('react-bootstrap').Col
+const Row = require('react-bootstrap').Row
 
 const ProjectShow = React.createClass({
   getInitialState: function() {
@@ -57,23 +60,31 @@ const ProjectShow = React.createClass({
   //   )
   // }
     return (
-      <div>
-        <Media>
-             <Media.Left align="top">
-               <img width={800} height={700} src={this.state.project.image_url} alt="Image" className="show-image"/>
-             </Media.Left>
-             <Media.Body>
-               <Media.Heading className="show-title">{this.state.project.title}</Media.Heading>
-               <p className="show-description">Summary: {this.state.project.description}</p>
-             </Media.Body>
-             {this.state.steps.map ((step) =>
-               <StepIndexItem step={step}></StepIndexItem>
-             )
-           }
-           </Media>
-      </div>
+      <Col xs={9} md={7} className="show-col">
+        <Thumbnail src={this.state.project.image_url} className="thumbnail-proj-show">
+          <h3>{this.state.project.title}</h3>
+            <p>{this.state.project.description}</p>
+        </Thumbnail>
+        {this.state.steps.map ((step) =>
+          <StepIndexItem step={step}></StepIndexItem>
+        )
+      }
+      </Col>
     )
   }
 })
 
 module.exports = ProjectShow;
+// <Media>
+//      <Media.Left align="top">
+//        <img width={800} height={700} src={this.state.project.image_url} alt="Image" className="show-image"/>
+//      </Media.Left>
+//      <Media.Body>
+//        <Media.Heading className="show-title">{this.state.project.title}</Media.Heading>
+//        <p className="show-description">Summary: {this.state.project.description}</p>
+//      </Media.Body>
+//      {this.state.steps.map ((step) =>
+//        <StepIndexItem step={step}></StepIndexItem>
+//      )
+//    }
+//    </Media>
