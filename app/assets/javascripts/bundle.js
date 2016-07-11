@@ -34004,7 +34004,7 @@
 	          null,
 	          React.createElement(
 	            'div',
-	            null,
+	            { className: 'step-index-div' },
 	            React.createElement(
 	              Media.Heading,
 	              { className: 'step-index-h1' },
@@ -58048,14 +58048,26 @@
 	          Thumbnail,
 	          { src: this.state.project.image_url, className: 'thumbnail-proj-show' },
 	          React.createElement(
-	            'h3',
-	            { className: 'show-title' },
-	            this.state.project.title
-	          ),
-	          React.createElement(
-	            'p',
-	            { className: 'show-description' },
-	            this.state.project.description
+	            'section',
+	            { className: 'section-proj-show' },
+	            React.createElement(
+	              'section',
+	              null,
+	              React.createElement(
+	                'h3',
+	                { className: 'show-title' },
+	                this.state.project.title
+	              )
+	            ),
+	            React.createElement(
+	              'section',
+	              null,
+	              React.createElement(
+	                'p',
+	                { className: 'show-description' },
+	                this.state.project.description
+	              )
+	            )
 	          )
 	        ),
 	        this.state.steps.map(function (step) {

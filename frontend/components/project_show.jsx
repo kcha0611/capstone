@@ -63,8 +63,10 @@ const ProjectShow = React.createClass({
     <div className="proj-show-wrap">
       <Col xs={9} md={7} className="show-col">
         <Thumbnail src={this.state.project.image_url} className="thumbnail-proj-show">
-          <h3 className="show-title">{this.state.project.title}</h3>
-            <p className="show-description">{this.state.project.description}</p>
+          <section className="section-proj-show">
+              <section><h3 className="show-title">{this.state.project.title}</h3></section>
+              <section><p className="show-description">{this.state.project.description}</p></section>
+          </section>
         </Thumbnail>
         {this.state.steps.map ((step) =>
           <StepIndexItem step={step}></StepIndexItem>
