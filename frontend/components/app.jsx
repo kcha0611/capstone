@@ -33,12 +33,13 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
       dropDown = (
-      <DropdownButton title="You" id="dropdownB-root">
-        <h3>{SessionStore.currentUser().username}</h3>
-        <MenuItem href={"/api/users/" + SessionStore.currentUser().id}>Profile</MenuItem>
-        <MenuItem href={"/"}>Favorites</MenuItem>
-        <MenuItem onSelect={this.handleLogOut}>LogOut</MenuItem>
-      </DropdownButton>)
+        <Button onClick={this.handleLogOut}>LogOut</Button>)
+      // <DropdownButton title="You" id="dropdownB-root">
+      //   <h3>{SessionStore.currentUser().username}</h3>
+      //   <MenuItem href={"/api/users/" + SessionStore.currentUser().id}>Profile</MenuItem>
+      //   <MenuItem href={"/"}>Favorites</MenuItem>
+      //   <MenuItem onSelect={this.handleLogOut}>LogOut</MenuItem>
+      // </DropdownButton>)
       if (this.props.location.pathname.slice(1) === "projects") {
         // debugger
         homepage = (<SlideShow></SlideShow>)

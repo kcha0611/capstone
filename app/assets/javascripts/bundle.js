@@ -26026,29 +26026,16 @@
 	    if (SessionStore.isUserLoggedIn()) {
 	      // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
 	      dropDown = React.createElement(
-	        DropdownButton,
-	        { title: 'You', id: 'dropdownB-root' },
-	        React.createElement(
-	          'h3',
-	          null,
-	          SessionStore.currentUser().username
-	        ),
-	        React.createElement(
-	          MenuItem,
-	          { href: "/api/users/" + SessionStore.currentUser().id },
-	          'Profile'
-	        ),
-	        React.createElement(
-	          MenuItem,
-	          { href: "/" },
-	          'Favorites'
-	        ),
-	        React.createElement(
-	          MenuItem,
-	          { onSelect: this.handleLogOut },
-	          'LogOut'
-	        )
+	        Button,
+	        { onClick: this.handleLogOut },
+	        'LogOut'
 	      );
+	      // <DropdownButton title="You" id="dropdownB-root">
+	      //   <h3>{SessionStore.currentUser().username}</h3>
+	      //   <MenuItem href={"/api/users/" + SessionStore.currentUser().id}>Profile</MenuItem>
+	      //   <MenuItem href={"/"}>Favorites</MenuItem>
+	      //   <MenuItem onSelect={this.handleLogOut}>LogOut</MenuItem>
+	      // </DropdownButton>)
 	      if (this.props.location.pathname.slice(1) === "projects") {
 	        // debugger
 	        homepage = React.createElement(SlideShow, null);
