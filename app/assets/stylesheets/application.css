@@ -15,6 +15,7 @@
  */
 div.container {
   margin-left: 0px;
+  margin-bottom: 30px;
 }
 
 /*.carousel-thing {
@@ -44,7 +45,7 @@ div.container {
   position: relative;
   top: 15px;
   font-family: 'Lobster';
-  color: white;
+  color: black;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
   font-weight: bold;
   font-size: 30px;
