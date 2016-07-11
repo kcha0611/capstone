@@ -57919,7 +57919,7 @@
 	            React.createElement(
 	              'p',
 	              { id: 'carousel-text1' },
-	              'Renewable Energy'
+	              'Renewables'
 	            )
 	          )
 	        ),

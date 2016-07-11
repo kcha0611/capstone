@@ -12,7 +12,7 @@ const SlideShow = React.createClass({
       <Carousel className="carousel-thing">
         <Carousel.Item>
           <Carousel.Caption>
-            <h3 id="carousel-renewable">Let's Make<p id="carousel-text1">Renewable Energy</p></h3>
+            <h3 id="carousel-renewable">Let's Make<p id="carousel-text1">Renewables</p></h3>
           </Carousel.Caption>
             <img src="https://static.pexels.com/photos/1562/italian-landscape-mountains-nature.jpg" id="carousel-img1"></img>
         </Carousel.Item>
