@@ -17,7 +17,7 @@ const StepsIndex = React.createClass({
     this.setState({steps: StepStore.all()})
   },
   render () {
-    debugger
+    // debugger
     return (
       <div>
         {this.state.steps.map ((step) => {

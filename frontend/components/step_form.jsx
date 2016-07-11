@@ -51,15 +51,15 @@ const StepForm = React.createClass({
     return (
       <div className="step-form-div">
         <StepsIndex projectId={this.props.params.projectId} />
-        <form>
+        <form className="project-form">
           <h1 className="proj-form-title">
             Create Phase:
           </h1>
           <h2 className="phase-order">{`Phase ${this.state.order}`}</h2>
             <ul className="form-style-1">
-                <li><label>Step Title<span className="required">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
+                <li><label>Step Title<span className="step-title">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
                 <li>
-                    <label>Description<span className="required">*</span></label>
+                    <label>Description<span className="step-summary">*</span></label>
                     <textarea type="text" name="field3" className="field-long" placeholder="Description" onChange={this.dChange}/>
                 </li>
           <button onClick={this.addPhase} className="additional-field">Add a Phase!</button>

@@ -9,7 +9,7 @@ const SlideShow = React.createClass({
   },
   render () {
     return (
-      <Carousel>
+      <Carousel className="carousel-thing">
         <Carousel.Item>
           <Carousel.Caption>
             <h3 id="carousel-renewable">Let's Make<p id="carousel-text1">Renewable Energy</p></h3>

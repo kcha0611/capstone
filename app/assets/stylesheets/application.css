@@ -17,6 +17,11 @@ div.container {
   margin-left: 0px;
 }
 
+/*.carousel-thing {
+  width: 1920px;
+
+}*/
+
 #search-bar-id {
   display: flex;
   justify-content: flex-end;

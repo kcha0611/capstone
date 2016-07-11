@@ -53,14 +53,14 @@ const ProjectForm = React.createClass({
       <div className="div-proj-form">
         <h1 className="proj-form-title">Create a Project</h1>
         <form onSubmit={this._submit} className="project-form">
-        <ul className="form-style-1">
-            <li><label>Project Title<span className="required">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
+        <ul className="proj-form-fields">
+            <li><label className="project-title">Project Title<span className="required">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
             <li>
-                <label>Summary<span className="required">*</span></label>
+                <label className="project-summary">Summary<span className="required">*</span></label>
                 <input type="text" name="field3" className="field-long" placeholder="Summary" onChange={this.dChange}/>
             </li>
             <li>
-                <label>Subject<span className="required">*</span></label>
+                <label className="project-subject">Subject<span className="required">*</span></label>
                 <select name="field4" className="field-select">
                 <option value="Technology">Technology</option>
                 <option value="Cooking">Cooking</option>

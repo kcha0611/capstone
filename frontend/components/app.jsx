@@ -49,7 +49,7 @@ const App = React.createClass({
     // }http://www.w3schools.com/howto/img_nature_wide.jpg
     else {
       dropDown = (
-        <Nav key={2}>
+        <Nav key={2} className="nav-signin">
           <NavItem key={4} href="/#/signup">Sign Up</NavItem>
           <NavItem key={5} href="/#/login">Login</NavItem>
         </Nav>

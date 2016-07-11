@@ -1,6 +1,7 @@
 const StepsIndex = require('./steps_index')
 const React = require('react')
 const Media = require('react-bootstrap').Media
+const Image = require('react-bootstrap').Image;
 
 const StepIndexItem = React.createClass({
   getInitialState: function() {
@@ -48,12 +49,12 @@ const StepIndexItem = React.createClass({
       //     </p>
       //   </Media.Body>
       // </Media>
-        <Media>
+        <Media className="step-index-media">
            <Media.Left align="top">
-             <img width={300} height={200} src={this.state.image_url} alt="Image" className=""/>
+             <img width={270} height={180} src={this.state.image_url} alt="Image" className=""/>
            </Media.Left>
            <Media.Body>
-             <Media.Heading className="step-index-h1">{`Phase ${this.state.order}: ${this.state.title}`}</Media.Heading>
+             <div><Media.Heading className="step-index-h1">{`Phase ${this.state.order}: ${this.state.title}`}</Media.Heading></div>
              <p className="step-index-description">Description: {this.state.description}</p>
            </Media.Body>
         </Media>

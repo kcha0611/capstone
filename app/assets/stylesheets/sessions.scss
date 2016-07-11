@@ -227,9 +227,9 @@ justify-content: space-around;
 }
 
 .dropDown-login {
+  float: right;
   position: relative;
-  left: 1710px;
-  bottom: 66px;
+  bottom: 60px;
 }
 
 .show-title {
@@ -237,10 +237,10 @@ justify-content: space-around;
   // display: flex;
   // font-family: "Lobster";
   // font-size: 60px;
-  color: #111; font-family: 'Lobster', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
-  font-color: #CD7213;
-  text-decoration: underline;
-  text-decoration-color: white;
+  // color: #111; font-family: 'Lobster', sans-serif; font-size: 35px; font-weight: bold; letter-spacing: -1px; line-height: 1;
+  // font-color: #CD7213;
+  word-wrap: break-word;
+  margin:0px;
 }
 .show-image {
   // width: 900px;
@@ -248,16 +248,16 @@ justify-content: space-around;
   border-radius: 30px;
 }
 
-.show-description {
-  // display: flex;
-  // justify-content: space-around;
- color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; line-height: 24px;
- text-align: center;
- color: white;
- font-size: 30px;
- display: block;
- font-weight: bold;
-}
+// .show-description {
+//   // display: flex;
+//   // justify-content: space-around;
+//  color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; line-height: 24px;
+//  text-align: center;
+//  color: white;
+//  font-size: 30px;
+//  display: block;
+//  font-weight: bold;
+// }
 .proj-form-title {
   font-family: "Dancing Script";
   text-align: center;
@@ -278,7 +278,7 @@ html, div.root-container {
 
 .form-create-button {
   position: relative;
-  left: 1000px;
+  left: 780px;
   background: #4B99AD;
   padding: 8px 15px 8px 15px;
   border: none;
@@ -290,30 +290,43 @@ html, div.root-container {
 .step-index-h1 {
   padding: 30px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 55px;
+  font-size: 30px;
+  padding: 0px;
+  font-weight: bold;
+  // width: 1500px;
+  float: left;
 }
 .step-index-h2 {
   padding: 30px;
   font-family:  Helvetica, Arial, sans-serif;
-  font-size: 40px
+  font-size: 30px;
+  font-weight: bold;
+  // width: 1500px;
+  float: left;
 }
 
 .step-index-h3 {
   padding: 30px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  // width: 1500px;
+  float: left;
 }
 
-.step-index-item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+// .step-index-item {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+// }
 
 
 .step-index-description {
   font-family: 'Corben', Georgia, Times, serif;
   color: white;
+  font-size: 20px;
+  word-wrap: break-word;
+  // width: 1500px;
 }
 
 .step-index-title {
@@ -341,4 +354,30 @@ html, div.root-container {
   text-decoration: underline;
   color: green;
   margin-left: 110px;
+}
+
+.show-description {
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  left: 10px;
+  // display:flex;
+  // justify-content: space-around;
+}
+
+// .step-index-media {
+//   display: flex;
+//   align-items: flex-start;
+// }
+
+.proj-index-item-masonry {
+  position: relative;
+  right:50px;
+}
+
+.nav-signin {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  right: 500px;
 }
