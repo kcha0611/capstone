@@ -26027,7 +26027,7 @@
 	      // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
 	      dropDown = React.createElement(
 	        Button,
-	        { onClick: this.handleLogOut },
+	        { onClick: this.handleLogOut, className: 'logout-button' },
 	        'LogOut'
 	      );
 	      // <DropdownButton title="You" id="dropdownB-root">

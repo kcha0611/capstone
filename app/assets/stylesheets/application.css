@@ -75,19 +75,19 @@ div.container {
 
 #carousel-img1 {
   width: 100%;
-  height: 750px;
+  height: 1000px;
   /*margin-bottom: 50px;*/
 }
 
 #carousel-img2 {
   width: 100%;
-  height: 750px;
+  height: 1000px;
   /*margin-bottom: 50px;*/
 }
 
 #carousel-img3 {
   width: 100%;
-  height: 750px;
+  height: 1000px;
   /*margin-bottom: 50px;*/
 }
 
@@ -112,4 +112,14 @@ div.container {
 
 .proj-show-div {
   display: block;
+}
+
+.carousel-thing {
+  position: relative;
+  bottom: 64px;
+}
+
+.logout-button {
+  position: relative;
+  bottom: 36px;
 }
