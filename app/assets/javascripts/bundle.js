@@ -33016,12 +33016,16 @@
 	    }
 	    // debugger
 	    return React.createElement(
-	      Masonry,
-	      {
-	        className: 'proj-index-item-masonry',
-	        elementType: 'ul',
-	        options: masonryOptions },
-	      _projects
+	      'div',
+	      { className: 'proj-masonry-div' },
+	      React.createElement(
+	        Masonry,
+	        {
+	          className: 'proj-index-item-masonry',
+	          elementType: 'ul',
+	          options: masonryOptions },
+	        _projects
+	      )
 	    );
 	  }
 	});
