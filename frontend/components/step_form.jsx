@@ -57,7 +57,7 @@ const StepForm = React.createClass({
           </h1>
           <h2 className="phase-order">{`Phase ${this.state.order}`}</h2>
             <ul className="form-style-1">
-                <li><label>Step Title<span className="step-title">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
+                <li><label className="step-form-title">Step Title<span className="step-title">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
                 <li>
                     <label>Description<span className="step-summary">*</span></label>
                     <textarea type="text" name="field3" className="field-long" placeholder="Description" onChange={this.dChange}/>

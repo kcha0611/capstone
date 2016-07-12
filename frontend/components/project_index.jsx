@@ -30,8 +30,8 @@ const ProjectIndex = React.createClass({
       fitWidth: true,
       // columnWidth: 200,
       gutter: 0,
-      fitHeight: true
-      // maxWidth: 800
+      // fitHeight: true,
+      maxWidth: 1200
     }
 		if (this.state.projects) {
 			let projectKeys = Object.keys(this.state.projects);

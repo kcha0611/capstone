@@ -32997,8 +32997,8 @@
 	      fitWidth: true,
 	      // columnWidth: 200,
 	      gutter: 0,
-	      fitHeight: true
-	      // maxWidth: 800
+	      // fitHeight: true,
+	      maxWidth: 1200
 	    };
 	    if (this.state.projects) {
 	      var projectKeys = Object.keys(this.state.projects);
@@ -33712,7 +33712,7 @@
 	            null,
 	            React.createElement(
 	              'label',
-	              null,
+	              { className: 'step-form-title' },
 	              'Step Title',
 	              React.createElement(
 	                'span',
