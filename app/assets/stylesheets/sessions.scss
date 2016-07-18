@@ -153,8 +153,6 @@ float: left;
     display:block;
     position:absolute;
     z-index:5;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
     box-sizing:border-box
 }
 .proj-index-images figure h2 {
@@ -182,27 +180,17 @@ float: left;
     background-color:rgba(26,76,110,0.5);
     text-align:center;
     backface-visibility:hidden;
-    -webkit-transform:rotateY(-180deg);
-    -moz-transform:rotateY(-180deg);
     transform:rotateY(-180deg);
-    -webkit-transition:all .5s;
-    -moz-transition:all .5s;
     transition:all .5s
 }
 .proj-index-images figure img {
     backface-visibility:hidden;
-    -webkit-transition:all .5s;
-    -moz-transition:all .5s;
     transition:all .5s
 }
 .proj-index-images figure:hover img,figure.hover img {
-    -webkit-transform:rotateY(180deg);
-    -moz-transform:rotateY(180deg);
     transform:rotateY(180deg)
 }
-.proj-index-images figure:hover figcaption,figure.hover figcaption {
-    -webkit-transform:rotateY(0);
-    -moz-transform:rotateY(0);
+.proj-index-images figure:hover figcaption, figure.hover figcaption {
     transform:rotateY(0)
 }
 
@@ -233,31 +221,13 @@ justify-content: space-around;
 }
 
 .show-title {
-  // text-align: center;
-  // display: flex;
-  // font-family: "Lobster";
-  // font-size: 60px;
-  // color: #111; font-family: 'Lobster', sans-serif; font-size: 35px; font-weight: bold; letter-spacing: -1px; line-height: 1;
-  // font-color: #CD7213;
   word-wrap: break-word;
   margin:0px;
 }
 .show-image {
-  // width: 900px;
-  // height: 800px;
   border-radius: 30px;
 }
 
-// .show-description {
-//   // display: flex;
-//   // justify-content: space-around;
-//  color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; line-height: 24px;
-//  text-align: center;
-//  color: white;
-//  font-size: 30px;
-//  display: block;
-//  font-weight: bold;
-// }
 .proj-form-title {
   font-family: "Dancing Script";
   text-align: center;
@@ -266,9 +236,6 @@ justify-content: space-around;
 
 }
 
-// div {
-//   background-color:#2B2B2B
-// }
 
 html, div.root-container {
   background-image: url("http://wallpapercave.com/wp/CyT83yY.jpg");
@@ -314,11 +281,6 @@ html, div.root-container {
   float: left;
 }
 
-// .step-index-item {
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-// }
 
 
 .step-index-description {
@@ -365,10 +327,6 @@ html, div.root-container {
   // justify-content: space-around;
 }
 
-// .step-index-media {
-//   display: flex;
-//   align-items: flex-start;
-// }
 
 .proj-index-item-masonry {
   position: relative;
@@ -376,10 +334,6 @@ html, div.root-container {
   margin-left: auto;
   margin-right: auto;
   right: 55px;
-}
-
-.proj-masonry-div {
-
 }
 
 .nav-signin {
