@@ -21,40 +21,7 @@
     display:block;
     font-weight: bold;
 }
-.proj-form-fields input[type=text],
-textarea,
-select{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border:1px solid #BEBEBE;
-    padding: 7px;
-    margin:0px;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    outline: none;
-}
-.proj-form-fields input[type=text]:focus,
-.proj-form-fields textarea:focus,
-.proj-form-fields select:focus{
-    -moz-box-shadow: 0 0 8px #88D5E9;
-    -webkit-box-shadow: 0 0 8px #88D5E9;
-    box-shadow: 0 0 8px #88D5E9;
-    border: 1px solid #88D5E9;
-}
-.proj-form-fields .field-divided{
-    width: 500px;
-    text-align: center;
-    border-radius: 10px;
-}
 
-.proj-form-fields .field-long{
-    width: 500px;
-    text-align: center;
-    border-radius: 10px;
-}
 .proj-form-fields .field-select{
     width: 500px;
     text-align: center;
@@ -62,18 +29,7 @@ select{
 .proj-form-fields .field-textarea{
     height: 100px;
 }
-.proj-form-fields input[type=submit], .proj-form-fields input[type=button]{
-    background: #4B99AD;
-    padding: 8px 15px 8px 15px;
-    border: none;
-    color: #fff;
-}
-.proj-form-fields input[type=submit]:hover, .proj-form-fields input[type=button]:hover{
-    background: #4691A4;
-    box-shadow:none;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-}
+
 .proj-form-fields .required{
     color:red;
 }
@@ -127,6 +83,33 @@ select{
   width: 370px;
   height: 400px;
   margin-bottom: 13px;
+}
+
+.proj-form-fields input[type=text],
+textarea,
+select{
+    box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    outline: none;
+}
+.proj-form-fields input[type=text]:focus,
+.proj-form-fields textarea:focus,
+.proj-form-fields select:focus{
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+.proj-form-fields .field-divided{
+    width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.proj-form-fields .field-long{
+    width: 500px;
+    text-align: center;
+    border-radius: 10px;
 }
 
 .proj-image.extra-tall {
@@ -187,6 +170,17 @@ ul {
 .step-index-div {
   display: flex;
   flex-direction: column;
+}
+
+.proj-form-fields input[type=submit], .proj-form-fields input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.proj-form-fields input[type=submit]:hover, .proj-form-fields input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
 }
 
 .navbar-default {
