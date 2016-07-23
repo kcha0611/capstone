@@ -51,25 +51,14 @@ const ProjectForm = React.createClass({
     render () {
     return (
       <div className="div-proj-form">
+        <div className="inner-div-form">
         <h1 className="proj-form-title">Create a Project</h1>
         <form onSubmit={this._submit} className="project-form">
         <ul className="proj-form-fields">
-            <li><label className="project-title">Project Title<span className="required">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
+            <li><label className="project-title">Project Title<span className="required">*</span></label><input type="text" name="field1" className="proj-title" placeholder="Title"onChange={this.tChange} /></li>
             <li>
                 <label className="project-summary">Summary<span className="required">*</span></label>
-                <input type="text" name="field3" className="field-long" placeholder="Summary" onChange={this.dChange}/>
-            </li>
-            <li>
-                <label className="project-subject">Subject<span className="required">*</span></label>
-                <select name="field4" className="field-select">
-                <option value="Technology">Technology</option>
-                <option value="Cooking">Cooking</option>
-                <option value="Outdoor">Outdoor</option>
-                <option value="Craft">Craft</option>
-                <option value="Home">Home</option>
-                <option value="Costumes">Costumes</option>
-                <option value="Workshop">Workshop</option>
-                </select>
+                <input type="text" name="field3" className="proj-summary" placeholder="Summary" onChange={this.dChange}/>
             </li>
             <li className="additional-field">
                 <button onClick={this.updateImage} className="image-class">Upload an Image!</button>
@@ -78,9 +67,25 @@ const ProjectForm = React.createClass({
         </ul>
               <input className="form-create-button" type="submit" value="Create"/>
         </form>
+        </div>
       </div>
     )
   }
 })
 
 module.exports = ProjectForm;
+
+
+
+// <li>
+//     <label className="project-subject">Subject<span className="required">*</span></label>
+//     <select name="field4" className="field-select">
+//     <option value="Technology">Technology</option>
+//     <option value="Cooking">Cooking</option>
+//     <option value="Outdoor">Outdoor</option>
+//     <option value="Craft">Craft</option>
+//     <option value="Home">Home</option>
+//     <option value="Costumes">Costumes</option>
+//     <option value="Workshop">Workshop</option>
+//     </select>
+// </li>

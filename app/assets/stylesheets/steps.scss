@@ -1,3 +1,27 @@
 // Place all the styles related to the steps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.step-form-div {
+  border: 2px solid white;
+  width: 982px;
+  height: 688px;
+  margin-left: auto;
+  margin-right: 23.6%;
+  background-color: white;
+  border-radius: 40px;
+}
+
+
+html {
+  width: 100%
+}
+
+.form-style-1 {
+  list-style-type: none;
+  margin-right: 6%;
+}
+
+.phase-order {
+  margin-left: 27px;
+}

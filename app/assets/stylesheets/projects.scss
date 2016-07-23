@@ -100,13 +100,14 @@ select{
     box-shadow: 0 0 8px #88D5E9;
     border: 1px solid #88D5E9;
 }
-.proj-form-fields .field-divided{
+.proj-form-fields .proj-title{
     width: 500px;
     text-align: center;
     border-radius: 10px;
+    // float: left;
 }
 
-.proj-form-fields .field-long{
+.proj-form-fields .proj-summary{
     width: 500px;
     text-align: center;
     border-radius: 10px;
@@ -199,4 +200,49 @@ ul {
 .section-proj-show {
   display: flex;
   flex-direction: column;
+}
+
+.div-proj-form {
+  border: 2px solid white;
+  width: 982px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 40px;
+  height: 688px;
+}
+
+form.project-form {
+  margin-right: 160px;
+}
+.proj-form-title {
+  margin-right: 150px;
+  text-decoration: underline;
+  margin-bottom: 40px;
+}
+
+.form-create-button {
+  margin-right: 100px;
+  border-radius: 40px;
+}
+
+.image-class {
+  border-radius: 40px;
+  padding: 15px;
+}
+
+label.project-summary {
+  margin-bottom: 40px;
+  font-size: 40px;
+  text-align: center;
+  display: flex;
+}
+
+label.project-title {
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.project-form {
+  margin-left: 146px;
 }

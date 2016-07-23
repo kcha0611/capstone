@@ -185,7 +185,8 @@ float: left;
 }
 .proj-index-images figure img {
     backface-visibility:hidden;
-    transition:all .5s
+    transition:all .5s;
+    // border: 2px solid black;
 }
 .proj-index-images figure:hover img,figure.hover img {
     transform:rotateY(180deg)
@@ -202,6 +203,7 @@ cursor: pointer;
 padding: 0px;
 display: inline-flex;
 justify-content: space-around;
+border: 2px solid black;
 }
 
 .proj-image {

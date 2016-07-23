@@ -33519,116 +33519,80 @@
 	      'div',
 	      { className: 'div-proj-form' },
 	      React.createElement(
-	        'h1',
-	        { className: 'proj-form-title' },
-	        'Create a Project'
-	      ),
-	      React.createElement(
-	        'form',
-	        { onSubmit: this._submit, className: 'project-form' },
+	        'div',
+	        { className: 'inner-div-form' },
 	        React.createElement(
-	          'ul',
-	          { className: 'proj-form-fields' },
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'label',
-	              { className: 'project-title' },
-	              'Project Title',
-	              React.createElement(
-	                'span',
-	                { className: 'required' },
-	                '*'
-	              )
-	            ),
-	            React.createElement('input', { type: 'text', name: 'field1', className: 'field-divided', placeholder: 'Title', onChange: this.tChange })
-	          ),
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'label',
-	              { className: 'project-summary' },
-	              'Summary',
-	              React.createElement(
-	                'span',
-	                { className: 'required' },
-	                '*'
-	              )
-	            ),
-	            React.createElement('input', { type: 'text', name: 'field3', className: 'field-long', placeholder: 'Summary', onChange: this.dChange })
-	          ),
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'label',
-	              { className: 'project-subject' },
-	              'Subject',
-	              React.createElement(
-	                'span',
-	                { className: 'required' },
-	                '*'
-	              )
-	            ),
-	            React.createElement(
-	              'select',
-	              { name: 'field4', className: 'field-select' },
-	              React.createElement(
-	                'option',
-	                { value: 'Technology' },
-	                'Technology'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Cooking' },
-	                'Cooking'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Outdoor' },
-	                'Outdoor'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Craft' },
-	                'Craft'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Home' },
-	                'Home'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Costumes' },
-	                'Costumes'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Workshop' },
-	                'Workshop'
-	              )
-	            )
-	          ),
-	          React.createElement(
-	            'li',
-	            { className: 'additional-field' },
-	            React.createElement(
-	              'button',
-	              { onClick: this.updateImage, className: 'image-class' },
-	              'Upload an Image!'
-	            )
-	          )
+	          'h1',
+	          { className: 'proj-form-title' },
+	          'Create a Project'
 	        ),
-	        React.createElement('input', { className: 'form-create-button', type: 'submit', value: 'Create' })
+	        React.createElement(
+	          'form',
+	          { onSubmit: this._submit, className: 'project-form' },
+	          React.createElement(
+	            'ul',
+	            { className: 'proj-form-fields' },
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'label',
+	                { className: 'project-title' },
+	                'Project Title',
+	                React.createElement(
+	                  'span',
+	                  { className: 'required' },
+	                  '*'
+	                )
+	              ),
+	              React.createElement('input', { type: 'text', name: 'field1', className: 'proj-title', placeholder: 'Title', onChange: this.tChange })
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'label',
+	                { className: 'project-summary' },
+	                'Summary',
+	                React.createElement(
+	                  'span',
+	                  { className: 'required' },
+	                  '*'
+	                )
+	              ),
+	              React.createElement('input', { type: 'text', name: 'field3', className: 'proj-summary', placeholder: 'Summary', onChange: this.dChange })
+	            ),
+	            React.createElement(
+	              'li',
+	              { className: 'additional-field' },
+	              React.createElement(
+	                'button',
+	                { onClick: this.updateImage, className: 'image-class' },
+	                'Upload an Image!'
+	              )
+	            )
+	          ),
+	          React.createElement('input', { className: 'form-create-button', type: 'submit', value: 'Create' })
+	        )
 	      )
 	    );
 	  }
 	});
 	
 	module.exports = ProjectForm;
+	
+	// <li>
+	//     <label className="project-subject">Subject<span className="required">*</span></label>
+	//     <select name="field4" className="field-select">
+	//     <option value="Technology">Technology</option>
+	//     <option value="Cooking">Cooking</option>
+	//     <option value="Outdoor">Outdoor</option>
+	//     <option value="Craft">Craft</option>
+	//     <option value="Home">Home</option>
+	//     <option value="Costumes">Costumes</option>
+	//     <option value="Workshop">Workshop</option>
+	//     </select>
+	// </li>
 
 /***/ },
 /* 264 */
