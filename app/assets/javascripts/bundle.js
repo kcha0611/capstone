@@ -58,19 +58,19 @@
 	var ProjectIndex = __webpack_require__(254);
 	var ProjectIndexItem = __webpack_require__(255);
 	var ProjectForm = __webpack_require__(263);
-	var ProjectShow = __webpack_require__(551);
+	var ProjectShow = __webpack_require__(552);
 	var StepForm = __webpack_require__(264);
 	// const ProjectEdit = require('./components/project_edit');
 	// const CommentActions = require('./actions/comment_actions');
 	// const CommentForm = require('./components/comment_form');
 	// const CommentEdit = require('./components/comment_edit');
-	var LoginForm = __webpack_require__(552);
+	var LoginForm = __webpack_require__(553);
 	var SessionStore = __webpack_require__(231);
-	var SessionActions = __webpack_require__(548);
-	var SignUpForm = __webpack_require__(554);
-	var Splash = __webpack_require__(555);
-	var ErrorStore = __webpack_require__(553);
-	var Modal = __webpack_require__(556);
+	var SessionActions = __webpack_require__(549);
+	var SignUpForm = __webpack_require__(555);
+	var Splash = __webpack_require__(556);
+	var ErrorStore = __webpack_require__(554);
+	var Modal = __webpack_require__(557);
 	// debugger
 	function _ensureCurrentUser(_, replace) {
 	  if (!SessionStore.isUserLoggedIn()) {
@@ -25994,7 +25994,7 @@
 	var Link = __webpack_require__(168).Link;
 	var SessionStore = __webpack_require__(231);
 	var ProjectIndex = __webpack_require__(254);
-	var SessionActions = __webpack_require__(548);
+	var SessionActions = __webpack_require__(549);
 	var ReactRouter = __webpack_require__(168);
 	var hashHistory = ReactRouter.hashHistory;
 	var ReactBootstrap = __webpack_require__(271);
@@ -26003,9 +26003,9 @@
 	var Navbar = ReactBootstrap.Navbar;
 	var NavItem = ReactBootstrap.NavItem;
 	var Nav = ReactBootstrap.Nav;
-	var SearchBar = __webpack_require__(549);
+	var SearchBar = __webpack_require__(550);
 	var Button = ReactBootstrap.Button;
-	var SlideShow = __webpack_require__(550);
+	var SlideShow = __webpack_require__(551);
 	
 	var App = React.createClass({
 	  displayName: 'App',
@@ -32968,7 +32968,7 @@
 	var hashHistory = __webpack_require__(168).hashHistory;
 	var ReactRouter = __webpack_require__(168);
 	var ProjectForm = __webpack_require__(263);
-	var Masonry = __webpack_require__(535);
+	var Masonry = __webpack_require__(536);
 	
 	var ProjectIndex = React.createClass({
 	  displayName: 'ProjectIndex',
@@ -33468,7 +33468,7 @@
 	var ProjectStore = __webpack_require__(256);
 	var hashHistory = __webpack_require__(168).hashHistory;
 	var StepForm = __webpack_require__(264);
-	var Images = __webpack_require__(534);
+	var Images = __webpack_require__(535);
 	// const cloudinary = require('cloudinary');
 	var Button = __webpack_require__(271).Button;
 	
@@ -33605,7 +33605,7 @@
 	var hashHistory = __webpack_require__(168).hashHistory;
 	var StepActions = __webpack_require__(265);
 	var StepsIndex = __webpack_require__(268);
-	var StepCarousel = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./step-carousel\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var StepCarousel = __webpack_require__(534);
 	
 	var StepForm = React.createClass({
 	  displayName: 'StepForm',
@@ -33647,9 +33647,10 @@
 	    // debugger
 	    hashHistory.push('api/projects/' + this.props.params.projectId);
 	  },
-	  viewPhases: function viewPhases() {
-	    return React.createElement(StepCarousel, null);
-	  },
+	
+	  // viewPhases() {
+	  //   return (<StepCarousel></StepCarousel>)
+	  // },
 	  render: function render() {
 	    // debugger
 	    if (this.state.project) {
@@ -33727,7 +33728,7 @@
 	            ),
 	            React.createElement(
 	              'button',
-	              { onClick: this.viewPhases, className: 'step-create-button' },
+	              { className: 'step-create-button' },
 	              'View All Phases'
 	            ),
 	            React.createElement('input', { type: 'submit', onClick: this._submit, className: 'step-create-button', value: 'Create!' })
@@ -53164,6 +53165,59 @@
 
 /***/ },
 /* 534 */
+/***/ function(module, exports) {
+
+	// const React = require('react');
+	// const Carousel = require('react-bootstrap').Carousel
+	// const StepIndex = require('./step_index');
+	// const StepStore = require('../stores/step_store')
+	// const StepActions = require('../actions/step_actions')
+	//
+	// const StepCarousel = React.createClass({
+	//   getInitialState: function() {
+	//     return {
+	//       direction: null,
+	//       index: 0,
+	//       steps: []
+	//     };
+	//   },
+	//   handleChange: function (currentIndex, e) {
+	//     this.setState({
+	//       direction: e.direction,
+	//       index: currentIndex,
+	//       steps: StepStore.all()
+	//     })
+	//   },
+	//   componentDidMount: function() {
+	//     this.stepListener = StepStore.addListener(this.handleChange)
+	//     StepActions.fetchAllSteps(parseInt(this.props.projectId))
+	//   },
+	//   render () {
+	//     return (
+	//       <div>
+	//         <Carousel>
+	//         {this.state.steps.map ((step) => {
+	//             return <StepIndexItem step={step}/>
+	//           <Carousel.item>
+	//             <img width={900} height={500} src={step.image_url} />
+	//             <Carousel.Caption>
+	//               <h3>{step.title}</h3>
+	//               <p>{step.description}</p>
+	//             </Carousel.Caption>
+	//           </Carousel.item>
+	//         })
+	//       }
+	//       </Carousel>
+	//     </div>
+	//     )
+	//   }
+	// })
+	//
+	// module.exports = StepCarousel;
+	"use strict";
+
+/***/ },
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53197,14 +53251,14 @@
 	module.exports = UploadButton;
 
 /***/ },
-/* 535 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isBrowser = typeof window !== 'undefined';
-	var Masonry = isBrowser ? window.Masonry || __webpack_require__(536) : null;
-	var imagesloaded = isBrowser ? __webpack_require__(543) : null;
-	var assign = __webpack_require__(544);
-	var debounce = __webpack_require__(547);
+	var Masonry = isBrowser ? window.Masonry || __webpack_require__(537) : null;
+	var imagesloaded = isBrowser ? __webpack_require__(544) : null;
+	var assign = __webpack_require__(545);
+	var debounce = __webpack_require__(548);
 	var React = __webpack_require__(1);
 	var refName = 'masonryContainer';
 	
@@ -53397,7 +53451,7 @@
 
 
 /***/ },
-/* 536 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -53414,8 +53468,8 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(537),
-	        __webpack_require__(539)
+	        __webpack_require__(538),
+	        __webpack_require__(540)
 	      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -53607,7 +53661,7 @@
 
 
 /***/ },
-/* 537 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -53623,10 +53677,10 @@
 	  if ( true ) {
 	    // AMD - RequireJS
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(538),
 	        __webpack_require__(539),
 	        __webpack_require__(540),
-	        __webpack_require__(542)
+	        __webpack_require__(541),
+	        __webpack_require__(543)
 	      ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Item ) {
 	        return factory( window, EvEmitter, getSize, utils, Item);
 	      }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -54550,7 +54604,7 @@
 
 
 /***/ },
-/* 538 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -54665,7 +54719,7 @@
 
 
 /***/ },
-/* 539 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -54880,7 +54934,7 @@
 
 
 /***/ },
-/* 540 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -54897,7 +54951,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(541)
+	      __webpack_require__(542)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
 	      return factory( window, matchesSelector );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -55122,7 +55176,7 @@
 
 
 /***/ },
-/* 541 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -55181,7 +55235,7 @@
 
 
 /***/ },
-/* 542 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -55194,8 +55248,8 @@
 	  if ( true ) {
 	    // AMD - RequireJS
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(538),
-	        __webpack_require__(539)
+	        __webpack_require__(539),
+	        __webpack_require__(540)
 	      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS - Browserify, Webpack
@@ -55738,7 +55792,7 @@
 
 
 /***/ },
-/* 543 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -55755,7 +55809,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(538)
+	      __webpack_require__(539)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -56114,7 +56168,7 @@
 
 
 /***/ },
-/* 544 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -56125,8 +56179,8 @@
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
 	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 */
-	var keys = __webpack_require__(545),
-	    rest = __webpack_require__(546);
+	var keys = __webpack_require__(546),
+	    rest = __webpack_require__(547);
 	
 	/** Used as references for various `Number` constants. */
 	var MAX_SAFE_INTEGER = 9007199254740991;
@@ -56516,7 +56570,7 @@
 
 
 /***/ },
-/* 545 */
+/* 546 */
 /***/ function(module, exports) {
 
 	/**
@@ -56990,7 +57044,7 @@
 
 
 /***/ },
-/* 546 */
+/* 547 */
 /***/ function(module, exports) {
 
 	/**
@@ -57341,7 +57395,7 @@
 
 
 /***/ },
-/* 547 */
+/* 548 */
 /***/ function(module, exports) {
 
 	/**
@@ -57741,7 +57795,7 @@
 
 
 /***/ },
-/* 548 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57790,7 +57844,7 @@
 	module.exports = SessionActions;
 
 /***/ },
-/* 549 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57859,7 +57913,7 @@
 	module.exports = SearchBar;
 
 /***/ },
-/* 550 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57943,7 +57997,7 @@
 	module.exports = SlideShow;
 
 /***/ },
-/* 551 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58067,16 +58121,16 @@
 	//    </Media>
 
 /***/ },
-/* 552 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(168).Link;
-	var SessionActions = __webpack_require__(548);
+	var SessionActions = __webpack_require__(549);
 	var SessionStore = __webpack_require__(231);
-	var ErrorStore = __webpack_require__(553);
+	var ErrorStore = __webpack_require__(554);
 	var ReactRouter = __webpack_require__(168);
 	var hashHistory = ReactRouter.hashHistory;
 	
@@ -58231,7 +58285,7 @@
 	module.exports = LoginForm;
 
 /***/ },
-/* 553 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58286,7 +58340,7 @@
 	module.exports = ErrorStore;
 
 /***/ },
-/* 554 */
+/* 555 */
 /***/ function(module, exports) {
 
 	// const React = require('react');
@@ -58392,7 +58446,7 @@
 	"use strict";
 
 /***/ },
-/* 555 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58468,25 +58522,25 @@
 	});
 
 /***/ },
-/* 556 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(557);
+	module.exports = __webpack_require__(558);
 	
 
 
 /***/ },
-/* 557 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(38);
-	var ExecutionEnvironment = __webpack_require__(558);
-	var ModalPortal = React.createFactory(__webpack_require__(559));
-	var ariaAppHider = __webpack_require__(574);
-	var elementClass = __webpack_require__(575);
+	var ExecutionEnvironment = __webpack_require__(559);
+	var ModalPortal = React.createFactory(__webpack_require__(560));
+	var ariaAppHider = __webpack_require__(575);
+	var elementClass = __webpack_require__(576);
 	var renderSubtreeIntoContainer = __webpack_require__(38).unstable_renderSubtreeIntoContainer;
-	var Assign = __webpack_require__(563);
+	var Assign = __webpack_require__(564);
 	
 	var SafeHTMLElement = ExecutionEnvironment.canUseDOM ? window.HTMLElement : {};
 	var AppElement = ExecutionEnvironment.canUseDOM ? document.body : {appendChild: function() {}};
@@ -58594,7 +58648,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 558 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -58639,14 +58693,14 @@
 
 
 /***/ },
-/* 559 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var div = React.DOM.div;
-	var focusManager = __webpack_require__(560);
-	var scopeTab = __webpack_require__(562);
-	var Assign = __webpack_require__(563);
+	var focusManager = __webpack_require__(561);
+	var scopeTab = __webpack_require__(563);
+	var Assign = __webpack_require__(564);
 	
 	// so that our CSS is statically analyzable
 	var CLASS_NAMES = {
@@ -58837,10 +58891,10 @@
 
 
 /***/ },
-/* 560 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var findTabbable = __webpack_require__(561);
+	var findTabbable = __webpack_require__(562);
 	var modalElement = null;
 	var focusLaterElement = null;
 	var needToFocus = false;
@@ -58911,7 +58965,7 @@
 
 
 /***/ },
-/* 561 */
+/* 562 */
 /***/ function(module, exports) {
 
 	/*!
@@ -58967,10 +59021,10 @@
 
 
 /***/ },
-/* 562 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var findTabbable = __webpack_require__(561);
+	var findTabbable = __webpack_require__(562);
 	
 	module.exports = function(node, event) {
 	  var tabbable = findTabbable(node);
@@ -58992,7 +59046,7 @@
 
 
 /***/ },
-/* 563 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59003,9 +59057,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseAssign = __webpack_require__(564),
-	    createAssigner = __webpack_require__(570),
-	    keys = __webpack_require__(566);
+	var baseAssign = __webpack_require__(565),
+	    createAssigner = __webpack_require__(571),
+	    keys = __webpack_require__(567);
 	
 	/**
 	 * A specialized version of `_.assign` for customizing assigned values without
@@ -59078,7 +59132,7 @@
 
 
 /***/ },
-/* 564 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59089,8 +59143,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseCopy = __webpack_require__(565),
-	    keys = __webpack_require__(566);
+	var baseCopy = __webpack_require__(566),
+	    keys = __webpack_require__(567);
 	
 	/**
 	 * The base implementation of `_.assign` without support for argument juggling,
@@ -59111,7 +59165,7 @@
 
 
 /***/ },
-/* 565 */
+/* 566 */
 /***/ function(module, exports) {
 
 	/**
@@ -59149,7 +59203,7 @@
 
 
 /***/ },
-/* 566 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59160,9 +59214,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(567),
-	    isArguments = __webpack_require__(568),
-	    isArray = __webpack_require__(569);
+	var getNative = __webpack_require__(568),
+	    isArguments = __webpack_require__(569),
+	    isArray = __webpack_require__(570);
 	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -59391,7 +59445,7 @@
 
 
 /***/ },
-/* 567 */
+/* 568 */
 /***/ function(module, exports) {
 
 	/**
@@ -59534,7 +59588,7 @@
 
 
 /***/ },
-/* 568 */
+/* 569 */
 /***/ function(module, exports) {
 
 	/**
@@ -59783,7 +59837,7 @@
 
 
 /***/ },
-/* 569 */
+/* 570 */
 /***/ function(module, exports) {
 
 	/**
@@ -59969,7 +60023,7 @@
 
 
 /***/ },
-/* 570 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59980,9 +60034,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var bindCallback = __webpack_require__(571),
-	    isIterateeCall = __webpack_require__(572),
-	    restParam = __webpack_require__(573);
+	var bindCallback = __webpack_require__(572),
+	    isIterateeCall = __webpack_require__(573),
+	    restParam = __webpack_require__(574);
 	
 	/**
 	 * Creates a function that assigns properties of source object(s) to a given
@@ -60027,7 +60081,7 @@
 
 
 /***/ },
-/* 571 */
+/* 572 */
 /***/ function(module, exports) {
 
 	/**
@@ -60098,7 +60152,7 @@
 
 
 /***/ },
-/* 572 */
+/* 573 */
 /***/ function(module, exports) {
 
 	/**
@@ -60236,7 +60290,7 @@
 
 
 /***/ },
-/* 573 */
+/* 574 */
 /***/ function(module, exports) {
 
 	/**
@@ -60309,7 +60363,7 @@
 
 
 /***/ },
-/* 574 */
+/* 575 */
 /***/ function(module, exports) {
 
 	var _element = typeof document !== 'undefined' ? document.body : null;
@@ -60357,7 +60411,7 @@
 
 
 /***/ },
-/* 575 */
+/* 576 */
 /***/ function(module, exports) {
 
 	module.exports = function(opts) {

@@ -43,9 +43,9 @@ const StepForm = React.createClass({
     // debugger
     hashHistory.push(`api/projects/${this.props.params.projectId}`)
   },
-  viewPhases() {
-    return (<StepCarousel></StepCarousel>)
-  },
+  // viewPhases() {
+  //   return (<StepCarousel></StepCarousel>)
+  // },
   render () {
     // debugger
     if (this.state.project) {
@@ -71,7 +71,7 @@ const StepForm = React.createClass({
         <div>
           <button onClick={this.addPhase} className="add-phase-btn">Add a Phase!</button>
         </div>
-          <button onClick={this.viewPhases} className="step-create-button">View All Phases</button>
+          <button className="step-create-button">View All Phases</button>
           <input type="submit" onClick={this._submit} className="step-create-button" value="Create!"></input>
           </ul>
         </form>
