@@ -33572,7 +33572,12 @@
 	              )
 	            )
 	          ),
-	          React.createElement('input', { className: 'form-create-button', type: 'submit', value: 'Create' })
+	          ' ',
+	          React.createElement(
+	            'div',
+	            { className: 'form-btn-div' },
+	            React.createElement('input', { className: 'form-create-button', type: 'submit', value: 'Create' })
+	          )
 	        )
 	      )
 	    );
@@ -33664,10 +33669,10 @@
 	        { className: 'step-form-div' },
 	        React.createElement(
 	          'form',
-	          { className: 'project-form' },
+	          { className: 'step-form' },
 	          React.createElement(
 	            'h1',
-	            { className: 'proj-form-title' },
+	            { className: 'proj-title' },
 	            'Create Phase:'
 	          ),
 	          React.createElement(
@@ -33677,7 +33682,7 @@
 	          ),
 	          React.createElement(
 	            'ul',
-	            { className: 'form-style-1' },
+	            { className: 'step-form-ul' },
 	            React.createElement(
 	              'li',
 	              null,
@@ -33971,7 +33976,7 @@
 	        React.createElement(
 	          Media.Left,
 	          { align: 'top' },
-	          React.createElement('img', { width: 270, height: 180, src: this.state.image_url, alt: 'Image', className: '' })
+	          React.createElement('img', { width: 400, height: 280, src: this.state.image_url, alt: 'Image', className: 'step-thbnail-img' })
 	        ),
 	        React.createElement(
 	          Media.Body,
@@ -57950,7 +57955,7 @@
 	            )
 	          )
 	        ),
-	        React.createElement('img', { src: 'https://static.pexels.com/photos/1562/italian-landscape-mountains-nature.jpg', id: 'carousel-img1' })
+	        React.createElement('img', { src: 'http://res.cloudinary.com/dllnnnotc/image/upload/c_fit,e_sharpen,h_800,q_100,w_1229/v1469382975/lakes-hd-wallpapers-awesome-beautiful-hd-high-quality-nature-desktop-widescreen-backgrounds_ogya4v.jpg', id: 'carousel-img1' })
 	      ),
 	      React.createElement(
 	        Carousel.Item,
@@ -57969,7 +57974,7 @@
 	            )
 	          )
 	        ),
-	        React.createElement('img', { src: 'http://tremendouswallpapers.com/wp-content/uploads/2014/12/free-food-wallpaper-hd-4.jpg', id: 'carousel-img2' })
+	        React.createElement('img', { src: 'http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_800,w_1229/v1469382309/free-food-wallpaper-hd-4_jjbzmd.jpg', id: 'carousel-img2' })
 	      ),
 	      React.createElement(
 	        Carousel.Item,
@@ -57988,7 +57993,7 @@
 	            )
 	          )
 	        ),
-	        React.createElement('img', { src: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=2f2e6bcdf177c3a825a4e78c3936ca7b', id: 'carousel-img3' })
+	        React.createElement('img', { src: 'http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_800,w_1229/v1469382328/photo-1446776811953-b23d57bd21aa_abkuii.jpg', id: 'carousel-img3' })
 	      )
 	    );
 	  }

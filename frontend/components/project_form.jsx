@@ -64,8 +64,9 @@ const ProjectForm = React.createClass({
                 <button onClick={this.updateImage} className="image-class">Upload an Image!</button>
             </li>
 
-        </ul>
+        </ul> <div className="form-btn-div">
               <input className="form-create-button" type="submit" value="Create"/>
+              </div>
         </form>
         </div>
       </div>

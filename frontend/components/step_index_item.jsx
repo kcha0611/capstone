@@ -51,7 +51,7 @@ const StepIndexItem = React.createClass({
       // </Media>
         <Media className="step-index-media">
            <Media.Left align="top">
-             <img width={270} height={180} src={this.state.image_url} alt="Image" className=""/>
+             <img width={400} height={280} src={this.state.image_url} alt="Image" className="step-thbnail-img"/>
            </Media.Left>
            <Media.Body>
              <div className="step-index-div"><Media.Heading className="step-index-h1">{`Phase ${this.state.order}: ${this.state.title}`}</Media.Heading></div>

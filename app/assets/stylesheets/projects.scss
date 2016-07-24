@@ -83,6 +83,7 @@
   width: 370px;
   height: 400px;
   margin-bottom: 13px;
+  border: 18px solid;
 }
 
 .proj-form-fields input[type=text],
@@ -117,12 +118,18 @@ select{
   height: 450px;
   width: 370px;
   margin-bottom: 13px;
+  border: 18px solid;
 }
 
 .proj-image.extra-tall-big {
   width: 370px;
   height: 420px;
   margin-bottom: 13px;
+  border: 18px solid;
+}
+
+figcaption.proj-item-figcap {
+  word-wrap: break-word;
 }
 
 .thumbnail-proj-show {
@@ -204,26 +211,23 @@ ul {
 
 .div-proj-form {
   border: 2px solid white;
-  width: 982px;
+  width: 970px;
   margin-left: auto;
-  margin-right: auto;
-  background-color: white;
+  margin-right: 24.8%;
+background-color: silver;;
   border-radius: 40px;
-  height: 688px;
+  height: 713px;
 }
 
-form.project-form {
-  margin-right: 160px;
-}
 .proj-form-title {
-  margin-right: 150px;
   text-decoration: underline;
   margin-bottom: 40px;
 }
 
-.form-create-button {
-  margin-right: 100px;
+input.form-create-button {
   border-radius: 40px;
+  left: 79%;
+  position: relative;
 }
 
 .image-class {
@@ -245,4 +249,30 @@ label.project-title {
 
 .project-form {
   margin-left: 146px;
+}
+
+.proj-form-title {
+  margin-right: 17%;
+}
+
+form.project-form {
+  margin-right: 28%;
+}
+.form-btn-div {
+  margin-left: -26%;
+  position: relative;
+  bottom: 17px;
+}
+
+.inner-div-form {
+  border: 3px solid;
+  border-radius: 40px;
+  width: 80%;
+  margin: auto;
+  background: linear-gradient(to right, #E55D87 0%, #5FC3E4 100%);
+}
+
+.thumbnail>img {
+  border: 20px solid;
+  height: 70%;
 }

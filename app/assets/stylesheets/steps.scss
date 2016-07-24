@@ -4,11 +4,11 @@
 
 .step-form-div {
   border: 2px solid;
-  width: 982px;
-  height: 798px;
+  width: 40%;
+  height: 718px;
   margin-left: auto;
-  margin-right: 23.6%;
-  background-color: #444C5C;
+  margin-right: 33%;
+  background-color: silver;
   border-radius: 40px;
 }
 
@@ -17,7 +17,7 @@ html {
   width: 100%
 }
 
-.form-style-1 {
+.step-form-ul {
   list-style-type: none;
   margin-right: 6%;
   height: 425px;
@@ -53,10 +53,11 @@ html {
 }
 
 .step-form-desc {
-  margin-right: 12px;
+  margin-right: 7px;
   font-size: 20px;
   position: relative;
-  top:13px;
+  top:32%;
+  left: -2.4%;
 }
 
 .step-desc-wrap {
@@ -71,12 +72,14 @@ html {
   border-radius: 40px;
   width: 143px;
   margin-bottom: 5%;
-  background: #4B99AD;
+  background: #4CB8C4;
   color: #fff;
+  border: 2px solid;
 }
 
 .image-class {
   margin-bottom: 5%;
+    border: 2px solid;
 }
 
 
@@ -84,18 +87,41 @@ html {
   border-radius: 40px;
   height: 50px;
   width: 160px;
-  background: #4B99AD;
+  background: #4CB8C4;
   color: #fff;
+    border: 2px solid;
 }
 
 .image-class {
   color:#fff;
 }
 
-.project-form {
+.step-form {
   border: 3px solid;
-  background-color: #CE5A57;
+  background: linear-gradient(to right, #E55D87 0%, #5FC3E4 100%);
   margin-top: 5%;
   border-radius: 40px;
+  height: 91%;
+  width: 93%;
+  margin-left: 3.3%;
+}
 
+p.step-index-description {
+  width: 100%;
+}
+div.proj-show-wrap {
+  width: 100%;
+}
+
+div.step-index-description {
+  width: 100%;
+}
+
+.show-col.col-md-7.col-xs-9 {
+  width: 100%;
+}
+
+.step-thbnail-img {
+  width: 400px;
+  height: 300px;
 }
