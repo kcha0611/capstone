@@ -33605,6 +33605,7 @@
 	var hashHistory = __webpack_require__(168).hashHistory;
 	var StepActions = __webpack_require__(265);
 	var StepsIndex = __webpack_require__(268);
+	var StepCarousel = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./step-carousel\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var StepForm = React.createClass({
 	  displayName: 'StepForm',
@@ -33642,9 +33643,12 @@
 	    this.setState({ title: "", description: "" });
 	  },
 	  _submit: function _submit(e) {
-	    e.preventDefault();
+	    img > e.preventDefault();
 	    // debugger
 	    hashHistory.push('api/projects/' + this.props.params.projectId);
+	  },
+	  viewPhases: function viewPhases() {
+	    return React.createElement(StepCarousel, null);
 	  },
 	  render: function render() {
 	    // debugger
@@ -33653,69 +33657,81 @@
 	    }
 	    return React.createElement(
 	      'div',
-	      { className: 'step-form-div' },
-	      React.createElement(StepsIndex, { projectId: this.props.params.projectId }),
+	      null,
 	      React.createElement(
-	        'form',
-	        { className: 'project-form' },
+	        'div',
+	        { className: 'step-form-div' },
 	        React.createElement(
-	          'h1',
-	          { className: 'proj-form-title' },
-	          'Create Phase:'
-	        ),
-	        React.createElement(
-	          'h2',
-	          { className: 'phase-order' },
-	          'Phase ' + this.state.order
-	        ),
-	        React.createElement(
-	          'ul',
-	          { className: 'form-style-1' },
+	          'form',
+	          { className: 'project-form' },
 	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'label',
-	              { className: 'step-form-title' },
-	              'Step Title',
-	              React.createElement(
-	                'span',
-	                { className: 'step-title' },
-	                '*'
-	              )
-	            ),
-	            React.createElement('input', { type: 'text', name: 'field1', className: 'field-divided', placeholder: 'Title', onChange: this.tChange })
+	            'h1',
+	            { className: 'proj-form-title' },
+	            'Create Phase:'
 	          ),
 	          React.createElement(
-	            'li',
-	            null,
+	            'h2',
+	            { className: 'phase-order' },
+	            'Phase ' + this.state.order
+	          ),
+	          React.createElement(
+	            'ul',
+	            { className: 'form-style-1' },
 	            React.createElement(
-	              'label',
+	              'li',
 	              null,
-	              'Description',
 	              React.createElement(
-	                'span',
-	                { className: 'step-summary' },
-	                '*'
+	                'label',
+	                { className: 'step-form-title' },
+	                'Step Title',
+	                React.createElement(
+	                  'span',
+	                  { className: 'step-title' },
+	                  '*'
+	                )
+	              ),
+	              React.createElement('input', { type: 'text', name: 'field1', className: 'inp-step-title', placeholder: 'Title', onChange: this.tChange })
+	            ),
+	            React.createElement(
+	              'li',
+	              { className: 'step-desc-wrap' },
+	              React.createElement(
+	                'label',
+	                { className: 'step-form-desc' },
+	                'Description',
+	                React.createElement(
+	                  'span',
+	                  { className: 'step-summary' },
+	                  '*'
+	                )
+	              ),
+	              React.createElement('textarea', { type: 'text', name: 'field3', className: 'inp-step-desc', placeholder: 'Description', onChange: this.dChange })
+	            ),
+	            React.createElement(
+	              'li',
+	              { className: 'additional-field' },
+	              React.createElement(
+	                'button',
+	                { onClick: this.updateImage, className: 'image-class' },
+	                'Upload an Image!'
 	              )
 	            ),
-	            React.createElement('textarea', { type: 'text', name: 'field3', className: 'field-long', placeholder: 'Description', onChange: this.dChange })
-	          ),
-	          React.createElement(
-	            'button',
-	            { onClick: this.addPhase, className: 'additional-field' },
-	            'Add a Phase!'
-	          ),
-	          React.createElement(
-	            'li',
-	            { className: 'additional-field' },
+	            React.createElement(
+	              'div',
+	              null,
+	              React.createElement(
+	                'button',
+	                { onClick: this.addPhase, className: 'add-phase-btn' },
+	                'Add a Phase!'
+	              )
+	            ),
 	            React.createElement(
 	              'button',
-	              { onClick: this.updateImage, className: 'image-class' },
-	              'Upload an Image!'
-	            )
-	          ),
-	          React.createElement('input', { type: 'submit', value: 'Create', onClick: this._submit })
+	              { onClick: this.viewPhases, className: 'step-create-button' },
+	              'View All Phases'
+	            ),
+	            React.createElement('input', { type: 'submit', onClick: this._submit, className: 'step-create-button', value: 'Create!' })
+	          )
 	        )
 	      )
 	    );
@@ -33723,6 +33739,8 @@
 	});
 	
 	module.exports = StepForm;
+	
+	// <StepsIndex projectId={this.props.params.projectId} />
 
 /***/ },
 /* 265 */

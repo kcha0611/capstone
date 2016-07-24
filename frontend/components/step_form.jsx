@@ -2,8 +2,8 @@ const React = require('react');
 const ProjectActions = require('../actions/project_actions')
 const hashHistory = require('react-router').hashHistory
 const StepActions = require('../actions/step_actions');
-const StepsIndex = require('./steps_index')
-
+const StepsIndex = require('./steps_index');
+const StepCarousel = require('./step-carousel');
 
 const StepForm = React.createClass({
   getInitialState: function() {
@@ -38,10 +38,13 @@ const StepForm = React.createClass({
     StepActions.createStep(this.props.params.projectId, {description: this.state.description, title: this.state.title, image_url: this.state.image_url, order: this.state.order})
     this.setState({title: "", description: ""})
   },
-  _submit(e) {
+  _submit(e) {img>
     e.preventDefault();
     // debugger
     hashHistory.push(`api/projects/${this.props.params.projectId}`)
+  },
+  viewPhases() {
+    return (<StepCarousel></StepCarousel>)
   },
   render () {
     // debugger
@@ -49,29 +52,35 @@ const StepForm = React.createClass({
       let projectId = this.state.project.id
     }
     return (
+    <div>
       <div className="step-form-div">
-        <StepsIndex projectId={this.props.params.projectId} />
         <form className="project-form">
           <h1 className="proj-form-title">
             Create Phase:
           </h1>
           <h2 className="phase-order">{`Phase ${this.state.order}`}</h2>
             <ul className="form-style-1">
-                <li><label className="step-form-title">Step Title<span className="step-title">*</span></label><input type="text" name="field1" className="field-divided" placeholder="Title"onChange={this.tChange} /></li>
-                <li>
-                    <label>Description<span className="step-summary">*</span></label>
-                    <textarea type="text" name="field3" className="field-long" placeholder="Description" onChange={this.dChange}/>
-                </li>
-          <button onClick={this.addPhase} className="additional-field">Add a Phase!</button>
-          <li className="additional-field">
-              <button onClick={this.updateImage} className="image-class">Upload an Image!</button>
-          </li>
-          <input type="submit" value="Create" onClick={this._submit}></input>
+              <li><label className="step-form-title">Step Title<span className="step-title">*</span></label><input type="text" name="field1" className="inp-step-title" placeholder="Title"onChange={this.tChange} /></li>
+              <li className="step-desc-wrap">
+                  <label className="step-form-desc">Description<span className="step-summary">*</span></label>
+                  <textarea type="text" name="field3" className="inp-step-desc" placeholder="Description" onChange={this.dChange}/>
+              </li>
+            <li className="additional-field">
+                <button onClick={this.updateImage} className="image-class">Upload an Image!</button>
+            </li>
+        <div>
+          <button onClick={this.addPhase} className="add-phase-btn">Add a Phase!</button>
+        </div>
+          <button onClick={this.viewPhases} className="step-create-button">View All Phases</button>
+          <input type="submit" onClick={this._submit} className="step-create-button" value="Create!"></input>
           </ul>
         </form>
       </div>
+    </div>
     )
   }
 })
 
 module.exports = StepForm;
+
+        // <StepsIndex projectId={this.props.params.projectId} />

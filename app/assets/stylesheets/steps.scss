@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .step-form-div {
-  border: 2px solid white;
+  border: 2px solid;
   width: 982px;
-  height: 688px;
+  height: 798px;
   margin-left: auto;
   margin-right: 23.6%;
-  background-color: white;
+  background-color: #444C5C;
   border-radius: 40px;
 }
 
@@ -20,8 +20,82 @@ html {
 .form-style-1 {
   list-style-type: none;
   margin-right: 6%;
+  height: 425px;
 }
 
 .phase-order {
   margin-left: 27px;
+}
+
+
+.inp-step-title {
+  margin-bottom: 7%;
+  border-radius: 7px;
+  width: 210px;
+  border: 3px solid;
+  height: 37px;
+}
+
+.step-form-title {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+.phase-order {
+  margin-bottom: 7%;
+}
+
+.inp-step-desc {
+  margin-bottom: 7%;
+  border-radius: 7px;
+  border: 3px solid;
+  width: 1000px;
+}
+
+.step-form-desc {
+  margin-right: 12px;
+  font-size: 20px;
+  position: relative;
+  top:13px;
+}
+
+.step-desc-wrap {
+  display: flex;
+  justify-content: center;
+  margin-left: 23%;
+  height: 130px;
+}
+
+.add-phase-btn {
+  padding: 12px;
+  border-radius: 40px;
+  width: 143px;
+  margin-bottom: 5%;
+  background: #4B99AD;
+  color: #fff;
+}
+
+.image-class {
+  margin-bottom: 5%;
+}
+
+
+.step-create-button {
+  border-radius: 40px;
+  height: 50px;
+  width: 160px;
+  background: #4B99AD;
+  color: #fff;
+}
+
+.image-class {
+  color:#fff;
+}
+
+.project-form {
+  border: 3px solid;
+  background-color: #CE5A57;
+  margin-top: 5%;
+  border-radius: 40px;
+
 }
