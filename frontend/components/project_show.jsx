@@ -68,10 +68,12 @@ const ProjectShow = React.createClass({
               <section><p className="show-description">{this.state.project.description}</p></section>
           </section>
         </Thumbnail>
-        {this.state.steps.map ((step) =>
-          <StepIndexItem step={step}></StepIndexItem>
-        )
-      }
+        <div className="step-index-wrap">
+          {this.state.steps.map ((step) =>
+            <StepIndexItem step={step}></StepIndexItem>
+          )
+        }
+        </div>
       </Col>
     </div>
     )

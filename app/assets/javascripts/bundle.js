@@ -26050,12 +26050,12 @@
 	          { key: 2, className: 'nav-signin' },
 	          React.createElement(
 	            NavItem,
-	            { key: 4, href: '/#/signup' },
+	            { key: 4, href: '/#/signup', className: 'sign-up-btn' },
 	            'Sign Up'
 	          ),
 	          React.createElement(
 	            NavItem,
-	            { key: 5, href: '/#/login' },
+	            { key: 5, href: '/#/login', className: 'login-btn' },
 	            'Login'
 	          )
 	        );
@@ -33094,14 +33094,18 @@
 	    hashHistory.push('api/projects/' + this.props.project.id);
 	  },
 	  render: function render() {
+	    var hght = void 0;
 	    var extraBig = function extraBig() {
 	      var random = Math.random();
 	      if (random >= 0.3 && random <= 0.6) {
 	        return "extra-big";
+	        hght = 50;
 	      } else if (random < 0.3) {
 	        return "extra-tall";
+	        hght = 300;
 	      } else if (random > 0.6) {
 	        return "extra-tall-big";
+	        hght = 350;
 	      }
 	    };
 	    return React.createElement(
@@ -33116,7 +33120,7 @@
 	          React.createElement(
 	            'figure',
 	            null,
-	            React.createElement('img', { src: this.props.project.image_url, alt: '', className: 'proj-image ' + extraBig() }),
+	            React.createElement('img', { src: this.props.project.image_url, alt: '', className: 'proj-image ' + extraBig(), height: 400 }),
 	            React.createElement(
 	              'figcaption',
 	              { className: 'proj-item-figcap' },
@@ -33857,7 +33861,7 @@
 	    // debugger
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'div-stepind-wrap' },
 	      this.state.steps.map(function (step) {
 	        return React.createElement(StepIndexItem, { step: step });
 	      })
@@ -33971,30 +33975,34 @@
 	      //   </Media.Body>
 	      // </Media>
 	      React.createElement(
-	        Media,
-	        { className: 'step-index-media' },
+	        'div',
+	        { className: 'step-div-wrap' },
 	        React.createElement(
-	          Media.Left,
-	          { align: 'top' },
-	          React.createElement('img', { width: 400, height: 280, src: this.state.image_url, alt: 'Image', className: 'step-thbnail-img' })
-	        ),
-	        React.createElement(
-	          Media.Body,
-	          null,
+	          Media,
+	          { className: 'step-index-media' },
 	          React.createElement(
-	            'div',
-	            { className: 'step-index-div' },
-	            React.createElement(
-	              Media.Heading,
-	              { className: 'step-index-h1' },
-	              'Phase ' + this.state.order + ': ' + this.state.title
-	            )
+	            Media.Left,
+	            { align: 'top' },
+	            React.createElement('img', { width: 400, height: 280, src: this.state.image_url, alt: 'Image', className: 'step-thbnail-img' })
 	          ),
 	          React.createElement(
-	            'p',
-	            { className: 'step-index-description' },
-	            'Description: ',
-	            this.state.description
+	            Media.Body,
+	            null,
+	            React.createElement(
+	              'div',
+	              { className: 'step-index-div' },
+	              React.createElement(
+	                Media.Heading,
+	                { className: 'step-index-h1' },
+	                'Phase ' + this.state.order + ': ' + this.state.title
+	              )
+	            ),
+	            React.createElement(
+	              'p',
+	              { className: 'step-index-description' },
+	              'Description: ',
+	              this.state.description
+	            )
 	          )
 	        )
 	      )
@@ -58102,9 +58110,13 @@
 	            )
 	          )
 	        ),
-	        this.state.steps.map(function (step) {
-	          return React.createElement(StepIndexItem, { step: step });
-	        })
+	        React.createElement(
+	          'div',
+	          { className: 'step-index-wrap' },
+	          this.state.steps.map(function (step) {
+	            return React.createElement(StepIndexItem, { step: step });
+	          })
+	        )
 	      )
 	    );
 	  }

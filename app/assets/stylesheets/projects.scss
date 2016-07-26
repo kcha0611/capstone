@@ -81,9 +81,10 @@
 
 .proj-image.extra-big {
   width: 370px;
-  height: 400px;
+  height: 300px;
   margin-bottom: 13px;
   border: 18px solid;
+  border-radius: 30px;
 }
 
 .proj-form-fields input[type=text],
@@ -115,10 +116,11 @@ select{
 }
 
 .proj-image.extra-tall {
-  height: 450px;
+  height: 350px;
   width: 370px;
   margin-bottom: 13px;
   border: 18px solid;
+  border-radius: 30px;
 }
 
 .proj-image.extra-tall-big {
@@ -126,6 +128,7 @@ select{
   height: 420px;
   margin-bottom: 13px;
   border: 18px solid;
+  border-radius: 30px;
 }
 
 figcaption.proj-item-figcap {
@@ -134,7 +137,7 @@ figcaption.proj-item-figcap {
 
 .thumbnail-proj-show {
   width: 530px;
-  height: 530px;
+  // height: 530px;
   display: flex;
   flex-direction: column;
 }
@@ -214,7 +217,7 @@ ul {
   width: 970px;
   margin-left: auto;
   margin-right: auto;
-background-color: silver;;
+  background-color: silver;;
   border-radius: 40px;
   height: 713px;
 }
@@ -275,4 +278,46 @@ form.project-form {
 .thumbnail>img {
   border: 20px solid;
   height: 70%;
+}
+
+.thumbnail {
+  height: auto;
+}
+
+h3.show-title {
+  margin-top: 7%;
+}
+
+p.show-description {
+  margin: 4%;
+}
+
+.proj-masonry-div {
+  margin-top: 15%;
+}
+
+figcaption.proj-item-figcap {
+  border-radius: 30px;
+}
+
+a#nav-item-li-2 {
+  font-size: 20px;
+}
+
+a#nav-item-li-3 {
+  font-size: 20px;
+}
+
+a {
+  font-size: 20px;
+}
+
+.sign-up-btn {
+  position: relative;
+  bottom: 13px;
+}
+
+.login-btn {
+  position: relative;
+  bottom: 13px;
 }

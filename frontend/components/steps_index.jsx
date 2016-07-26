@@ -19,7 +19,7 @@ const StepsIndex = React.createClass({
   render () {
     // debugger
     return (
-      <div>
+      <div className="div-stepind-wrap">
         {this.state.steps.map ((step) => {
           return <StepIndexItem step={step}/>
         })

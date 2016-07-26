@@ -51,8 +51,8 @@ const App = React.createClass({
     else {
       dropDown = (
         <Nav key={2} className="nav-signin">
-          <NavItem key={4} href="/#/signup">Sign Up</NavItem>
-          <NavItem key={5} href="/#/login">Login</NavItem>
+          <NavItem key={4} href="/#/signup" className="sign-up-btn">Sign Up</NavItem>
+          <NavItem key={5} href="/#/login" className="login-btn">Login</NavItem>
         </Nav>
       )
     }
