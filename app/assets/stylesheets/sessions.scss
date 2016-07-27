@@ -346,3 +346,12 @@ html, div.root-container {
   // right: 500px;
   bottom: 30px;
 }
+
+input.submit-button {
+    height: 45px;
+    width: 22%;
+    border-radius: 8px;
+    display: flex;
+  justify-content: center;
+  border: 3px solid;
+}

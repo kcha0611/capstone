@@ -26080,11 +26080,6 @@
 	                'a',
 	                { href: '/', id: 'root-constructables-nav' },
 	                'Constructables'
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'root-catchphrase' },
-	                'Share What You Make'
 	              )
 	            )
 	          ),
@@ -26124,6 +26119,7 @@
 	//               <h2 className="root-image-text"><span className="root-image-text-span">Lets Make <p className="renewable-energy">Renewable Energy</p></span></h2>
 	//               <SearchBar id="background-search-bar"></SearchBar>
 	//             </div>
+	// <div className="root-catchphrase">Share What You Make</div>
 
 /***/ },
 /* 231 */

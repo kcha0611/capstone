@@ -64,7 +64,6 @@ const App = React.createClass({
                   <Navbar.Header>
                     <Navbar.Brand id="root-text-nav">
                       <a href="/" id="root-constructables-nav">Constructables</a>
-                      <div className="root-catchphrase">Share What You Make</div>
                     </Navbar.Brand>
                   </Navbar.Header>
                   <NavItem key={2} href="#/projects" id="nav-item-li-2">Explore</NavItem>
@@ -88,3 +87,4 @@ module.exports = App;
 //               <h2 className="root-image-text"><span className="root-image-text-span">Lets Make <p className="renewable-energy">Renewable Energy</p></span></h2>
 //               <SearchBar id="background-search-bar"></SearchBar>
 //             </div>
+                      // <div className="root-catchphrase">Share What You Make</div>
