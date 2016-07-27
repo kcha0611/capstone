@@ -240,9 +240,10 @@ border: 2px solid black;
 
 
 html, div.root-container {
-  background-image: url("http://wallpapercave.com/wp/CyT83yY.jpg");
+  // background-image: url("http://wallpapercave.com/wp/CyT83yY.jpg");
   width:100%;
   height:100%;
+  background: linear-gradient(to bottom, #E1B16A 0%, #9B4F0F 50%, #C99E10 100%);
 }
 
 .form-create-button {

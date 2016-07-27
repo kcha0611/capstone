@@ -3,6 +3,7 @@ const ProjectStore = require('../stores/project_store');
 const ProjectActions = require('../actions/project_actions');
 const Link = require('react-router').Link;
 const hashHistory = require('react-router').hashHistory;
+const SessionStore = require('../stores/session_store');
 
 const ProjectIndexItem = React.createClass({
   getInitialState: function() {
@@ -33,7 +34,12 @@ const ProjectIndexItem = React.createClass({
   // },
   goPage () {
     // debugger
-    hashHistory.push(`api/projects/${this.props.project.id}`)
+    if (SessionStore.isUserLoggedIn()) {
+      hashHistory.push(`api/projects/${this.props.project.id}`)
+    }
+    else {
+     swal("You Must be logged IN!")
+    }
   },
   render () {
     let hght;

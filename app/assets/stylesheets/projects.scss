@@ -135,19 +135,19 @@ figcaption.proj-item-figcap {
   word-wrap: break-word;
 }
 
-.thumbnail-proj-show {
-  width: 530px;
-  // height: 530px;
-  display: flex;
-  flex-direction: column;
-}
+// .thumbnail-proj-show {
+//   width: 530px;
+//   // height: 530px;
+//   display: flex;
+//   flex-direction: column;
+// }
 
-.thumbnail img {
-  margin-left: 0px;
-  margin-right: 700px;
-  width: 520px;
-  height: 500px;
-}
+// .thumbnail img {
+//   margin-left: 0px;
+//   margin-right: 700px;
+//   width: 520px;
+//   height: 500px;
+// }
 
 .thumbnail p, h3 {
   text-align: center;
@@ -219,7 +219,7 @@ ul {
   margin-right: auto;
   background-color: silver;;
   border-radius: 40px;
-  height: 713px;
+  height: 790px;
 }
 
 .proj-form-title {
@@ -272,16 +272,13 @@ form.project-form {
   border-radius: 40px;
   width: 80%;
   margin: auto;
+  margin-top: 4%;
   background: linear-gradient(to right, #E55D87 0%, #5FC3E4 100%);
 }
 
 .thumbnail>img {
   border: 20px solid;
   height: 70%;
-}
-
-.thumbnail {
-  height: auto;
 }
 
 h3.show-title {
@@ -321,3 +318,49 @@ a {
   position: relative;
   bottom: 13px;
 }
+
+.index-featured {
+  font-size: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 170px;
+  border-bottom: 10px solid;
+  border-top: 10px solid;
+  padding: 40px;
+  font-family: 'Lobster', Georgia, Times, serif;
+}
+
+.show-col {
+  display: flex;
+  justify-content: center;
+}
+
+.thumbnail-proj-show {
+  width: 50%;
+  height: 600px;
+  border-radius: 40px;
+}
+
+.thumbnail>img {
+  height: 70% !important;
+  width: 90%;
+  border-radius: 40px;
+}
+
+// .thumbnail-proj-show.thumbnail {
+//   width: auto;
+//   border: 50px solid transparent;
+//   border-bottom-color: red;
+//   position: relative;
+//   top: -50px;
+// }
+//
+// .thumbnail-proj-show.thumbnail:after {
+//   position: absolute;
+//   left: -50px;
+//   top: 50px;
+//   border: 50px solid transparent;
+//   border-top-color: red;
+// }

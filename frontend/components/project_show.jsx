@@ -61,7 +61,7 @@ const ProjectShow = React.createClass({
   // }
     return (
     <div className="proj-show-wrap">
-      <Col xs={9} md={7} className="show-col">
+      <Col xs={14} md={11} className="show-col">
         <Thumbnail src={this.state.project.image_url} className="thumbnail-proj-show">
           <section className="section-proj-show">
               <section><h3 className="show-title">{this.state.project.title}</h3></section>

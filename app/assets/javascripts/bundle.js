@@ -32989,6 +32989,17 @@
 	  _handleChange: function _handleChange() {
 	    this.setState({ projects: ProjectStore.all() });
 	  },
+	  _delayText: function _delayText(target, message, index, interval) {
+	    if (index < message.length) {
+	      $(target).append(message[index++]);
+	      setTimeout(function () {
+	        delayText(target, message, index, interval);
+	      }, interval);
+	    }
+	    // $(function () {
+	    //   _delayText("#index-featured", "Featured", 0, 300)
+	    // })
+	  },
 	  render: function render() {
 	    var _this = this;
 	
@@ -33018,6 +33029,11 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'proj-masonry-div' },
+	      React.createElement(
+	        'h1',
+	        { className: 'index-featured' },
+	        'Featured'
+	      ),
 	      React.createElement(
 	        Masonry,
 	        {
@@ -33058,6 +33074,7 @@
 	var ProjectActions = __webpack_require__(258);
 	var Link = __webpack_require__(168).Link;
 	var hashHistory = __webpack_require__(168).hashHistory;
+	var SessionStore = __webpack_require__(231);
 	
 	var ProjectIndexItem = React.createClass({
 	  displayName: 'ProjectIndexItem',
@@ -33091,7 +33108,11 @@
 	  // },
 	  goPage: function goPage() {
 	    // debugger
-	    hashHistory.push('api/projects/' + this.props.project.id);
+	    if (SessionStore.isUserLoggedIn()) {
+	      hashHistory.push('api/projects/' + this.props.project.id);
+	    } else {
+	      swal("You Must be logged IN!");
+	    }
 	  },
 	  render: function render() {
 	    var hght = void 0;
@@ -58083,7 +58104,7 @@
 	      { className: 'proj-show-wrap' },
 	      React.createElement(
 	        Col,
-	        { xs: 9, md: 7, className: 'show-col' },
+	        { xs: 14, md: 11, className: 'show-col' },
 	        React.createElement(
 	          Thumbnail,
 	          { src: this.state.project.image_url, className: 'thumbnail-proj-show' },
