@@ -371,7 +371,11 @@ a {
   width: 100%;
   border: 7px solid;
   border-radius: 20px;
-  background: white;
+  background: #928DAB;
   position: relative;
   right: 16px;
+}
+
+main#main-nav {
+  background: linear-gradient(to right, #E7E9BB 0%, #928DAB 100%);
 }
