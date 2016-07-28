@@ -123,3 +123,7 @@ div.container {
   position: relative;
   bottom: 36px;
 }
+
+div.root-container {
+  background: gainsboro;
+}
