@@ -81,7 +81,7 @@
 
 .proj-image.extra-big {
   width: 270px;
-  height: 200px;
+  height: 240px;
   margin-bottom: 13px;
   border: 18px solid;
   border-radius: 30px;
@@ -325,7 +325,8 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
-  bottom: 170px;
+  bottom: 122px;
+  right: 18px;
   border-bottom: 10px solid;
   border-top: 10px solid;
   padding: 40px;
@@ -364,3 +365,13 @@ a {
 //   border: 50px solid transparent;
 //   border-top-color: red;
 // }
+
+.inner-masonry-div {
+  height: auto;
+  width: 100%;
+  border: 7px solid;
+  border-radius: 20px;
+  background: white;
+  position: relative;
+  right: 16px;
+}

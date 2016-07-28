@@ -33031,12 +33031,16 @@
 	        'Featured'
 	      ),
 	      React.createElement(
-	        Masonry,
-	        {
-	          className: 'proj-index-item-masonry',
-	          elementType: 'ul',
-	          options: masonryOptions },
-	        _projects
+	        'div',
+	        { className: 'inner-masonry-div' },
+	        React.createElement(
+	          Masonry,
+	          {
+	            className: 'proj-index-item-masonry',
+	            elementType: 'ul',
+	            options: masonryOptions },
+	          _projects
+	        )
 	      )
 	    );
 	  }

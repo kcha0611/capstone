@@ -60,12 +60,14 @@ const ProjectIndex = React.createClass({
     return (
       <div className="proj-masonry-div">
         <h1 className="index-featured">Featured</h1>
-        <Masonry
-            className={'proj-index-item-masonry'}
-            elementType={'ul'}
-            options={masonryOptions}>
-            {_projects}
-        </Masonry>
+        <div className="inner-masonry-div">
+          <Masonry
+              className={'proj-index-item-masonry'}
+              elementType={'ul'}
+              options={masonryOptions}>
+              {_projects}
+          </Masonry>
+        </div>
       </div>
     )
   }
