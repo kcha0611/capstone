@@ -22,7 +22,7 @@
 }
 .proj-image
 
-.login-form-comp {
+form.login-form-comp {
   background-image: url("http://feelgrafix.com/data_images/out/8/809290-free-creativity-wallpaper.jpg");
   // background-color: transparent;
   display: flex;
@@ -41,14 +41,28 @@
   margin: 20px auto;
 }
 
+form.login-form-comp {
+    width: 103.2%;
+    height: 820px;
+    position: relative;
+    right: 3.2%;
+    margin-top: -41px;
+    background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_fit,h_825,w_1252/v1469833026/809290-free-creativity-wallpaper_czfilm.jpg");
+    background-size: cover;
+    position: fixed;
+    top: 5;
+    left: 0;
+    bottom: 0;
+}
+
 .login-input {
-  float: left;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #111;
   font-family: Helvetica, sans-serif;
   margin: 20px auto;
+  width: 31%;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
@@ -195,8 +209,6 @@ float: left;
 .proj-index-images figure:hover figcaption, figure.hover figcaption {
     transform:rotateY(0)
 }
-
-
 .proj-image {
   border-color: hsla(0, 0%, 0%, 0.5);
 // border-radius: 20px;
@@ -207,7 +219,7 @@ justify-content: space-around;
 }
 
 .proj-image {
-  border-bottom: 70px solid white;
+  border-bottom: 100px solid white;
   // border-radius: 15%;
   // border-radius: 3px
 }

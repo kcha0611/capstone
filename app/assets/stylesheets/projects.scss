@@ -135,19 +135,7 @@ figcaption.proj-item-figcap {
   word-wrap: break-word;
 }
 
-// .thumbnail-proj-show {
-//   width: 530px;
-//   // height: 530px;
-//   display: flex;
-//   flex-direction: column;
-// }
 
-// .thumbnail img {
-//   margin-left: 0px;
-//   margin-right: 700px;
-//   width: 520px;
-//   height: 500px;
-// }
 
 .thumbnail p, h3 {
   text-align: center;
@@ -293,9 +281,6 @@ p.show-description {
   margin-top: 15%;
 }
 
-figcaption.proj-item-figcap {
-  border-radius: 30px;
-}
 
 a#nav-item-li-2 {
   font-size: 20px;
@@ -412,5 +397,6 @@ div.inner-masonry-div {
 }
 
 .proj-figure {
+  position: absolute;
   margin-bottom: 40px;
 }
