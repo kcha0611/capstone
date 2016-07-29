@@ -66,7 +66,7 @@
 	// const CommentEdit = require('./components/comment_edit');
 	var LoginForm = __webpack_require__(553);
 	var SessionStore = __webpack_require__(231);
-	var SessionActions = __webpack_require__(549);
+	var SessionActions = __webpack_require__(550);
 	var SignUpForm = __webpack_require__(555);
 	var Splash = __webpack_require__(556);
 	var ErrorStore = __webpack_require__(554);
@@ -25994,7 +25994,7 @@
 	var Link = __webpack_require__(168).Link;
 	var SessionStore = __webpack_require__(231);
 	var ProjectIndex = __webpack_require__(254);
-	var SessionActions = __webpack_require__(549);
+	var SessionActions = __webpack_require__(550);
 	var ReactRouter = __webpack_require__(168);
 	var hashHistory = ReactRouter.hashHistory;
 	var ReactBootstrap = __webpack_require__(271);
@@ -26003,7 +26003,7 @@
 	var Navbar = ReactBootstrap.Navbar;
 	var NavItem = ReactBootstrap.NavItem;
 	var Nav = ReactBootstrap.Nav;
-	var SearchBar = __webpack_require__(550);
+	var SearchBar = __webpack_require__(549);
 	var Button = ReactBootstrap.Button;
 	var SlideShow = __webpack_require__(551);
 	
@@ -26093,7 +26093,16 @@
 	            { key: 3, href: '#/projects/new', id: 'nav-item-li-3' },
 	            'Publish'
 	          ),
-	          React.createElement(SearchBar, { id: 'root-search-bar' }),
+	          React.createElement(
+	            NavItem,
+	            { key: 4, href: '', id: 'nav-item-li-4' },
+	            'About Us'
+	          ),
+	          React.createElement(
+	            NavItem,
+	            { key: 5, href: '', id: 'nav-item-li-5' },
+	            'Contact'
+	          ),
 	          React.createElement(Nav, { className: 'pull-right' })
 	        )
 	      ),
@@ -26103,6 +26112,7 @@
 	        dropDown
 	      ),
 	      homepage,
+	      React.createElement(SearchBar, { id: 'root-search-bar' }),
 	      React.createElement(
 	        'ul',
 	        null,
@@ -32965,6 +32975,7 @@
 	var ReactRouter = __webpack_require__(168);
 	var ProjectForm = __webpack_require__(263);
 	var Masonry = __webpack_require__(536);
+	var SearchBar = __webpack_require__(549);
 	
 	var ProjectIndex = React.createClass({
 	  displayName: 'ProjectIndex',
@@ -33003,7 +33014,7 @@
 	    var masonryOptions = {
 	      fitWidth: true,
 	      // columnWidth: 200,
-	      gutter: 0,
+	      gutter: 20,
 	      // fitHeight: true,
 	      maxWidth: 1200
 	    };
@@ -33140,8 +33151,8 @@
 	          null,
 	          React.createElement(
 	            'figure',
-	            null,
-	            React.createElement('img', { src: this.props.project.image_url, alt: '', className: 'proj-image ' + extraBig(), height: 400 }),
+	            { className: 'proj-figure' },
+	            React.createElement('img', { src: this.props.project.image_url, alt: '', className: 'proj-image' }),
 	            React.createElement(
 	              'figcaption',
 	              { className: 'proj-item-figcap' },
@@ -57834,6 +57845,87 @@
 
 	'use strict';
 	
+	var React = __webpack_require__(1);
+	var ReactRouter = __webpack_require__(168);
+	var hashHistory = ReactRouter.hashHistory;
+	var FormGroup = __webpack_require__(271).FormGroup;
+	var ControlLabel = __webpack_require__(271).ControlLabel;
+	var ProjectActions = __webpack_require__(258);
+	var FormControl = __webpack_require__(271).FormControl;
+	var Button = __webpack_require__(271).Button;
+	var Navbar = __webpack_require__(271).Navbar;
+	var ProjectStore = __webpack_require__(256);
+	
+	var projects = void 0;
+	
+	var SearchBar = React.createClass({
+	  displayName: 'SearchBar',
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      input: ""
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    this.projectListener = ProjectActions.fetchAllProjects();
+	  },
+	
+	  // componentWillUnmount () {
+	  //   this.projectListener.remove()
+	  // },
+	  handleChange: function handleChange(e) {
+	    e.preventDefault();
+	    this.setState({ input: e.target.value });
+	  },
+	  _onSubmit: function _onSubmit(e) {
+	    // debugger
+	    e.preventDefault();
+	    ProjectActions.fetchSearchedProjects({ searchTerm: this.state.input });
+	    this.setState({ input: "" });
+	  },
+	  autoFillText: function autoFillText() {
+	    var subjects = ["DIY Projects", "Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
+	  },
+	  render: function render() {
+	    var $html = $("<FormControl/>");
+	
+	    return React.createElement(
+	      'div',
+	      { id: 'search-bar-id' },
+	      React.createElement('form', null),
+	      React.createElement(
+	        'script',
+	        null,
+	        '$( "form" ).append(`',
+	        React.createElement('input', { type: 'text', placeholder: 'hi' }),
+	        '`)'
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = SearchBar;
+	
+	// <FormControl
+	//   type="text"
+	//   placeholder={($("FormControl").append("<p>Hi</p>")).html()}
+	//   value={this.state.value}
+	//   onChange={this.handleChange}
+	//   id="search-input"
+	// />
+	// <Navbar.Form>
+	//   <FormGroup>
+	//     <FormControl/>
+	//   <input type="submit" onClick={this._onSubmit}value="Search"></input>
+	//   </FormGroup>
+	// </Navbar.Form>
+
+/***/ },
+/* 550 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
 	var Dispatcher = __webpack_require__(232);
 	var SessionConstants = __webpack_require__(253);
 	var SessionApiUtil = __webpack_require__(259);
@@ -57876,75 +57968,6 @@
 	};
 	
 	module.exports = SessionActions;
-
-/***/ },
-/* 550 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	var ReactRouter = __webpack_require__(168);
-	var hashHistory = ReactRouter.hashHistory;
-	var FormGroup = __webpack_require__(271).FormGroup;
-	var ControlLabel = __webpack_require__(271).ControlLabel;
-	var ProjectActions = __webpack_require__(258);
-	var FormControl = __webpack_require__(271).FormControl;
-	var Button = __webpack_require__(271).Button;
-	var Navbar = __webpack_require__(271).Navbar;
-	var ProjectStore = __webpack_require__(256);
-	
-	var projects = void 0;
-	
-	var SearchBar = React.createClass({
-	  displayName: 'SearchBar',
-	
-	  getInitialState: function getInitialState() {
-	    return {
-	      input: ""
-	    };
-	  },
-	  componentDidMount: function componentDidMount() {
-	    this.projectListener = ProjectActions.fetchAllProjects();
-	  },
-	
-	  // componentWillUnmount () {
-	  //   this.projectListener.remove()
-	  // },
-	  handleChange: function handleChange(e) {
-	    e.preventDefault();
-	    this.setState({ input: e.target.value });
-	  },
-	  _onSubmit: function _onSubmit(e) {
-	    // debugger
-	    e.preventDefault();
-	    ProjectActions.fetchSearchedProjects({ searchTerm: this.state.input });
-	    this.setState({ input: "" });
-	  },
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { id: 'search-bar-id' },
-	      React.createElement(
-	        Navbar.Form,
-	        null,
-	        React.createElement(
-	          FormGroup,
-	          null,
-	          React.createElement(FormControl, {
-	            type: 'text',
-	            placeholder: 'Search',
-	            value: this.state.value,
-	            onChange: this.handleChange
-	          }),
-	          React.createElement('input', { type: 'submit', value: 'Search', onClick: this._onSubmit })
-	        )
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = SearchBar;
 
 /***/ },
 /* 551 */
@@ -58166,7 +58189,7 @@
 	
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(168).Link;
-	var SessionActions = __webpack_require__(549);
+	var SessionActions = __webpack_require__(550);
 	var SessionStore = __webpack_require__(231);
 	var ErrorStore = __webpack_require__(554);
 	var ReactRouter = __webpack_require__(168);

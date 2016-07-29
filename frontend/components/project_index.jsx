@@ -6,6 +6,7 @@ const hashHistory = require('react-router').hashHistory;
 const ReactRouter = require('react-router');
 const ProjectForm = require('./project_form');
 const Masonry = require('react-masonry-component');
+const SearchBar = require('./search-bar');
 
 const ProjectIndex = React.createClass({
   getInitialState: function() {
@@ -38,7 +39,7 @@ const ProjectIndex = React.createClass({
     const masonryOptions = {
       fitWidth: true,
       // columnWidth: 200,
-      gutter: 0,
+      gutter: 20,
       // fitHeight: true,
       maxWidth: 1200
     }

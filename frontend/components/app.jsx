@@ -68,12 +68,14 @@ const App = React.createClass({
                   </Navbar.Header>
                   <NavItem key={2} href="#/projects" id="nav-item-li-2">Explore</NavItem>
                   <NavItem key={3} href="#/projects/new" id="nav-item-li-3">Publish</NavItem>
-                  <SearchBar id="root-search-bar"></SearchBar>
+                  <NavItem key={4} href="" id="nav-item-li-4">About Us</NavItem>
+                  <NavItem key={5} href="" id="nav-item-li-5">Contact</NavItem>
                 <Nav className="pull-right"></Nav>
               </Nav>
             </Navbar>
             <p className="dropDown-login">{dropDown}</p>
             {homepage}
+          <SearchBar id="root-search-bar"></SearchBar>
         <ul>{this.props.children}</ul>
       </div>
     );

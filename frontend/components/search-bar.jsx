@@ -35,23 +35,37 @@ const SearchBar = React.createClass({
     ProjectActions.fetchSearchedProjects({searchTerm: this.state.input})
     this.setState({input: ""});
   },
+  autoFillText() {
+    var subjects = ["DIY Projects","Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
+
+  },
   render(){
+    var $html = $("<FormControl/>");
+
     return(
       <div id="search-bar-id">
-        <Navbar.Form >
-          <FormGroup>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          <input type="submit" value="Search" onClick={this._onSubmit}/>
-          </FormGroup>
-        </Navbar.Form>
+        <form>
+        </form>
+        <script>
+          $( "form" ).append(`<input type="text" placeholder="hi"/>`)
+        </script>
       </div>
     );
   }
 });
 
 module.exports = SearchBar;
+
+// <FormControl
+//   type="text"
+//   placeholder={($("FormControl").append("<p>Hi</p>")).html()}
+//   value={this.state.value}
+//   onChange={this.handleChange}
+//   id="search-input"
+// />
+// <Navbar.Form>
+//   <FormGroup>
+//     <FormControl/>
+//   <input type="submit" onClick={this._onSubmit}value="Search"></input>
+//   </FormGroup>
+// </Navbar.Form>

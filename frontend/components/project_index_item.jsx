@@ -60,8 +60,8 @@ const ProjectIndexItem = React.createClass({
       <div className="proj-div" onClick={this.goPage}>
         <ul className="proj-index-images">
             <li>
-                <figure>
-                    <img src={this.props.project.image_url} alt="" className={`proj-image ${extraBig()}`} height={400}/>
+                <figure className="proj-figure">
+                    <img src={this.props.project.image_url} alt="" className="proj-image"/>
                     <figcaption className="proj-item-figcap">
                         <h2>{this.props.project.title}</h2>
                         <p>{this.props.project.description}</p>
