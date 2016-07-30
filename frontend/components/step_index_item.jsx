@@ -69,7 +69,7 @@ const StepIndexItem = React.createClass({
       //      </Media.Body>
       //   </Media>
       // </div>
-      <span className="parent-step-div">
+      <div className="parent-step-div">
         <p className="step-img-phase">{`Phase ${this.state.order}`}</p>
         <img src={this.state.image_url} onClick={this.showModal} className="show-image"></img>
       <Modal bsSize="large" aria-labelledby="step-modal-close" show={this.state.show} onHide={this.hideModal}>
@@ -84,7 +84,7 @@ const StepIndexItem = React.createClass({
           <Button onClick={this.hideModal}>Close</Button>
         </Modal.Footer>
       </Modal>
-      </span>
+    </div>
     )
   }
 })

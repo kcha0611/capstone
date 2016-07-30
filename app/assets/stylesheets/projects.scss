@@ -427,8 +427,18 @@ div.proj-show-wrap {
   position: relative;
   top: -45px;
   right: 4%;
+  width: 100%;
 }
 
 .thumbnail-proj-show.thumbnail {
   height: 767px;
+}
+
+a {
+  position: relative;
+  top: 13px;
+}
+
+.thumbnail-proj-show.thumbnail {
+  margin-left: 46.5%;
 }

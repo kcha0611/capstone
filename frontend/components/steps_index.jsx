@@ -20,7 +20,7 @@ const StepsIndex = React.createClass({
     // debugger
     return (
       <div className="div-stepind-wrap">
-        {this.state.steps.map ((step) => {
+        {this.state.steps.map.with_index ((step) => {
           return <StepIndexItem step={step}/>
         })
       }

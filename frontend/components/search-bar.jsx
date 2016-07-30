@@ -44,11 +44,15 @@ const SearchBar = React.createClass({
 
     return(
       <div id="search-bar-id">
-        <form>
-        </form>
-        <script>
-          $( "form" ).append(`<input type="text" placeholder="hi"/>`)
-        </script>
+        <FormGroup>
+          <FormControl
+            type="text"
+            placeholder="search..."
+            value={this.state.value}
+            onChange={this.handleChange}
+            id="search-input"
+          />
+        </FormGroup>
       </div>
     );
   }

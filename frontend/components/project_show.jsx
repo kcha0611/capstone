@@ -70,7 +70,11 @@ const ProjectShow = React.createClass({
         </Thumbnail>
         <div className="step-index-wrap">
           {this.state.steps.map ((step) => {
-            return <StepIndexItem step={step}></StepIndexItem>
+            if (step.order === 3) {
+              return <StepIndexItem step={step}><br></br></StepIndexItem>
+            } else {
+              return <StepIndexItem step={step}/>
+            }
           })
         }
         </div>

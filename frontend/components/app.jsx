@@ -30,6 +30,7 @@ const App = React.createClass({
     let dropDown;
     // var greet;
     let homepage;
+    let searchBar;
     if (SessionStore.isUserLoggedIn()) {
       // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
       dropDown = (
@@ -43,6 +44,7 @@ const App = React.createClass({
       if (this.props.location.pathname.slice(1) === "projects") {
         // debugger
         homepage = (<SlideShow></SlideShow>)
+        searchBar = (<SearchBar id="root-search-bar"></SearchBar>)
       }
     }
     // else if (this.props.location.pathname.slice(1) === "signup") {
@@ -75,7 +77,7 @@ const App = React.createClass({
             </Navbar>
             <p className="dropDown-login">{dropDown}</p>
             {homepage}
-          <SearchBar id="root-search-bar"></SearchBar>
+            {searchBar}
         <ul>{this.props.children}</ul>
       </div>
     );

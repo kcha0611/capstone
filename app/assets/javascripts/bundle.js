@@ -26023,6 +26023,7 @@
 	    var dropDown = void 0;
 	    // var greet;
 	    var homepage = void 0;
+	    var searchBar = void 0;
 	    if (SessionStore.isUserLoggedIn()) {
 	      // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
 	      dropDown = React.createElement(
@@ -26039,6 +26040,7 @@
 	      if (this.props.location.pathname.slice(1) === "projects") {
 	        // debugger
 	        homepage = React.createElement(SlideShow, null);
+	        searchBar = React.createElement(SearchBar, { id: 'root-search-bar' });
 	      }
 	    }
 	    // else if (this.props.location.pathname.slice(1) === "signup") {
@@ -26112,7 +26114,7 @@
 	        dropDown
 	      ),
 	      homepage,
-	      React.createElement(SearchBar, { id: 'root-search-bar' }),
+	      searchBar,
 	      React.createElement(
 	        'ul',
 	        null,
@@ -33901,7 +33903,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'div-stepind-wrap' },
-	      this.state.steps.map(function (step) {
+	      this.state.steps.map.with_index(function (step) {
 	        return React.createElement(StepIndexItem, { step: step });
 	      })
 	    );
@@ -34034,7 +34036,7 @@
 	      //   </Media>
 	      // </div>
 	      React.createElement(
-	        'span',
+	        'div',
 	        { className: 'parent-step-div' },
 	        React.createElement(
 	          'p',
@@ -57933,13 +57935,16 @@
 	    return React.createElement(
 	      'div',
 	      { id: 'search-bar-id' },
-	      React.createElement('form', null),
 	      React.createElement(
-	        'script',
+	        FormGroup,
 	        null,
-	        '$( "form" ).append(`',
-	        React.createElement('input', { type: 'text', placeholder: 'hi' }),
-	        '`)'
+	        React.createElement(FormControl, {
+	          type: 'text',
+	          placeholder: 'search...',
+	          value: this.state.value,
+	          onChange: this.handleChange,
+	          id: 'search-input'
+	        })
 	      )
 	    );
 	  }
@@ -58199,7 +58204,15 @@
 	          'div',
 	          { className: 'step-index-wrap' },
 	          this.state.steps.map(function (step) {
-	            return React.createElement(StepIndexItem, { step: step });
+	            if (step.order === 3) {
+	              return React.createElement(
+	                StepIndexItem,
+	                { step: step },
+	                React.createElement('br', null)
+	              );
+	            } else {
+	              return React.createElement(StepIndexItem, { step: step });
+	            }
 	          })
 	        )
 	      )

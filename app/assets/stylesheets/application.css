@@ -184,3 +184,9 @@ div.navbar-form {
   /*background: linear-gradient(to bottom, #eacda3 0%, #d6ae7b 100%);*/
   background: gainsboro;
 }
+
+
+div.inner-masonry-div {
+  position: relative;
+  bottom: 128px;
+}
