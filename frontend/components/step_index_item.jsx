@@ -70,7 +70,7 @@ const StepIndexItem = React.createClass({
       //   </Media>
       // </div>
       <span className="parent-step-div">
-        <h3 className="phase-order">{`Phase ${this.state.order}`}</h3>
+        <p className="step-img-phase">{`Phase ${this.state.order}`}</p>
         <img src={this.state.image_url} onClick={this.showModal} className="show-image"></img>
       <Modal bsSize="large" aria-labelledby="step-modal-close" show={this.state.show} onHide={this.hideModal}>
         <Modal.Header closeButton>

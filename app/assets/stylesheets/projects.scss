@@ -102,10 +102,20 @@ select{
     box-shadow: 0 0 8px #88D5E9;
     border: 1px solid #88D5E9;
 }
+
+p.step-img-phase {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    background: #fff;
+}
+
 .proj-form-fields .proj-title{
     width: 500px;
     text-align: center;
     border-radius: 10px;
+    border-right: 0px solid;
+    border-left: 2px solid;
     // float: left;
 }
 
@@ -186,10 +196,6 @@ ul {
   margin-bottom: 30px;
 }
 
-.proj-show-wrap {
-  position: relative;
-  top: 30px;
-}
 
 .step-title {
   width: 500px
@@ -415,4 +421,14 @@ div.inner-masonry-div {
 .proj-figure {
   position: absolute;
   margin-bottom: 40px;
+}
+
+div.proj-show-wrap {
+  position: relative;
+  top: -45px;
+  right: 4%;
+}
+
+.thumbnail-proj-show.thumbnail {
+  height: 767px;
 }

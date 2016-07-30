@@ -34037,8 +34037,8 @@
 	        'span',
 	        { className: 'parent-step-div' },
 	        React.createElement(
-	          'h3',
-	          { className: 'phase-order' },
+	          'p',
+	          { className: 'step-img-phase' },
 	          'Phase ' + this.state.order
 	        ),
 	        React.createElement('img', { src: this.state.image_url, onClick: this.showModal, className: 'show-image' }),
