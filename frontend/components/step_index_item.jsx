@@ -69,21 +69,22 @@ const StepIndexItem = React.createClass({
       //      </Media.Body>
       //   </Media>
       // </div>
-      <div>
+      <span className="parent-step-div">
+        <h3 className="phase-order">{`Phase ${this.state.order}`}</h3>
         <img src={this.state.image_url} onClick={this.showModal} className="show-image"></img>
       <Modal bsSize="large" aria-labelledby="step-modal-close" show={this.state.show} onHide={this.hideModal}>
         <Modal.Header closeButton>
           <Modal.Title id="step-modal-title">{`Phase ${this.state.order}`}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h3>{this.state.title}</h3>
+          <h2>{this.state.title}</h2>
           <p>{this.state.description}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.hideModal}>Close</Button>
         </Modal.Footer>
       </Modal>
-      </div>
+      </span>
     )
   }
 })

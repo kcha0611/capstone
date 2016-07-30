@@ -34034,8 +34034,13 @@
 	      //   </Media>
 	      // </div>
 	      React.createElement(
-	        'div',
-	        null,
+	        'span',
+	        { className: 'parent-step-div' },
+	        React.createElement(
+	          'h3',
+	          { className: 'phase-order' },
+	          'Phase ' + this.state.order
+	        ),
 	        React.createElement('img', { src: this.state.image_url, onClick: this.showModal, className: 'show-image' }),
 	        React.createElement(
 	          Modal,
@@ -34053,7 +34058,7 @@
 	            Modal.Body,
 	            null,
 	            React.createElement(
-	              'h3',
+	              'h2',
 	              null,
 	              this.state.title
 	            ),

@@ -127,5 +127,23 @@ div.step-index-description {
 }
 
 .step-index-wrap {
-  width: 67%;
+  width: 58%;
+}
+
+.parent-step-div {
+  display: table;
+  width: 774.667px;
+}
+.show-image {
+  display: table-cell;
+  width: 258.222px;
+  height: 200px;
+}
+.show-image:hover {
+  opacity: 0.7;
+}
+
+.thumbnail-proj-show {
+  width: 58%;
+  height: 700px;
 }
