@@ -4,12 +4,11 @@
 
 .step-form-div {
   border: 2px solid;
-  width: 40%;
+  width: 51%;
   height: 718px;
   margin-left: auto;
-  margin-right: 33%;
-  background-color: silver;
-  border-radius: 40px;
+  margin-right: 26%;
+  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_fit,h_790,w_970/v1469836551/wood-wallpaper-16_lh1fa9.jpg");
 }
 
 
@@ -31,13 +30,14 @@ html {
 .inp-step-title {
   margin-bottom: 7%;
   border-radius: 7px;
-  width: 210px;
+  width: 450px;
   border: 3px solid;
-  height: 37px;
+  height: 54px;
+  margin-left: 65%;
 }
 
 .step-form-title {
-  margin-right: 12px;
+  margin-right: -63%;
   font-size: 20px;
 }
 
@@ -45,19 +45,31 @@ html {
   margin-bottom: 7%;
 }
 
+.phase-order {
+  font-family: "Berkshire Swash', Helvetica, sans-serif";
+  border-bottom: 3px solid;
+  border-top: 3px solid;
+  margin-left: auto;
+}
+
 .inp-step-desc {
   margin-bottom: 7%;
   border-radius: 7px;
   border: 3px solid;
-  width: 1000px;
+  width: 440px;
+  margin-left: -31%;
+}
+
+h1 {
+  font-family: "Berkshire Swash', Helvetica, sans-serif";
 }
 
 .step-form-desc {
   margin-right: 7px;
   font-size: 20px;
   position: relative;
-  top:32%;
-  left: -2.4%;
+  top: 32%;
+  left: -30.4%;
 }
 
 .step-desc-wrap {
@@ -98,12 +110,11 @@ html {
 
 .step-form {
   border: 3px solid;
-  background: linear-gradient(to right, #E55D87 0%, #5FC3E4 100%);
-  margin-top: 5%;
-  border-radius: 40px;
+  margin-top: 3%;
   height: 91%;
-  width: 93%;
-  margin-left: 3.3%;
+  width: 84%;
+  margin-left: 7.6%;
+  background-color: gainsboro;
 }
 
 p.step-index-description {
@@ -165,4 +176,5 @@ p.step-img-phase {
   display: flex;
   margin-left: 2%;
   margin-right: auto;
+  justify-content: center;
 }

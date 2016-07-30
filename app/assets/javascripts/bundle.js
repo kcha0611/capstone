@@ -26024,6 +26024,10 @@
 	    // var greet;
 	    var homepage = void 0;
 	    var searchBar = void 0;
+	    var navBar = void 0;
+	    if (this.props.location.pathname.slice(1) === "") {
+	      searchBar = React.createElement(SearchBar, { id: 'root-search-bar' });
+	    }
 	    if (SessionStore.isUserLoggedIn()) {
 	      // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
 	      dropDown = React.createElement(
@@ -26040,7 +26044,6 @@
 	      if (this.props.location.pathname.slice(1) === "projects") {
 	        // debugger
 	        homepage = React.createElement(SlideShow, null);
-	        searchBar = React.createElement(SearchBar, { id: 'root-search-bar' });
 	      }
 	    }
 	    // else if (this.props.location.pathname.slice(1) === "signup") {
@@ -26062,11 +26065,10 @@
 	          )
 	        );
 	      }
-	    // debugger
-	    return React.createElement(
-	      'div',
-	      { className: 'root-container' },
-	      React.createElement(
+	    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup") {
+	      navBar;
+	    } else {
+	      navBar = React.createElement(
 	        Navbar,
 	        { id: 'main-nav' },
 	        React.createElement(
@@ -26107,7 +26109,12 @@
 	          ),
 	          React.createElement(Nav, { className: 'pull-right' })
 	        )
-	      ),
+	      );
+	    }
+	    return React.createElement(
+	      'div',
+	      { className: 'root-container' },
+	      navBar,
 	      React.createElement(
 	        'p',
 	        { className: 'dropDown-login' },
@@ -33721,11 +33728,6 @@
 	          { className: 'step-form' },
 	          React.createElement(
 	            'h1',
-	            { className: 'proj-title' },
-	            'Create Phase:'
-	          ),
-	          React.createElement(
-	            'h2',
 	            { className: 'phase-order' },
 	            'Phase ' + this.state.order
 	          ),
@@ -33775,11 +33777,6 @@
 	              'button',
 	              { onClick: this.addPhase, className: 'add-phase-btn' },
 	              'Add a Phase!'
-	            ),
-	            React.createElement(
-	              'button',
-	              { className: 'step-create-button' },
-	              'View All Phases'
 	            ),
 	            React.createElement('input', { type: 'submit', className: 'step-create-button', value: 'Create!', onClick: this._submit })
 	          )

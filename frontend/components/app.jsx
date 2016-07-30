@@ -31,6 +31,10 @@ const App = React.createClass({
     // var greet;
     let homepage;
     let searchBar;
+    let navBar;
+    if (this.props.location.pathname.slice(1) === "") {
+      searchBar = (<SearchBar id="root-search-bar"></SearchBar>)
+    }
     if (SessionStore.isUserLoggedIn()) {
       // greet = (<h1 className="root-greet-header">Welcome, {SessionStore.currentUser().username}!</h1>)
       dropDown = (
@@ -44,7 +48,6 @@ const App = React.createClass({
       if (this.props.location.pathname.slice(1) === "projects") {
         // debugger
         homepage = (<SlideShow></SlideShow>)
-        searchBar = (<SearchBar id="root-search-bar"></SearchBar>)
       }
     }
     // else if (this.props.location.pathname.slice(1) === "signup") {
@@ -58,23 +61,27 @@ const App = React.createClass({
         </Nav>
       )
     }
-    // debugger
+    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup") {
+      navBar;
+    } else {
+      navBar = (<Navbar id="main-nav">
+                  <Nav key={1} className="nav-item">
+                      <Navbar.Header>
+                        <Navbar.Brand id="root-text-nav">
+                          <a href="/" id="root-constructables-nav">Constructables</a>
+                        </Navbar.Brand>
+                      </Navbar.Header>
+                      <NavItem key={2} href="#/projects" id="nav-item-li-2">Explore</NavItem>
+                      <NavItem key={3} href="#/projects/new" id="nav-item-li-3">Publish</NavItem>
+                      <NavItem key={4} href="" id="nav-item-li-4">About Us</NavItem>
+                      <NavItem key={5} href="" id="nav-item-li-5">Contact</NavItem>
+                    <Nav className="pull-right"></Nav>
+                  </Nav>
+                </Navbar>)
+      }
     return (
           <div className="root-container">
-            <Navbar id="main-nav">
-              <Nav key={1} className="nav-item">
-                  <Navbar.Header>
-                    <Navbar.Brand id="root-text-nav">
-                      <a href="/" id="root-constructables-nav">Constructables</a>
-                    </Navbar.Brand>
-                  </Navbar.Header>
-                  <NavItem key={2} href="#/projects" id="nav-item-li-2">Explore</NavItem>
-                  <NavItem key={3} href="#/projects/new" id="nav-item-li-3">Publish</NavItem>
-                  <NavItem key={4} href="" id="nav-item-li-4">About Us</NavItem>
-                  <NavItem key={5} href="" id="nav-item-li-5">Contact</NavItem>
-                <Nav className="pull-right"></Nav>
-              </Nav>
-            </Navbar>
+            {navBar}
             <p className="dropDown-login">{dropDown}</p>
             {homepage}
             {searchBar}

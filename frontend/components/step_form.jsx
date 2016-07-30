@@ -56,10 +56,7 @@ const StepForm = React.createClass({
     <div>
       <div className="step-form-div">
         <form className="step-form">
-          <h1 className="proj-title">
-            Create Phase:
-          </h1>
-          <h2 className="phase-order">{`Phase ${this.state.order}`}</h2>
+          <h1 className="phase-order">{`Phase ${this.state.order}`}</h1>
             <ul className="step-form-ul">
               <li><label className="step-form-title">Step Title<span className="step-title">*</span></label><input type="text" name="field1" className="inp-step-title" placeholder="Title"onChange={this.tChange} /></li>
               <li className="step-desc-wrap">
@@ -70,7 +67,6 @@ const StepForm = React.createClass({
                 <button onClick={this.updateImage} className="image-class">Upload an Image!</button>
             </li>
           <button onClick={this.addPhase} className="add-phase-btn">Add a Phase!</button>
-          <button className="step-create-button">View All Phases</button>
           <input type="submit" className="step-create-button" value="Create!" onClick={this._submit}></input>
           </ul>
         </form>
