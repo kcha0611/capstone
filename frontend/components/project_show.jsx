@@ -69,9 +69,9 @@ const ProjectShow = React.createClass({
           </section>
         </Thumbnail>
         <div className="step-index-wrap">
-          {this.state.steps.map ((step) =>
-            <StepIndexItem step={step}></StepIndexItem>
-          )
+          {this.state.steps.map ((step) => {
+            return <StepIndexItem step={step} key={step.id}></StepIndexItem>
+          })
         }
         </div>
       </Col>

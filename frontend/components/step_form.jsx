@@ -36,9 +36,10 @@ const StepForm = React.createClass({
     this.state.order = this.state.order + 1
     this.setState({title: this.state.title, description: this.state.description, order: this.state.order, image_url: this.state.image_url})
     StepActions.createStep(this.props.params.projectId, {description: this.state.description, title: this.state.title, image_url: this.state.image_url, order: this.state.order})
-    this.setState({title: "", description: ""})
+    debugger
+    // this.setState({title: "", description: ""})
   },
-  _submit(e) {img>
+  _submit(e) {
     e.preventDefault();
     // debugger
     hashHistory.push(`api/projects/${this.props.params.projectId}`)
@@ -68,11 +69,9 @@ const StepForm = React.createClass({
             <li className="additional-field">
                 <button onClick={this.updateImage} className="image-class">Upload an Image!</button>
             </li>
-        <div>
           <button onClick={this.addPhase} className="add-phase-btn">Add a Phase!</button>
-        </div>
           <button className="step-create-button">View All Phases</button>
-          <input type="submit" onClick={this._submit} className="step-create-button" value="Create!"></input>
+          <input type="submit" className="step-create-button" value="Create!" onClick={this._submit}></input>
           </ul>
         </form>
       </div>

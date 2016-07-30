@@ -33517,7 +33517,8 @@
 	    return {
 	      title: "",
 	      description: "",
-	      image_url: ""
+	      image_url: "",
+	      video_url: ""
 	    };
 	  },
 	  tChange: function tChange(e) {
@@ -33529,8 +33530,8 @@
 	  _submit: function _submit(e) {
 	    e.preventDefault();
 	    // debugger
-	    ProjectActions.createProject({ title: this.state.title, description: this.state.description, image_url: this.state.image_url }, this.addStep);
-	    this.setState({ title: "", description: "", image_url: "" });
+	    ProjectActions.createProject({ title: this.state.title, description: this.state.description, image_url: this.state.image_url, video_url: this.state.video_url }, this.addStep);
+	    this.setState({ title: "", description: "", image_url: "", video_url: "" });
 	    // render () {return (<StepForm></StepForm>)}
 	  },
 	  handleCancel: function handleCancel(e) {
@@ -33539,6 +33540,15 @@
 	    hashHistory.push('/projects');
 	  },
 	  updateImage: function updateImage(e) {
+	    e.preventDefault();
+	    cloudinary.openUploadWidget(cloudinary_options, function (error, results) {
+	      if (!error) {
+	        var newUrl = results[0].url;
+	        this.setState({ image_url: newUrl });
+	      }
+	    }.bind(this));
+	  },
+	  updateVideo: function updateVideo(e) {
 	    e.preventDefault();
 	    cloudinary.openUploadWidget(cloudinary_options, function (error, results) {
 	      if (!error) {
@@ -33681,10 +33691,11 @@
 	    this.state.order = this.state.order + 1;
 	    this.setState({ title: this.state.title, description: this.state.description, order: this.state.order, image_url: this.state.image_url });
 	    StepActions.createStep(this.props.params.projectId, { description: this.state.description, title: this.state.title, image_url: this.state.image_url, order: this.state.order });
-	    this.setState({ title: "", description: "" });
+	    debugger;
+	    // this.setState({title: "", description: ""})
 	  },
 	  _submit: function _submit(e) {
-	    img > e.preventDefault();
+	    e.preventDefault();
 	    // debugger
 	    hashHistory.push('api/projects/' + this.props.params.projectId);
 	  },
@@ -33759,20 +33770,16 @@
 	              )
 	            ),
 	            React.createElement(
-	              'div',
-	              null,
-	              React.createElement(
-	                'button',
-	                { onClick: this.addPhase, className: 'add-phase-btn' },
-	                'Add a Phase!'
-	              )
+	              'button',
+	              { onClick: this.addPhase, className: 'add-phase-btn' },
+	              'Add a Phase!'
 	            ),
 	            React.createElement(
 	              'button',
 	              { className: 'step-create-button' },
 	              'View All Phases'
 	            ),
-	            React.createElement('input', { type: 'submit', onClick: this._submit, className: 'step-create-button', value: 'Create!' })
+	            React.createElement('input', { type: 'submit', className: 'step-create-button', value: 'Create!', onClick: this._submit })
 	          )
 	        )
 	      )
@@ -58158,7 +58165,7 @@
 	          'div',
 	          { className: 'step-index-wrap' },
 	          this.state.steps.map(function (step) {
-	            return React.createElement(StepIndexItem, { step: step });
+	            return React.createElement(StepIndexItem, { step: step, key: step.id });
 	          })
 	        )
 	      )

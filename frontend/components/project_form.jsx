@@ -15,7 +15,8 @@ const ProjectForm = React.createClass({
       return {
         title: "",
         description: "",
-        image_url: ""
+        image_url: "",
+        video_url: ""
       };
     },
     tChange (e) {
@@ -27,8 +28,8 @@ const ProjectForm = React.createClass({
     _submit(e) {
       e.preventDefault();
       // debugger
-      ProjectActions.createProject({title: this.state.title, description: this.state.description, image_url: this.state.image_url}, this.addStep);
-      this.setState({title: "", description: "", image_url: ""})
+      ProjectActions.createProject({title: this.state.title, description: this.state.description, image_url: this.state.image_url, video_url: this.state.video_url}, this.addStep);
+      this.setState({title: "", description: "", image_url: "", video_url: ""})
       // render () {return (<StepForm></StepForm>)}
     },
     handleCancel (e) {
@@ -37,6 +38,15 @@ const ProjectForm = React.createClass({
       hashHistory.push('/projects')
     },
     updateImage(e) {
+      e.preventDefault();
+      cloudinary.openUploadWidget(cloudinary_options, function(error, results){
+       if (!error) {
+         let newUrl = results[0].url
+          this.setState({ image_url: newUrl });
+        }
+      }.bind(this));
+    },
+    updateVideo(e) {
       e.preventDefault();
       cloudinary.openUploadWidget(cloudinary_options, function(error, results){
        if (!error) {
