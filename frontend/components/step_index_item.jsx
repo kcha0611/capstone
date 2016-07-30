@@ -2,6 +2,8 @@ const StepsIndex = require('./steps_index')
 const React = require('react')
 const Media = require('react-bootstrap').Media
 const Image = require('react-bootstrap').Image;
+const Modal = require('react-bootstrap').Modal;
+const Button = require('react-bootstrap').Button;
 
 const StepIndexItem = React.createClass({
   getInitialState: function() {
@@ -10,7 +12,8 @@ const StepIndexItem = React.createClass({
       title: this.props.step.title,
       description: this.props.step.description,
       order: this.props.step.order,
-      image_url: this.props.step.image_url
+      image_url: this.props.step.image_url,
+      show: false
     };
   },
   // componentDidMount: function() {
@@ -22,6 +25,12 @@ const StepIndexItem = React.createClass({
   // _onChange() {
   //   this.setState({title: this.state.title, description: this.state.description, order: this.state.order, image_url: this.state.image_url})
   // },
+  showModal() {
+    this.setState({show: true})
+  },
+  hideModal() {
+    this.setState({show: false})
+  },
   render () {
     // debugger
     return (
@@ -49,16 +58,31 @@ const StepIndexItem = React.createClass({
       //     </p>
       //   </Media.Body>
       // </Media>
-      <div className="step-div-wrap">
-        <Media className="step-index-media">
-           <Media.Left align="top">
-             <img width={400} height={280} src={this.state.image_url} alt="Image" className="step-thbnail-img"/>
-           </Media.Left>
-           <Media.Body>
-             <div className="step-index-div"><Media.Heading className="step-index-h1">{`Phase ${this.state.order}: ${this.state.title}`}</Media.Heading></div>
-             <p className="step-index-description">Description: {this.state.description}</p>
-           </Media.Body>
-        </Media>
+      // <div className="step-div-wrap">
+      //   <Media className="step-index-media">
+      //      <Media.Left align="top">
+      //        <img width={400} height={280} src={this.state.image_url} alt="Image" className="step-thbnail-img"/>
+      //      </Media.Left>
+      //      <Media.Body>
+      //        <div className="step-index-div"><Media.Heading className="step-index-h1">{`Phase ${this.state.order}: ${this.state.title}`}</Media.Heading></div>
+      //        <p className="step-index-description">Description: {this.state.description}</p>
+      //      </Media.Body>
+      //   </Media>
+      // </div>
+      <div>
+        <img src={this.state.image_url} onClick={this.showModal} className="show-image"></img>
+      <Modal bsSize="large" aria-labelledby="step-modal-close" show={this.state.show} onHide={this.hideModal}>
+        <Modal.Header closeButton>
+          <Modal.Title id="step-modal-title">{`Phase ${this.state.order}`}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h3>{this.state.title}</h3>
+          <p>{this.state.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.hideModal}>Close</Button>
+        </Modal.Footer>
+      </Modal>
       </div>
     )
   }

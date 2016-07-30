@@ -33964,6 +33964,8 @@
 	var React = __webpack_require__(1);
 	var Media = __webpack_require__(271).Media;
 	var Image = __webpack_require__(271).Image;
+	var Modal = __webpack_require__(271).Modal;
+	var Button = __webpack_require__(271).Button;
 	
 	var StepIndexItem = React.createClass({
 	  displayName: 'StepIndexItem',
@@ -33974,7 +33976,8 @@
 	      title: this.props.step.title,
 	      description: this.props.step.description,
 	      order: this.props.step.order,
-	      image_url: this.props.step.image_url
+	      image_url: this.props.step.image_url,
+	      show: false
 	    };
 	  },
 	  // componentDidMount: function() {
@@ -33986,6 +33989,12 @@
 	  // _onChange() {
 	  //   this.setState({title: this.state.title, description: this.state.description, order: this.state.order, image_url: this.state.image_url})
 	  // },
+	  showModal: function showModal() {
+	    this.setState({ show: true });
+	  },
+	  hideModal: function hideModal() {
+	    this.setState({ show: false });
+	  },
 	  render: function render() {
 	    // debugger
 	    return(
@@ -34013,34 +34022,54 @@
 	      //     </p>
 	      //   </Media.Body>
 	      // </Media>
+	      // <div className="step-div-wrap">
+	      //   <Media className="step-index-media">
+	      //      <Media.Left align="top">
+	      //        <img width={400} height={280} src={this.state.image_url} alt="Image" className="step-thbnail-img"/>
+	      //      </Media.Left>
+	      //      <Media.Body>
+	      //        <div className="step-index-div"><Media.Heading className="step-index-h1">{`Phase ${this.state.order}: ${this.state.title}`}</Media.Heading></div>
+	      //        <p className="step-index-description">Description: {this.state.description}</p>
+	      //      </Media.Body>
+	      //   </Media>
+	      // </div>
 	      React.createElement(
 	        'div',
-	        { className: 'step-div-wrap' },
+	        null,
+	        React.createElement('img', { src: this.state.image_url, onClick: this.showModal, className: 'show-image' }),
 	        React.createElement(
-	          Media,
-	          { className: 'step-index-media' },
+	          Modal,
+	          { bsSize: 'large', 'aria-labelledby': 'step-modal-close', show: this.state.show, onHide: this.hideModal },
 	          React.createElement(
-	            Media.Left,
-	            { align: 'top' },
-	            React.createElement('img', { width: 400, height: 280, src: this.state.image_url, alt: 'Image', className: 'step-thbnail-img' })
+	            Modal.Header,
+	            { closeButton: true },
+	            React.createElement(
+	              Modal.Title,
+	              { id: 'step-modal-title' },
+	              'Phase ' + this.state.order
+	            )
 	          ),
 	          React.createElement(
-	            Media.Body,
+	            Modal.Body,
 	            null,
 	            React.createElement(
-	              'div',
-	              { className: 'step-index-div' },
-	              React.createElement(
-	                Media.Heading,
-	                { className: 'step-index-h1' },
-	                'Phase ' + this.state.order + ': ' + this.state.title
-	              )
+	              'h3',
+	              null,
+	              this.state.title
 	            ),
 	            React.createElement(
 	              'p',
-	              { className: 'step-index-description' },
-	              'Description: ',
+	              null,
 	              this.state.description
+	            )
+	          ),
+	          React.createElement(
+	            Modal.Footer,
+	            null,
+	            React.createElement(
+	              Button,
+	              { onClick: this.hideModal },
+	              'Close'
 	            )
 	          )
 	        )
@@ -58165,7 +58194,7 @@
 	          'div',
 	          { className: 'step-index-wrap' },
 	          this.state.steps.map(function (step) {
-	            return React.createElement(StepIndexItem, { step: step, key: step.id });
+	            return React.createElement(StepIndexItem, { step: step });
 	          })
 	        )
 	      )
