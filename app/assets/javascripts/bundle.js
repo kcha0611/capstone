@@ -91,7 +91,7 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: LoginForm }),
+	    React.createElement(IndexRoute, { component: ProjectIndex, onEnter: redirectIfLoggedIn }),
 	    React.createElement(Route, { path: 'projects/new', component: ProjectForm, onEnter: _ensureCurrentUser }),
 	    React.createElement(Route, { path: 'projects', component: ProjectIndex }),
 	    React.createElement(Route, { path: '/api/projects/:projectId', component: ProjectShow }),
@@ -33067,17 +33067,6 @@
 	  _handleChange: function _handleChange() {
 	    this.setState({ projects: ProjectStore.all() });
 	  },
-	  _delayText: function _delayText(target, message, index, interval) {
-	    if (index < message.length) {
-	      $(target).append(message[index++]);
-	      setTimeout(function () {
-	        delayText(target, message, index, interval);
-	      }, interval);
-	    }
-	    // $(function () {
-	    //   _delayText("#index-featured", "Featured", 0, 300)
-	    // })
-	  },
 	  render: function render() {
 	    var _this = this;
 	
@@ -33123,6 +33112,14 @@
 	            options: masonryOptions },
 	          _projects
 	        )
+	      ),
+	      React.createElement(
+	        'script',
+	        null,
+	        '$(document).ready( function () ',
+	        $('html, body').animate({
+	          scrollTop: $('#inner-masonry-div').offset().top }, 'slow'),
+	        ')'
 	      )
 	    );
 	  }

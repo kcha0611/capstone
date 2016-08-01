@@ -25,15 +25,6 @@ const ProjectIndex = React.createClass({
   _handleChange () {
     this.setState({projects: ProjectStore.all()})
   },
-  _delayText (target, message, index, interval) {
-      if (index < message.length) {
-        $(target).append(message[index++]);
-        setTimeout(function () { delayText(target, message, index, interval) }, interval);
-    }
-    // $(function () {
-    //   _delayText("#index-featured", "Featured", 0, 300)
-    // })
-  },
   render () {
     let _projects = [];
     const masonryOptions = {
@@ -69,6 +60,12 @@ const ProjectIndex = React.createClass({
               {_projects}
           </Masonry>
         </div>
+        <script>
+          $(document).ready( function () {
+            $('html, body').animate({
+              scrollTop: $('#inner-masonry-div').offset().top}, 'slow')
+          })
+        </script>
       </div>
     )
   }
