@@ -448,6 +448,26 @@ a {
 }
 
 .inner-div-form {
-  height: 89%;
+  height: 91%;
   border-radius: 0px;
+}
+
+ul.proj-index-item-masonry {
+  right: 3.3%;
+}
+
+.div-proj-form {
+  height: 834px;
+}
+
+#search-input {
+  margin-left: 14%;
+}
+
+button.input-search-bar {
+  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_fill,h_116,w_100/v1470070165/search-bar_icon-a6dec420f6020aea51fca97aa97e4a02_lgco7g.png");
+  border: 0px;
+  position: relative;
+  right: 27%;
+  width: 100px;
 }

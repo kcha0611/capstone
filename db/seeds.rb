@@ -17,6 +17,7 @@
 # Nam in tortor in neque posuere molestie. Nam non ante bibendum, posuere quam venenatis, eleifend arcu. Curabitur ornare, sapien tempus luctus facilisis, enim sapien dignissim augue, eget tempus diam turpis sed velit. Integer semper ultrices lacus sit amet porta. Proin in malesuada mi, non rhoncus velit. Praesent venenatis ex sit amet magna eleifend, id consectetur dolor convallis. Maecenas dignissim lorem a erat porttitor, ac finibus ipsum consequat.
 #
 # ", image_url: "http://cdn.instructables.com/F45/7XR0/GOV8DVQ4/F457XR0GOV8DVQ4.RECTANGLE1.jpg"}])
+  User.create!(username: "DemoUser", password_digest: BCrypt::Password.create("password"))
   Project.create([{title: "Build Your Own OS", description: "desc",image_url:"http://theteacher.info/websites/gcse_comp/WebPages/A451_CompSys/213_Software/Software/a/OS.GIF"}])
   Project.create([{title: "RC Fireworks Truck", description: "desc", image_url: "http://cdn.instructables.com/FPG/M03Y/FI42NIEI/FPGM03YFI42NIEI.RECTANGLE1.jpg"}])
   Project.create([{title: "Bird Feeder Wreath", description: "desc", image_url: "http://cdn.instructables.com/FYU/67NU/GNOD5RYD/FYU67NUGNOD5RYD.RECTANGLE1.jpg"}])

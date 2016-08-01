@@ -50,6 +50,36 @@ const LoginForm = React.createClass({
 		passwordUpdate (e) {
 			this.setState({password: e.target.value})
 		},
+		_demoSubmit() {
+				const formData = {
+					username: this.state.username,
+					password: this.state.password
+				};
+			SessionActions.logIn({ username: 'DemoUser', password: 'password'});
+			hashHistory.push('/projects');
+		},
+		_demoLogin(e) {
+			 this.setState({
+				 username: "",
+				 password: ""
+			 });
+			 let username = "DemoUser";
+			 let usernameIndex = 0;
+			 let password = "password";
+			 let passwordIndex = 0;
+			 let interval = setInterval(() => {
+				 if (usernameIndex < 8) {
+					 this.setState({ username: `${this.state.username}` + username[usernameIndex]});
+					 usernameIndex++;
+				 } else if (passwordIndex < 8) {
+					 this.setState({ password: `${this.state.password}` + password[passwordIndex]});
+					 passwordIndex++;
+				 } else {
+					 this._demoSubmit();
+					 clearInterval(interval);
+				 }
+			 }, 75);
+		 },
 		uNameUpdate (e) {
 			this.setState({username: e.target.value})
 		},
@@ -104,6 +134,7 @@ const LoginForm = React.createClass({
 							{_confirmPass}
 						</label>
 						<input type="submit" value={this.formType()} className="submit-button"/>
+						<input type="submit" value="Demo" onClick={this._demoLogin}></input>
 					</div>
 				</form>
 			</div>

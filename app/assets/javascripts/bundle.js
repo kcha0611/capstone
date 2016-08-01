@@ -57975,44 +57975,44 @@
 	    this.setState({ input: "" });
 	  },
 	  autoFillText: function autoFillText() {
-	    var subjects = ["DIY Projects", "Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
+	    var _this = this;
+	
+	    // var subjects = ["DIY Projects","Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
+	    var subject = "Red Velvet Cupcakes";
+	    var subjectIndex = 0;
+	    setInterval(function () {
+	      if (subjectIndex < 19) {
+	        _this.setState({ input: '' + _this.state.input + subject[subjectIndex] });
+	        subjectIndex++;
+	      }
+	    }, 75);
 	  },
 	  render: function render() {
-	    var $html = $("<FormControl/>");
-	
 	    return React.createElement(
 	      'div',
 	      { id: 'search-bar-id' },
 	      React.createElement(
-	        FormGroup,
+	        Navbar.Form,
 	        null,
-	        React.createElement(FormControl, {
-	          type: 'text',
-	          placeholder: 'search...',
-	          value: this.state.value,
-	          onChange: this.handleChange,
-	          id: 'search-input'
-	        })
-	      )
+	        React.createElement(
+	          FormGroup,
+	          null,
+	          React.createElement(FormControl, {
+	            type: 'text',
+	            placeholder: 'search...',
+	            value: this.state.value,
+	            onChange: this.handleChange,
+	            id: 'search-input'
+	          })
+	        )
+	      ),
+	      React.createElement('button', { onClick: this._onSubmit, className: 'input-search-bar' })
 	    );
 	  }
 	});
 	
 	module.exports = SearchBar;
-	
-	// <FormControl
-	//   type="text"
-	//   placeholder={($("FormControl").append("<p>Hi</p>")).html()}
-	//   value={this.state.value}
-	//   onChange={this.handleChange}
-	//   id="search-input"
-	// />
-	// <Navbar.Form>
-	//   <FormGroup>
-	//     <FormControl/>
-	//   <input type="submit" onClick={this._onSubmit}value="Search"></input>
-	//   </FormGroup>
-	// </Navbar.Form>
+	//
 
 /***/ },
 /* 550 */
@@ -58338,6 +58338,38 @@
 		passwordUpdate: function passwordUpdate(e) {
 			this.setState({ password: e.target.value });
 		},
+		_demoSubmit: function _demoSubmit() {
+			var formData = {
+				username: this.state.username,
+				password: this.state.password
+			};
+			SessionActions.logIn({ username: 'DemoUser', password: 'password' });
+			hashHistory.push('/projects');
+		},
+		_demoLogin: function _demoLogin(e) {
+			var _this = this;
+	
+			this.setState({
+				username: "",
+				password: ""
+			});
+			var username = "DemoUser";
+			var usernameIndex = 0;
+			var password = "password";
+			var passwordIndex = 0;
+			var interval = setInterval(function () {
+				if (usernameIndex < 8) {
+					_this.setState({ username: '' + _this.state.username + username[usernameIndex] });
+					usernameIndex++;
+				} else if (passwordIndex < 8) {
+					_this.setState({ password: '' + _this.state.password + password[passwordIndex] });
+					passwordIndex++;
+				} else {
+					_this._demoSubmit();
+					clearInterval(interval);
+				}
+			}, 75);
+		},
 		uNameUpdate: function uNameUpdate(e) {
 			this.setState({ username: e.target.value });
 		},
@@ -58443,7 +58475,8 @@
 							React.createElement('input', { type: 'password', value: this.state.password, onChange: this.passwordUpdate }),
 							_confirmPass
 						),
-						React.createElement('input', { type: 'submit', value: this.formType(), className: 'submit-button' })
+						React.createElement('input', { type: 'submit', value: this.formType(), className: 'submit-button' }),
+						React.createElement('input', { type: 'submit', value: 'Demo', onClick: this._demoLogin })
 					)
 				)
 			);

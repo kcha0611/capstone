@@ -36,39 +36,35 @@ const SearchBar = React.createClass({
     this.setState({input: ""});
   },
   autoFillText() {
-    var subjects = ["DIY Projects","Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
+    // var subjects = ["DIY Projects","Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
+    let subject = "Red Velvet Cupcakes";
+    let subjectIndex = 0;
+    setInterval(() => {
+      if (subjectIndex < 19) {
+        this.setState({ input: `${this.state.input}` + subject[subjectIndex]})
+        subjectIndex++;
+      }
+    }, 75);
   },
   render(){
-    var $html = $("<FormControl/>");
-
     return(
       <div id="search-bar-id">
-        <FormGroup>
-          <FormControl
-            type="text"
-            placeholder="search..."
-            value={this.state.value}
-            onChange={this.handleChange}
-            id="search-input"
+        <Navbar.Form>
+          <FormGroup>
+        <FormControl
+          type="text"
+          placeholder="search..."
+          value={this.state.value}
+          onChange={this.handleChange}
+          id="search-input"
           />
-        </FormGroup>
+          </FormGroup>
+        </Navbar.Form>
+        <button onClick={this._onSubmit} className="input-search-bar"/>
       </div>
     );
   }
 });
 
 module.exports = SearchBar;
-
-// <FormControl
-//   type="text"
-//   placeholder={($("FormControl").append("<p>Hi</p>")).html()}
-//   value={this.state.value}
-//   onChange={this.handleChange}
-//   id="search-input"
-// />
-// <Navbar.Form>
-//   <FormGroup>
-//     <FormControl/>
-//   <input type="submit" onClick={this._onSubmit}value="Search"></input>
-//   </FormGroup>
-// </Navbar.Form>
+//
