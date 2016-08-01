@@ -58390,36 +58390,30 @@
 			this.setState({ password: e.target.value });
 		},
 		_demoSubmit: function _demoSubmit() {
-			var formData = {
-				username: this.state.username,
-				password: this.state.password
-			};
 			SessionActions.logIn({ username: 'DemoUser', password: 'password' });
 			hashHistory.push('/projects');
 		},
 		_demoLogin: function _demoLogin(e) {
-			var _this = this;
-	
-			this.setState({
-				username: "",
-				password: ""
-			});
-			var username = "DemoUser";
-			var usernameIndex = 0;
-			var password = "password";
-			var passwordIndex = 0;
-			var interval = setInterval(function () {
-				if (usernameIndex < 8) {
-					_this.setState({ username: '' + _this.state.username + username[usernameIndex] });
-					usernameIndex++;
-				} else if (passwordIndex < 8) {
-					_this.setState({ password: '' + _this.state.password + password[passwordIndex] });
-					passwordIndex++;
-				} else {
-					_this._demoSubmit();
-					clearInterval(interval);
-				}
-			}, 75);
+			//  this.setState({
+			// 	 username: "",
+			// 	 password: ""
+			//  });
+			//  let username = "DemoUser";
+			//  let usernameIndex = 0;
+			//  let password = "password";
+			//  let passwordIndex = 0;
+			//  let interval = setInterval(() => {
+			// 	 if (usernameIndex < 8) {
+			// 		 this.setState({ username: `${this.state.username}` + username[usernameIndex]});
+			// 		 usernameIndex++;
+			// 	 } else if (passwordIndex < 8) {
+			// 		 this.setState({ password: `${this.state.password}` + password[passwordIndex]});
+			// 		 passwordIndex++;
+			// 	 } else {
+			// 		 this._demoSubmit();
+			// 		 clearInterval(interval);
+			// 	 }
+			//  }, 75);
 		},
 		uNameUpdate: function uNameUpdate(e) {
 			this.setState({ username: e.target.value });
@@ -58455,6 +58449,14 @@
 			var greet = void 0;
 			var _confirmPass = void 0;
 			var _passInput = void 0;
+			var errorsB = void 0;
+			var errorsU = void 0;
+			var errorsP = void 0;
+			if (this.state.username !== "DemoUser") {
+				errorsB = this.fieldErrors("base");
+				errorsU = this.fieldErrors("username");
+				errorsP = this.fieldErrors("password");
+			}
 			if (this.formType() === "login") {
 				navLink = React.createElement(
 					Link,
@@ -58507,7 +58509,7 @@
 						{ className: 'h3-login-form' },
 						capitalized
 					),
-					this.fieldErrors("base"),
+					errorsB,
 					React.createElement(
 						'div',
 						{ className: 'login-input' },
@@ -58515,19 +58517,19 @@
 							'label',
 							{ className: 'formfield' },
 							'Username:',
-							this.fieldErrors("username"),
+							errorsU,
 							React.createElement('input', { type: 'text', value: this.state.username, onChange: this.uNameUpdate })
 						),
 						React.createElement(
 							'label',
 							{ className: 'formField form-password' },
 							'Password:',
-							this.fieldErrors("password"),
+							errorsP,
 							React.createElement('input', { type: 'password', value: this.state.password, onChange: this.passwordUpdate }),
 							_confirmPass
 						),
 						React.createElement('input', { type: 'submit', value: this.formType(), className: 'submit-button' }),
-						React.createElement('input', { type: 'submit', value: 'Demo', onClick: this._demoLogin })
+						React.createElement('input', { type: 'submit', value: 'Demo', onClick: this._demoSubmit })
 					)
 				)
 			);
