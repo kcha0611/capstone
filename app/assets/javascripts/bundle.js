@@ -33112,14 +33112,6 @@
 	            options: masonryOptions },
 	          _projects
 	        )
-	      ),
-	      React.createElement(
-	        'script',
-	        null,
-	        '$(document).ready( function () ',
-	        $('html, body').animate({
-	          scrollTop: $('#inner-masonry-div').offset().top }, 'slow'),
-	        ')'
 	      )
 	    );
 	  }

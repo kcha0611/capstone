@@ -60,12 +60,6 @@ const ProjectIndex = React.createClass({
               {_projects}
           </Masonry>
         </div>
-        <script>
-          $(document).ready( function () {
-            $('html, body').animate({
-              scrollTop: $('#inner-masonry-div').offset().top}, 'slow')
-          })
-        </script>
       </div>
     )
   }
