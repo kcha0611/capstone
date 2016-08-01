@@ -33146,6 +33146,8 @@
 	var Link = __webpack_require__(168).Link;
 	var hashHistory = __webpack_require__(168).hashHistory;
 	var SessionStore = __webpack_require__(231);
+	var Modal = __webpack_require__(271).Modal;
+	var Button = __webpack_require__(271).Button;
 	
 	var ProjectIndexItem = React.createClass({
 	  displayName: 'ProjectIndexItem',
@@ -33153,7 +33155,8 @@
 	  getInitialState: function getInitialState() {
 	    return {
 	      title: this.props.project.title,
-	      description: this.props.project.description
+	      description: this.props.project.description,
+	      show: false
 	    };
 	  },
 	  componentDidMount: function componentDidMount() {
@@ -33162,6 +33165,12 @@
 	  },
 	  _onChange: function _onChange() {
 	    this.setState({ title: this.state.title, description: this.state.description });
+	  },
+	  hideModal: function hideModal() {
+	    this.setState({ show: false });
+	  },
+	  showModal: function showModal() {
+	    this.setState({ show: true });
 	  },
 	  componentWillUnmount: function componentWillUnmount() {
 	    this.projectListener.remove();
@@ -33182,7 +33191,7 @@
 	    if (SessionStore.isUserLoggedIn()) {
 	      hashHistory.push('api/projects/' + this.props.project.id);
 	    } else {
-	      swal("You Must be logged IN!");
+	      this.showModal();
 	    }
 	  },
 	  render: function render() {
@@ -33230,7 +33239,49 @@
 	          )
 	        )
 	      ),
-	      React.createElement('br', null)
+	      React.createElement('br', null),
+	      React.createElement(
+	        Modal,
+	        { bsSize: 'large', 'aria-labelledby': 'step-modal-close', show: this.state.show, onHide: this.hideModal },
+	        React.createElement(
+	          Modal.Header,
+	          { closeButton: true },
+	          React.createElement(
+	            Modal.Title,
+	            null,
+	            'Welcome to Constructables'
+	          )
+	        ),
+	        React.createElement(
+	          Modal.Body,
+	          null,
+	          React.createElement(
+	            'p',
+	            null,
+	            'If you haven\'t already, please sign-up to view these projects! Or just login!'
+	          ),
+	          React.createElement(
+	            Link,
+	            { to: '/login' },
+	            'Click Here to Login'
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            Link,
+	            { to: '/signup' },
+	            'Click Here to SignUp'
+	          )
+	        ),
+	        React.createElement(
+	          Modal.Footer,
+	          null,
+	          React.createElement(
+	            Button,
+	            { onClick: this.hideModal },
+	            'Close'
+	          )
+	        )
+	      )
 	    );
 	  }
 	});

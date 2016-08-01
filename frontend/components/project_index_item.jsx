@@ -4,12 +4,15 @@ const ProjectActions = require('../actions/project_actions');
 const Link = require('react-router').Link;
 const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../stores/session_store');
+const Modal = require('react-bootstrap').Modal
+const Button = require('react-bootstrap').Button;
 
 const ProjectIndexItem = React.createClass({
   getInitialState: function() {
     return {
       title: this.props.project.title,
-      description: this.props.project.description
+      description: this.props.project.description,
+      show: false
     };
   },
   componentDidMount: function() {
@@ -18,6 +21,12 @@ const ProjectIndexItem = React.createClass({
   },
   _onChange() {
     this.setState({title: this.state.title, description: this.state.description})
+  },
+  hideModal() {
+    this.setState({show: false})
+  },
+  showModal() {
+    this.setState({show: true})
   },
   componentWillUnmount() {
     this.projectListener.remove()
@@ -38,7 +47,7 @@ const ProjectIndexItem = React.createClass({
       hashHistory.push(`api/projects/${this.props.project.id}`)
     }
     else {
-     swal("You Must be logged IN!")
+     this.showModal();
     }
   },
   render () {
@@ -71,6 +80,20 @@ const ProjectIndexItem = React.createClass({
         </ul>
 
         <br></br>
+        <Modal bsSize="large" aria-labelledby="step-modal-close" show={this.state.show} onHide={this.hideModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Welcome to Constructables</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>If you haven't already, please sign-up to view these projects! Or just login!</p>
+            <Link to="/login">Click Here to Login</Link>
+            <br></br>
+            <Link to="/signup">Click Here to SignUp</Link>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.hideModal}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     )
   }
