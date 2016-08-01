@@ -75,11 +75,11 @@ const LoginForm = React.createClass({
 			let _confirmPass;
 			let _passInput;
 			if (this.formType() === "login") {
-				navLink = <Link to="/signup">sign up</Link>
-				greet = <div className="greet-signup">New to Constructables? Please {navLink}</div>
+				navLink = <Link to="/signup" className="login-form-signup">Sign Up</Link>
+				greet = <div className="greet-signup">New to Constructables? <p className="login-form-choice">Please {navLink}</p></div>
 			}
 			else {
-				navLink = <Link to="/login">login</Link>
+				navLink = <Link to="/login" className="login-form-link">Login</Link>
 				greet = <div className="greet-signup">Already a User? Please {navLink}</div>
 
 			}

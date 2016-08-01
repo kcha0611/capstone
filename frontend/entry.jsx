@@ -40,7 +40,7 @@ function redirectIfLoggedIn (_, replace) {
 const routes = (
   <Router history={hashHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={ProjectIndex} onEnter={ redirectIfLoggedIn }></IndexRoute>
+        <IndexRoute component={LoginForm}></IndexRoute>
          <Route path="projects/new" component={ProjectForm} onEnter={ _ensureCurrentUser }>
          </Route>
          <Route path="projects" component={ProjectIndex} />

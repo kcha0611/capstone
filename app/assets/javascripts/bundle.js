@@ -91,7 +91,7 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: ProjectIndex, onEnter: redirectIfLoggedIn }),
+	    React.createElement(IndexRoute, { component: LoginForm }),
 	    React.createElement(Route, { path: 'projects/new', component: ProjectForm, onEnter: _ensureCurrentUser }),
 	    React.createElement(Route, { path: 'projects', component: ProjectIndex }),
 	    React.createElement(Route, { path: '/api/projects/:projectId', component: ProjectShow }),
@@ -26006,9 +26006,16 @@
 	var SearchBar = __webpack_require__(549);
 	var Button = ReactBootstrap.Button;
 	var SlideShow = __webpack_require__(551);
+	var Modal = __webpack_require__(271).Modal;
 	
 	var App = React.createClass({
 	  displayName: 'App',
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      show: false
+	    };
+	  },
 	  componentDidMount: function componentDidMount() {
 	    SessionStore.addListener(this.forceUpdate.bind(this));
 	  },
@@ -26019,13 +26026,67 @@
 	  _goIndex: function _goIndex() {
 	    hashHistory.push('#/projects');
 	  },
+	  showModal: function showModal() {
+	    this.setState({ show: true });
+	  },
+	  hideModal: function hideModal() {
+	    this.setState({ show: false });
+	  },
 	  render: function render() {
 	    var dropDown = void 0;
 	    // var greet;
 	    var homepage = void 0;
 	    var searchBar = void 0;
 	    var navBar = void 0;
+	    var modal = void 0;
 	    if (this.props.location.pathname.slice(1) === "") {
+	      modal = React.createElement(
+	        Modal,
+	        { bsSize: 'large', id: 'myModal' },
+	        React.createElement(
+	          Modal.Header,
+	          { closeButton: true },
+	          React.createElement(
+	            Modal.Title,
+	            null,
+	            'Welcome To Constructables'
+	          )
+	        ),
+	        React.createElement(
+	          Modal.Body,
+	          null,
+	          React.createElement(
+	            'h2',
+	            null,
+	            React.createElement(
+	              Button,
+	              null,
+	              'Sign In'
+	            ),
+	            React.createElement(
+	              Button,
+	              null,
+	              'Sign Up'
+	            )
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            'Constructables is a website for sharing DIY Projects! If you have any ideas please feel free to share. Otherwise, start learning new projects!'
+	          )
+	        ),
+	        React.createElement(
+	          Modal.Footer,
+	          null,
+	          React.createElement(
+	            Button,
+	            { onClick: this.hideModal },
+	            'Close'
+	          )
+	        )
+	      );
+	    }
+	    if (this.props.location.pathname.slice(1) === "" || this.props.location.pathname.slice(1) === "projects") {
 	      searchBar = React.createElement(SearchBar, { id: 'root-search-bar' });
 	    }
 	    if (SessionStore.isUserLoggedIn()) {
@@ -26065,7 +26126,7 @@
 	          )
 	        );
 	      }
-	    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup") {
+	    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup" || this.props.location.pathname.slice(1) === "") {
 	      navBar;
 	    } else {
 	      navBar = React.createElement(
@@ -26114,6 +26175,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'root-container' },
+	      modal,
 	      navBar,
 	      React.createElement(
 	        'p',
@@ -33023,7 +33085,7 @@
 	    var masonryOptions = {
 	      fitWidth: true,
 	      // columnWidth: 200,
-	      gutter: 20,
+	      gutter: 0,
 	      // fitHeight: true,
 	      maxWidth: 1200
 	    };
@@ -58324,20 +58386,25 @@
 			if (this.formType() === "login") {
 				navLink = React.createElement(
 					Link,
-					{ to: '/signup' },
-					'sign up'
+					{ to: '/signup', className: 'login-form-signup' },
+					'Sign Up'
 				);
 				greet = React.createElement(
 					'div',
 					{ className: 'greet-signup' },
-					'New to Constructables? Please ',
-					navLink
+					'New to Constructables? ',
+					React.createElement(
+						'p',
+						{ className: 'login-form-choice' },
+						'Please ',
+						navLink
+					)
 				);
 			} else {
 				navLink = React.createElement(
 					Link,
-					{ to: '/login' },
-					'login'
+					{ to: '/login', className: 'login-form-link' },
+					'Login'
 				);
 				greet = React.createElement(
 					'div',

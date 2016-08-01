@@ -14,8 +14,14 @@ const Nav = ReactBootstrap.Nav
 const SearchBar = require('./search-bar');
 const Button = ReactBootstrap.Button
 const SlideShow = require('./carousel')
+const Modal = require('react-bootstrap').Modal;
 
 const App = React.createClass({
+  getInitialState: function() {
+    return {
+      show: false
+    };
+  },
   componentDidMount() {
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
@@ -26,13 +32,35 @@ const App = React.createClass({
   _goIndex () {
     hashHistory.push('#/projects')
   },
+  showModal() {
+    this.setState({show: true})
+  },
+  hideModal() {
+    this.setState({show: false})
+  },
   render() {
     let dropDown;
     // var greet;
     let homepage;
     let searchBar;
     let navBar;
+    let modal;
     if (this.props.location.pathname.slice(1) === "") {
+      modal = (
+      <Modal bsSize="large" id="myModal">
+        <Modal.Header closeButton>
+          <Modal.Title>Welcome To Constructables</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h2><Button>Sign In</Button><Button>Sign Up</Button></h2>
+          <p>Constructables is a website for sharing DIY Projects! If you have any ideas please feel free to share. Otherwise, start learning new projects!</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.hideModal}>Close</Button>
+        </Modal.Footer>
+      </Modal>)
+    }
+    if (this.props.location.pathname.slice(1) === "" || this.props.location.pathname.slice(1) === "projects") {
       searchBar = (<SearchBar id="root-search-bar"></SearchBar>)
     }
     if (SessionStore.isUserLoggedIn()) {
@@ -61,7 +89,7 @@ const App = React.createClass({
         </Nav>
       )
     }
-    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup") {
+    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup" || this.props.location.pathname.slice(1) === "") {
       navBar;
     } else {
       navBar = (<Navbar id="main-nav">
@@ -81,6 +109,7 @@ const App = React.createClass({
       }
     return (
           <div className="root-container">
+            {modal}
             {navBar}
             <p className="dropDown-login">{dropDown}</p>
             {homepage}

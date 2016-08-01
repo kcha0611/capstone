@@ -39,7 +39,7 @@ const ProjectIndex = React.createClass({
     const masonryOptions = {
       fitWidth: true,
       // columnWidth: 200,
-      gutter: 20,
+      gutter: 0,
       // fitHeight: true,
       maxWidth: 1200
     }

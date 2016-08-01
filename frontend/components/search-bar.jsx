@@ -37,7 +37,6 @@ const SearchBar = React.createClass({
   },
   autoFillText() {
     var subjects = ["DIY Projects","Red Velvet Cupcakes", "WiFi Stunt Car", "Peanut Butter Necklaces"];
-
   },
   render(){
     var $html = $("<FormControl/>");
