@@ -26126,7 +26126,7 @@
 	          )
 	        );
 	      }
-	    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup" || this.props.location.pathname.slice(1) === "") {
+	    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup") {
 	      navBar;
 	    } else {
 	      navBar = React.createElement(

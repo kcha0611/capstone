@@ -89,7 +89,7 @@ const App = React.createClass({
         </Nav>
       )
     }
-    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup" || this.props.location.pathname.slice(1) === "") {
+    if (this.props.location.pathname.slice(1) === "login" || this.props.location.pathname.slice(1) === "signup") {
       navBar;
     } else {
       navBar = (<Navbar id="main-nav">
