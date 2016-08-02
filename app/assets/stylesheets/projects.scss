@@ -160,9 +160,6 @@ figcaption.proj-item-figcap {
   display: inline;
 }
 
-ul {
-  // margin-right: 30px;
-}
 
 
 .proj-form-title {
@@ -357,32 +354,6 @@ a {
   border-radius: 40px;
 }
 
-// .thumbnail-proj-show.thumbnail {
-//   width: auto;
-//   border: 50px solid transparent;
-//   border-bottom-color: red;
-//   position: relative;
-//   top: -50px;
-// }
-//
-// .thumbnail-proj-show.thumbnail:after {
-//   position: absolute;
-//   left: -50px;
-//   top: 50px;
-//   border: 50px solid transparent;
-//   border-top-color: red;
-// }
-//
-// .inner-masonry-div {
-//   height: auto;
-//   width: 100%;
-//   border: 17px solid;
-//   // border-radius: 20px;
-//   background: url("http://res.cloudinary.com/dllnnnotc/image/upload/v1469738989/gray_brick_variegated_background_wall_masonry_hd-wallpaper-347534_sv8gw5.jpg");
-//   position: relative;
-//   right: 16px;
-// }
-
 main#main-nav {
   background: linear-gradient(to right, #E7E9BB 0%, #928DAB 100%);
 }
@@ -461,8 +432,6 @@ ul.proj-index-item-masonry {
 }
 
 input#search-input.form-control {
-  // margin-left: 14%;
-  // width: 1000px;
   display: flex;
 }
 
@@ -472,4 +441,30 @@ button.input-search-bar {
   position: relative;
   right: 31.5%;
   width: 100px;
+}
+
+h4.modal-title {
+  text-align: center;
+  font-size: 50px;
+}
+
+.root-modal-p {
+  font-size: 30px;
+}
+
+.root-modal-img {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  left: 33%;
+}
+
+.root-modal-signup {
+  font-size: 27px;
+  top: 0px;
+}
+
+.root-modal-login {
+  top: 0px;
+  font-size: 27px;
 }

@@ -85,10 +85,8 @@ const ProjectIndexItem = React.createClass({
             <Modal.Title>Welcome to Constructables</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>If you haven't already, please sign-up to view these projects! Or just login!</p>
-            <Link to="/login">Click Here to Login</Link>
-            <br></br>
-            <Link to="/signup">Click Here to SignUp</Link>
+            <p className="root-modal-p">If you haven't already, please <Link to="/signup" className="root-modal-signup">SignUp</Link> to view these projects! Or just <Link to="/login" className="root-modal-login">Login!</Link></p>
+            <img className="root-modal-img" src="http://cdn.instructables.com/F94/XZH4/H9T4IGXF/F94XZH4H9T4IGXF.MEDIUM.gif"></img>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.hideModal}>Close</Button>

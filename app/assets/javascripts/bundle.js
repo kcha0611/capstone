@@ -33257,20 +33257,21 @@
 	          null,
 	          React.createElement(
 	            'p',
-	            null,
-	            'If you haven\'t already, please sign-up to view these projects! Or just login!'
+	            { className: 'root-modal-p' },
+	            'If you haven\'t already, please ',
+	            React.createElement(
+	              Link,
+	              { to: '/signup', className: 'root-modal-signup' },
+	              'SignUp'
+	            ),
+	            ' to view these projects! Or just ',
+	            React.createElement(
+	              Link,
+	              { to: '/login', className: 'root-modal-login' },
+	              'Login!'
+	            )
 	          ),
-	          React.createElement(
-	            Link,
-	            { to: '/login' },
-	            'Click Here to Login'
-	          ),
-	          React.createElement('br', null),
-	          React.createElement(
-	            Link,
-	            { to: '/signup' },
-	            'Click Here to SignUp'
-	          )
+	          React.createElement('img', { className: 'root-modal-img', src: 'http://cdn.instructables.com/F94/XZH4/H9T4IGXF/F94XZH4H9T4IGXF.MEDIUM.gif' })
 	        ),
 	        React.createElement(
 	          Modal.Footer,
