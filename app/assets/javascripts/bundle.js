@@ -26141,10 +26141,15 @@
 	            React.createElement(
 	              Navbar.Brand,
 	              { id: 'root-text-nav' },
+	              React.createElement('img', { src: 'http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_85,w_100/v1470167967/instructables_cs8fky.png', className: 'root-navbar-img' }),
 	              React.createElement(
 	                'a',
 	                { href: '/', id: 'root-constructables-nav' },
-	                'Constructables'
+	                React.createElement(
+	                  'p',
+	                  { className: 'constructables-p' },
+	                  'Constructables'
+	                )
 	              )
 	            )
 	          ),
@@ -26168,6 +26173,7 @@
 	            { key: 5, href: '', id: 'nav-item-li-5' },
 	            'Contact'
 	          ),
+	          React.createElement('img', { src: 'http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_83,w_640/v1470174720/imageedit_1_9809346757_rfdqez.png', className: 'navbar-catchphrase' }),
 	          React.createElement(Nav, { className: 'pull-right' })
 	        )
 	      );
@@ -33270,8 +33276,7 @@
 	              { to: '/login', className: 'root-modal-login' },
 	              'Login!'
 	            )
-	          ),
-	          React.createElement('img', { className: 'root-modal-img', src: 'http://cdn.instructables.com/F94/XZH4/H9T4IGXF/F94XZH4H9T4IGXF.MEDIUM.gif' })
+	          )
 	        ),
 	        React.createElement(
 	          Modal.Footer,
@@ -58348,6 +58353,7 @@
 	var ErrorStore = __webpack_require__(554);
 	var ReactRouter = __webpack_require__(168);
 	var hashHistory = ReactRouter.hashHistory;
+	var Button = __webpack_require__(263).Button;
 	
 	var LoginForm = React.createClass({
 		displayName: 'LoginForm',
@@ -58467,13 +58473,8 @@
 				greet = React.createElement(
 					'div',
 					{ className: 'greet-signup' },
-					'New to Constructables? ',
-					React.createElement(
-						'p',
-						{ className: 'login-form-choice' },
-						'Please ',
-						navLink
-					)
+					'New to Constructables? Please ',
+					navLink
 				);
 			} else {
 				navLink = React.createElement(
@@ -58529,8 +58530,16 @@
 							React.createElement('input', { type: 'password', value: this.state.password, onChange: this.passwordUpdate }),
 							_confirmPass
 						),
-						React.createElement('input', { type: 'submit', value: this.formType(), className: 'submit-button' }),
-						React.createElement('input', { type: 'submit', value: 'Demo', onClick: this._demoSubmit })
+						React.createElement(
+							Button,
+							{ value: this.formType(), className: 'submit-button' },
+							this.formType()
+						),
+						React.createElement(
+							Button,
+							{ value: 'Demo', onClick: this._demoSubmit, className: 'submit-button' },
+							'Demo'
+						)
 					)
 				)
 			);

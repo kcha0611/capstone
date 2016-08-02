@@ -5,6 +5,7 @@ const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
+const Button = require('react-bootstrap').Button;
 
 const LoginForm = React.createClass({
 	contextTypes: {
@@ -110,7 +111,7 @@ const LoginForm = React.createClass({
 			}
 			if (this.formType() === "login") {
 				navLink = <Link to="/signup" className="login-form-signup">Sign Up</Link>
-				greet = <div className="greet-signup">New to Constructables? <p className="login-form-choice">Please {navLink}</p></div>
+				greet = <div className="greet-signup">New to Constructables? Please {navLink}</div>
 			}
 			else {
 				navLink = <Link to="/login" className="login-form-link">Login</Link>
@@ -137,8 +138,8 @@ const LoginForm = React.createClass({
 							<input type="password" value={this.state.password} onChange={this.passwordUpdate}></input>
 							{_confirmPass}
 						</label>
-						<input type="submit" value={this.formType()} className="submit-button"/>
-						<input type="submit" value="Demo" onClick={this._demoSubmit}></input>
+						<Button value={this.formType()} className="submit-button">{this.formType()}</Button>
+						<Button value="Demo" onClick={this._demoSubmit} className="submit-button">Demo</Button>
 					</div>
 				</form>
 			</div>

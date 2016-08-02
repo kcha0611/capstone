@@ -21,10 +21,6 @@ div.container {
 html {
   background: gainsboro;
 }
-/*.carousel-thing {
-  width: 1920px;
-
-}*/
 
 #search-bar-id {
   display: flex;
@@ -189,4 +185,110 @@ div.navbar-form {
 div.inner-masonry-div {
   position: relative;
   bottom: 128px;
+}
+
+.sign-up-btn {
+  border-right: 1px solid;
+  border-left: 1px solid;
+  position: relative;
+  top: 4.3px;
+  font-size: 30px;
+}
+
+.login-btn {
+  border-right: 1px solid;
+  position: relative;
+  top: 4.3px;
+  font-size: 30px
+}
+
+a {
+  top: 0px;
+}
+
+a#root-constructables-nav {
+  position: relative;
+  top: 13px;
+}
+
+
+ul.nav-signin.nav {
+  position: relative;
+  right: 50%;
+}
+
+.modal-body {
+  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_460,w_898/v1470164573/iblesrobots_nquihv.png")
+}
+
+a#nav-item-li-2 {
+  left: 130px;
+  border-left: 1px solid;
+  position: relative;
+}
+
+a#nav-item-li-3 {
+  left: 130px;
+  position: relative;
+}
+
+a#nav-item-li-4 {
+  left: 130px;
+  position: relative;
+}
+
+a#nav-item-li-5 {
+  left: 130px;
+  position: relative;
+  border-right: 1px solid;
+}
+
+.root-navbar-img {
+  top: -18px;
+}
+
+.constructables-p {
+  left: 86px;
+  top: -114px;
+}
+
+form.login-form-comp {
+  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_945,w_1820/v1470171030/maxresdefault_kzm01o.jpg")
+}
+
+.login-form-comp > * {
+  padding: 15px;
+  /*margin: 15px; */
+}
+
+button.submit-button.btn.btn-default {
+  padding: 11px;
+  width: 96px;
+  border: 4px solid;
+}
+
+button.logout-button.btn.btn-default {
+  position: relative;
+  bottom: 22px;
+  right: 70px;
+  width: 91px;
+  height: 43px;
+  z-index: 1px;
+}
+
+.carousel-control.right {
+  background-image: none;
+}
+.carousel-control.left {
+  background-image: none;
+}
+
+img.navbar-catchphrase {
+    position: relative;
+    left: 935px;
+    bottom: 49px;
+}
+
+nav#main-nav {
+  height: 79px;
 }

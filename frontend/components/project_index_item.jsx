@@ -86,7 +86,6 @@ const ProjectIndexItem = React.createClass({
           </Modal.Header>
           <Modal.Body>
             <p className="root-modal-p">If you haven't already, please <Link to="/signup" className="root-modal-signup">SignUp</Link> to view these projects! Or just <Link to="/login" className="root-modal-login">Login!</Link></p>
-            <img className="root-modal-img" src="http://cdn.instructables.com/F94/XZH4/H9T4IGXF/F94XZH4H9T4IGXF.MEDIUM.gif"></img>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.hideModal}>Close</Button>
