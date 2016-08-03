@@ -60,7 +60,7 @@ const App = React.createClass({
         </Modal.Footer>
       </Modal>)
     }
-    if (this.props.location.pathname.slice(1) === "" || this.props.location.pathname.slice(1) === "projects") {
+    if (this.props.location.pathname.slice(1) === "projects") {
       searchBar = (<SearchBar id="root-search-bar"></SearchBar>)
     }
     if (SessionStore.isUserLoggedIn()) {
