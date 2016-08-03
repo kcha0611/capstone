@@ -104,7 +104,7 @@ const App = React.createClass({
                       <NavItem key={3} href="#/projects/new" id="nav-item-li-3">Publish</NavItem>
                       <NavItem key={4} href="" id="nav-item-li-4">About Us</NavItem>
                       <NavItem key={5} href="" id="nav-item-li-5">Contact</NavItem>
-                      <img src="http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_83,w_640/v1470174720/imageedit_1_9809346757_rfdqez.png" className="navbar-catchphrase"></img>
+
                   <Nav className="pull-right"></Nav>
                   </Nav>
                 </Navbar>)
@@ -130,3 +130,6 @@ module.exports = App;
 //               <SearchBar id="background-search-bar"></SearchBar>
 //             </div>
                       // <div className="root-catchphrase">Share What You Make</div>
+
+
+// <img src="http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_83,w_640/v1470174720/imageedit_1_9809346757_rfdqez.png" className="navbar-catchphrase"></img>
