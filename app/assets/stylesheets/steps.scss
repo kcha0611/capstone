@@ -40,7 +40,7 @@ html {
   margin-right: -72%;
   font-size: 20px;
   position: relative;
-  left: 14px; 
+  left: 14px;
 }
 
 .phase-order {
@@ -179,4 +179,60 @@ p.step-img-phase {
   margin-left: 2%;
   margin-right: auto;
   justify-content: center;
+}
+
+input.inp-step-title {
+  margin-left: 65.5%;
+  width: 442px;
+}
+
+label.step-form-title {
+  margin-rigth: -63%;
+}
+
+.thumbnail-proj-show.thumbnail {
+  height: 478px;
+}
+
+.thumbnail-proj-show {
+  width: 50%;
+}
+
+img.navbar-catchphrase {
+  width: 790px;
+  height: 78px;
+  bottom: 51px;
+}
+
+img.root-navbar-img {
+  height: 80px;
+}
+
+.carousel-control.right {
+  display: none;
+}
+
+.carousel-control.left {
+  display: none;
+}
+
+a.login-form-signup {
+  color: azure;
+}
+
+a.login-form-link {
+  color: azure;
+}
+
+#search-input {
+  width: 1000px;
+  margin-left: 550px;
+}
+
+button.input-seach-bar {
+  right: 24.5%;
+}
+
+button.logout-button.btn.btn-default {
+  z-index: 5;
 }
