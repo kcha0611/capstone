@@ -274,10 +274,10 @@ button.submit-button.btn.btn-default {
 button.logout-button.btn.btn-default {
   position: relative;
   bottom: 22px;
-  right: 70px;
   width: 91px;
   height: 43px;
-  z-index: 1px;
+  z-index: 5;
+  right: 40px;
 }
 
 .carousel-control.right {
