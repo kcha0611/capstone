@@ -224,7 +224,7 @@ a.login-form-link {
   color: azure;
 }
 
-#search-input {
+input#search-input {
   width: 1000px;
   margin-left: 550px;
 }
@@ -235,4 +235,7 @@ button.input-seach-bar {
 
 button.logout-button.btn.btn-default {
   z-index: 5;
+  bottom: 10px;
+  position: relative;
+  right: 40px;
 }

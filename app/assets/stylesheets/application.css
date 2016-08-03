@@ -253,12 +253,16 @@ a#nav-item-li-5 {
 }
 
 form.login-form-comp {
-  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_947,w_2130/v1470171030/maxresdefault_kzm01o.jpg")
+  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_947,w_2080/v1470171030/maxresdefault_kzm01o.jpg")
 }
 
 .login-form-comp > * {
   padding: 15px;
   /*margin: 15px; */
+}
+
+nav#main-nav {
+  height: 69px;
 }
 
 button.submit-button.btn.btn-default {
