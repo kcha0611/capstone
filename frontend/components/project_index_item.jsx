@@ -84,7 +84,7 @@ const ProjectIndexItem = React.createClass({
           <Modal.Header closeButton>
             <Modal.Title>Welcome to Constructables</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="proj-index-item-body">
             <p className="root-modal-p">If you haven't already, please <Link to="/signup" className="root-modal-signup">SignUp</Link> to view these projects! Or just <Link to="/login" className="root-modal-login">Login!</Link></p>
           </Modal.Body>
           <Modal.Footer>
