@@ -26086,7 +26086,7 @@
 	        )
 	      );
 	    }
-	    if (this.props.location.pathname.slice(1) === "" || this.props.location.pathname.slice(1) === "projects") {
+	    if (this.props.location.pathname.slice(1) === "projects") {
 	      searchBar = React.createElement(SearchBar, { id: 'root-search-bar' });
 	    }
 	    if (SessionStore.isUserLoggedIn()) {
@@ -26165,15 +26165,14 @@
 	          ),
 	          React.createElement(
 	            NavItem,
-	            { key: 4, href: '', id: 'nav-item-li-4' },
+	            { key: 4, href: 'https://github.com/kcha0611', id: 'nav-item-li-4' },
 	            'About Us'
 	          ),
 	          React.createElement(
 	            NavItem,
-	            { key: 5, href: '', id: 'nav-item-li-5' },
+	            { key: 5, href: 'https://www.linkedin.com/in/kencha', id: 'nav-item-li-5' },
 	            'Contact'
 	          ),
-	          React.createElement('img', { src: 'http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_83,w_640/v1470174720/imageedit_1_9809346757_rfdqez.png', className: 'navbar-catchphrase' }),
 	          React.createElement(Nav, { className: 'pull-right' })
 	        )
 	      );
@@ -26207,6 +26206,8 @@
 	//               <SearchBar id="background-search-bar"></SearchBar>
 	//             </div>
 	// <div className="root-catchphrase">Share What You Make</div>
+
+	// <img src="http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_83,w_640/v1470174720/imageedit_1_9809346757_rfdqez.png" className="navbar-catchphrase"></img>
 
 /***/ },
 /* 231 */
@@ -33260,7 +33261,7 @@
 	        ),
 	        React.createElement(
 	          Modal.Body,
-	          null,
+	          { className: 'proj-index-item-body' },
 	          React.createElement(
 	            'p',
 	            { className: 'root-modal-p' },
