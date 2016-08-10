@@ -218,7 +218,7 @@ ul.nav-signin.nav {
 }
 
 .proj-index-item-body {
-  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_368,w_898/v1470164573/iblesrobots_nquihv.png")
+  background: url("http://res.cloudinary.com/dllnnnotc/image/upload/c_scale,h_454,w_898/v1470164573/iblesrobots_nquihv.png")
 }
 
 a#nav-item-li-2 {
@@ -301,5 +301,13 @@ p.root-modal-p {
   font-weight: bold;
   border: 1px solid;
   background: white;
-  margin-top: 19%; 
+  margin-top: 19%;
+}
+
+a#nav-item-li-4 {
+  width: 88px;
+}
+
+a#nav-item-li-5 {
+  width: 104px;
 }
