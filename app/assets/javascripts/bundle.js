@@ -26166,12 +26166,12 @@
 	          React.createElement(
 	            NavItem,
 	            { key: 4, href: 'https://github.com/kcha0611', id: 'nav-item-li-4' },
-	            'About Us'
+	            'Github'
 	          ),
 	          React.createElement(
 	            NavItem,
 	            { key: 5, href: 'https://www.linkedin.com/in/kencha', id: 'nav-item-li-5' },
-	            'Contact'
+	            'LinkedIn'
 	          ),
 	          React.createElement(Nav, { className: 'pull-right' })
 	        )
