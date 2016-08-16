@@ -76,7 +76,7 @@ const ProjectShow = React.createClass({
         <div className="step-index-wrap">
           {this.state.steps.map ((step) => {
             if (step.order === 3) {
-              return <StepIndexItem step={step} key={step.id}><br></br></StepIndexItem>
+              return <StepIndexItem step={step} key={step}><br></br></StepIndexItem>
             } else {
               return <StepIndexItem step={step}/>
             }
