@@ -58318,7 +58318,7 @@
 	            if (step.order === 3) {
 	              return React.createElement(
 	                StepIndexItem,
-	                { step: step },
+	                { step: step, key: step.id },
 	                React.createElement('br', null)
 	              );
 	            } else {
