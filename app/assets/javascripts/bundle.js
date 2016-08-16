@@ -58221,6 +58221,8 @@
 	var Thumbnail = __webpack_require__(263).Thumbnail;
 	var Col = __webpack_require__(263).Col;
 	var Row = __webpack_require__(263).Row;
+	var StepForm = __webpack_require__(527);
+	var hashHistory = __webpack_require__(168).hashHistory;
 	
 	var ProjectShow = React.createClass({
 	  displayName: 'ProjectShow',
@@ -58252,6 +58254,9 @@
 	  _delete: function _delete() {
 	    ProjectActions.deleteProject(parseInt(this.props.params.projectId));
 	    hashHistory.push('/projects');
+	  },
+	  _renderStepForm: function _renderStepForm() {
+	    hashHistory.push('/projects/' + this.props.params.projectId + '/steps/new');
 	  },
 	  render: function render() {
 	    //   // debugger
@@ -58321,6 +58326,11 @@
 	            }
 	          })
 	        )
+	      ),
+	      React.createElement(
+	        'button',
+	        { onClick: this._renderStepForm },
+	        'Click Here To Add Some Phases!'
 	      )
 	    );
 	  }

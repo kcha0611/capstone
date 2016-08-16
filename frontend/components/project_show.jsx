@@ -8,6 +8,8 @@ const Media = require('react-bootstrap').Media
 const Thumbnail = require('react-bootstrap').Thumbnail
 const Col = require('react-bootstrap').Col
 const Row = require('react-bootstrap').Row
+const StepForm = require('./step_form')
+const hashHistory = require('react-router').hashHistory;
 
 const ProjectShow = React.createClass({
   getInitialState: function() {
@@ -37,6 +39,9 @@ const ProjectShow = React.createClass({
   _delete () {
     ProjectActions.deleteProject(parseInt(this.props.params.projectId))
     hashHistory.push('/projects')
+  },
+  _renderStepForm() {
+    hashHistory.push(`/projects/${this.props.params.projectId}/steps/new`)
   },
   render () {
   //   // debugger
@@ -79,6 +84,7 @@ const ProjectShow = React.createClass({
         }
         </div>
       </Col>
+      <button onClick={this._renderStepForm}>Click Here To Add Some Phases!</button>
     </div>
     )
   }
